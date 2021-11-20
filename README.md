@@ -1,38 +1,22 @@
-# create-svelte
+# Entwicklungsumgebung
++ Node v16.13.0
++ npm v8.1.0
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+# Secrets
+Damit die App korrekt funktioniert müssen alle Secrets in `.env` definiert sein. Wie ihr diese Secrets benennen müsst könnt ihr `.example.env` entnehmen 
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
+# pakete installieren
+```console
+npm install
 ```
 
-> Note: the `@next` is temporary
+# Github for VsCode
+Um Github in VsCode zu benutzen müsst ihr erst folgende variablen über die Konsole setzen
++ `git config --global user.name "YOUR GITHUB NAME"`
++ `git config --global user.email "YOUR GITHUB EMAIL"`
+wenn ihr nun über dem Github Tab in VsCode ein Aktion vornehmt die eine Authentifizierung verlangt (z.B. push) sollte sich ein Popup öffnen über das ihr euch authentifizieren könnt.
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
+# Lokale Entwicklung
+```console
 npm run dev -- --open
 ```
-
-## Building
-
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
-
-```bash
-npm run build
-```
-
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
