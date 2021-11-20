@@ -1,9 +1,11 @@
-<!-- <nav>
-<a href=".">Home</a>
- <a href="about">About</a>
-<a href="settings">Settings</a>
-</nav> -->
-    
+<script>
+    import Nav from "$lib/Nav.svelte";
+
+</script>
+
+<Nav/>
+
 <slot></slot>
 <style windi:preflights:global windi:safelist:global>
+
 </style>
