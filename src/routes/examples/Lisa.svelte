@@ -1,7 +1,7 @@
 <script>
     let name = "Lisa";
     let src ="pictures/Igel.gif"
-    import Nested from "./Nested.svelte";
+    // import Nested from "./Nested.svelte";
     let count = 0;
     function counting() {
         count += 1;
@@ -24,7 +24,7 @@
 <button on:click={counting}>
     Seen {count} Times
 </button>
-<Nested/>
+<!-- <Nested/> -->
 
 <style>
 
