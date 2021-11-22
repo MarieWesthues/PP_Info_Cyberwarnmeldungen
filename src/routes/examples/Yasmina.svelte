@@ -5,7 +5,7 @@
 
 <main class="container mx-auto bg-blue-200 flex flex-col items-center">
     <h1 class="heading">
-        Wilkommen auf meiner Seite
+        Willkommen auf meiner Seite
     </h1>
     
     <p>
