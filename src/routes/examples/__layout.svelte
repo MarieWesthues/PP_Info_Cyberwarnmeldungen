@@ -4,6 +4,7 @@
     <!-- Fügt hier einen Link zu eurer Seite ein und styles diesen -->
     <a class="bg-pink-300 text-pink-700 rounded-none hover:(text-black bg-pink-500)" href="/examples/Dana">Danas Seite </a>
     <a class= "text-caret-violet-400 underline hover:no-underline hover:(caret-violet-300)" href="/examples/Lisa">Lisas Seite</a>
+    <a class="bg-green-300 text-green-700 rounded-xl hover:(text-black bg-orange-500)" href="/examples/phil">phils Seite </a>
 
 </nav>
     
