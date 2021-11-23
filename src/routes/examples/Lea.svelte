@@ -1,5 +1,4 @@
 <script>
-    import "tailwindcss/tailwind.css"
     let ansprache = "Leute"
     let name = "Lea"
     let hobbies = ["tanzen", "lesen", "chillen"]
