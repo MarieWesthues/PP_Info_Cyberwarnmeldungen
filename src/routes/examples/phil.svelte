@@ -1,8 +1,7 @@
 <script>
     let name = 'Philipp';
     let age = '23 Jahre alt';
-    let studium = 'Komedia';
-    let hobbies = 'Handball, Fitness, abhängen'
+    let studium = 'Komedia'
 </script>
 
 <main class="container mx-auto bg-grey-200 flex flex-col items-center">
