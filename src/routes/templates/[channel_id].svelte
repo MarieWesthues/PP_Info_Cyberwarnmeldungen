@@ -1,5 +1,5 @@
 <script>
-import Template from "./Template.svelte";
+import Template from "./Template.svelte"; "./index.svelte";
 
     let exampleObjects = [{name: "hallo"}, {name: "moin"}, {name: "was geht?"}]
 
@@ -13,7 +13,8 @@ import Template from "./Template.svelte";
 
 {#each exampleObjects as obj}
     <div on:click={()=> setSelection(obj)}>
-        <Template {obj}  />
+        Template <button/> 
+
     </div>
 {/each}
 
