@@ -1,4 +1,4 @@
-import {Subscriber} from '$lib/model';
+import {Subscriber} from '$lib/mongoose/modelose/model';
 
 
 // POST api/subscriber (neuen Subscriber erstellen)
