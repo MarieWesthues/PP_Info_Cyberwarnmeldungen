@@ -1,4 +1,4 @@
-import {Kitten} from '$lib/model';
+import {Kitten} from '$lib/mongoose/model/kitten';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function post(request) {
