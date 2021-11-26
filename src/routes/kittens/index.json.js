@@ -1,4 +1,4 @@
-import {Kitten} from '$lib/api';
+import {Kitten} from '$lib/model';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function post(request) {

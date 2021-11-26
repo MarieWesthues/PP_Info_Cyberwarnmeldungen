@@ -73,6 +73,7 @@ const subscriberSchema = new Schema({
     intern: Boolean,
     groups: [ObjectId],
 })
+export const Subscriber = mongoose.model('Subscriber', subscriberSchema); 
 
 const groupSchema = new Schema({
     cert_id: ObjectId,
