@@ -61,4 +61,4 @@ const twitter = new Channel({
     authenticated: true,
 })
 
-export const defaultChannels = [discord, email, reddit, twitter];
+export const defaultChannels = [email, reddit, twitter];
