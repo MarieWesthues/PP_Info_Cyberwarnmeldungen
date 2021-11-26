@@ -1,4 +1,4 @@
-import {Subscriber} from '$lib/model';
+import {Subscriber} from '$lib/mongoose/model/subscriber';
 
 
 /** @type {import('@sveltejs/kit').RequestHandler} */

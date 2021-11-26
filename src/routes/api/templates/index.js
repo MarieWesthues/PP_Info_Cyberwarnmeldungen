@@ -1,4 +1,4 @@
-import Template from '$lib/mongoose/model/template/template';
+import {Template} from '$lib/mongoose/model/template';
 
 // POST api/subscriber (neuen Subscriber erstellen)
 /** @type {import('@sveltejs/kit').RequestHandler} */

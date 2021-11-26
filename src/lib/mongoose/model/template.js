@@ -19,6 +19,6 @@ const templateSchema = new Schema({
 
 
 
-const Template = mongoose.model('Subscriber', templateSchema); 
-export default Template
+export const Template = mongoose.model('Subscriber', templateSchema); 
+
 
