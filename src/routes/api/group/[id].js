@@ -1,37 +1,39 @@
-import {Subscriber} from '$lib/mongoose/model/subscriber';
+import {Group} from '$lib/mongoose/model/subscriber';
 
-// PUT api/subscriber   (Benutzerdaten überarbeiten)
+// PUT api/group/id GruppenWerte überschreiben
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function put(request) {
     const {id} = request.params;
-    let subscriber = await Subscriber.findById(id).update(request.body)
+    let group = await Group.findById(id).update(request.body)
     
     return {
-        body: "hollllllla"
+        body: "huhuhuhuhuhuhuhu"
     }
 }
 
+// DELETE api/group/id Gruppe löschen
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function del(request) {
     const {id} = request.params;
-    let subscriber = await Subscriber.findByIdAndRemove(id)
+    let group = await Group.findByIdAndRemove(id)
 
     return {
-        body: "Klappt das?!Sollte passen!"
+        body: "Klappt das?!"
     }
 }
 
-// GET api/subscriber/id get specific subscriber by id
+
+// GET api/group/id (Nach IDs die Gruppe suchen)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get(request) {
     const {id} = request.params;
 
-    let subscriber = await Subscriber.findById(id).exec()
+    let group = await Group.findById(id).exec()
 
     // no return is equal to 404
-    if (subscriber){
+    if (group){
         return {
-            body: subscriber
+            body: group
         }
     }
 }

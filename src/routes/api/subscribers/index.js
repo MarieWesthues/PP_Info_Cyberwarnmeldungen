@@ -26,6 +26,3 @@ export async function get({ params }) {
          body: subscribers
      };
 }
-
-
-
