@@ -17,7 +17,7 @@ const r = new Snoowrap({
 
 const subredditName = 'praxisprojekt'
 
-export function postTextMessage(title: string, text: string){
+export function postTextMessageReddit(title: string, text: string){
     r.getSubreddit(subredditName)
         .submitSelfpost({title,text, subredditName})
 }

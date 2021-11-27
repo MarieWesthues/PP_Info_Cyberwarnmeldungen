@@ -14,7 +14,7 @@ var client = new Twitter({
   });
 
 
-export function postTextMessage(title, text){
+export function postTextMessageTwitter(title, text){
     // tweets do not have a title
     client.post('statuses/update', {status: text},  function(error, tweet, response) {
         if(error) throw error;
