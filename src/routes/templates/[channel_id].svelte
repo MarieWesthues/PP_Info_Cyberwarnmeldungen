@@ -1,23 +1,28 @@
-<script>
-import Template from "./Template.svelte"; "./index.svelte";
+<div class="parent-container d-flex">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                List
+            </div>
+        </div>
+    </div>
 
-    let exampleObjects = [{name: "hallo"}, {name: "moin"}, {name: "was geht?"}]
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                Preview
+            </div>
+        </div>
+    </div>
+</div>
 
-    let selectedObject = exampleObjects[0];
+<style>
 
-    let setSelection = (obj) => {
-        selectedObject = obj;
+    .container{
+        background-color: gray;
+        margin: 5%;
+        height: 700px;
+
     }
 
-</script>
-
-{#each exampleObjects as obj}
-    <div on:click={()=> setSelection(obj)}>
-        Template <button/> 
-
-    </div>
-{/each}
-
-<div>
-    selected greeting {selectedObject.name}
-</div>
+</style>
