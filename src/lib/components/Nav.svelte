@@ -1,8 +1,5 @@
-<script lang="ts">
-
-    export let path;
-    console.log(path);
-    
+<script>
+    import {page} from "$app/stores"
 
     import {
       Collapse,
@@ -12,10 +9,6 @@
       Nav,
       NavItem,
       NavLink,
-      Dropdown,
-      DropdownToggle,
-      DropdownMenu,
-      DropdownItem
     } from 'sveltestrap';
   
     let isOpen = false;
@@ -28,23 +21,21 @@
         {href: "/send", label: 'Send'},
         {href: "/subscribers", label: "Subscribers"},
         {href: "/groups", label: "Groups"},
-        {href: "templates", label: "Templates"}
+        {href: "/templates", label: "Templates"}
         ]
 </script>
   
-  <Navbar color="light" light expand="md">
+  <Navbar color="primary" dark light expand="md">
     <NavbarToggler on:click={() => (isOpen = !isOpen)} />
     <Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
       <Nav class="me-auto" navbar>
 
-        {#key path}
+
         {#each navItems as {href, label}, i }
-        <NavItem>
-            <NavLink {href}>{label}</NavLink>
-        </NavItem>
-    {/each}
-    soos {path}
-        {/key}
+          <NavItem>
+              <NavLink active={$page.path == href} {href}>{label}</NavLink>
+          </NavItem>
+        {/each}
 
       </Nav>
     </Collapse>
