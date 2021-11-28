@@ -29,6 +29,7 @@
     "nodemailer": "^6.7.2",
     "pug": "^3.0.2",
     "snoowrap": "^1.23.0",
+    "sveltestrap": "^5.6.3",
     "twitter": "^1.7.1"
   }
 }
