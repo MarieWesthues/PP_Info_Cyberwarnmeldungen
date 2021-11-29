@@ -18,7 +18,7 @@
     }
 
     const navItems = [
-        {href: "/send", label: 'Send'},
+        {href: "/alerts", label: 'Send'},
         {href: "/subscribers", label: "Subscribers"},
         {href: "/groups", label: "Groups"},
         {href: "/templates", label: "Templates"}
