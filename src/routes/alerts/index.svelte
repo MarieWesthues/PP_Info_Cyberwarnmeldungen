@@ -3,5 +3,13 @@
 if a new alert is to be created go to alerts/new
 
 -->
+<script>
+    let objs = [{id: 'soos'}, {id: 'saaas'}]
+</script>
 
-wilgommen auf alerts
+{#each objs as obj }
+    <div>
+        {obj.id}
+        <a href="alerts/{obj.id}">click</a>
+    </div>
+{/each}
