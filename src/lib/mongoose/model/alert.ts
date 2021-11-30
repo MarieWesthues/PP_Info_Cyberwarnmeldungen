@@ -1,17 +1,35 @@
 import "$lib/mongoose/connection";
-import mongoose from 'mongoose';
+import mongoose, { ObjectId as ObjectIdType} from 'mongoose';
 const Schema = mongoose.Schema;
 const {Mixed, ObjectId} = Schema.Types;
 
 // Alert Attribute
-export const alertAttributeSchema = new Schema({
-    key: String,
-    value: Mixed,
+export interface AlertAttribute {
+    key: string,
+    value: any,
+}
+export const alertAttributeSchema = new Schema<AlertAttribute>({
+    key: {type: String, required: true},
+    value: {type: String, required: true},
 })
 export const AlertAttribute = mongoose.model('AlertAttribute', alertAttributeSchema);
 
 
 // Pending Alert
+export interface PendingAlertDocument {
+    cert_id: ObjectIdType,
+    dateCreated: Date,
+    createdBy: ObjectIdType,
+    threatLevel: String,
+    threatType: String,
+    title: String,
+    intern: Boolean,
+    selectedGroups: [ObjectIdType],
+    selectedChannels: [String],
+    attributes: [AlertAttribute],
+    _id: ObjectIdType,
+}
+
 export const pendingAlertSchema = new Schema({
     cert_id: ObjectId,
     dateCreated: Date,
