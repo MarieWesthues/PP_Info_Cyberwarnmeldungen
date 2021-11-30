@@ -5,19 +5,33 @@ const {Mixed, ObjectId} = Schema.Types;
 
 
 // Threat Type
-export const threatTypeSchema = new Schema({
+// export const threatTypeSchema = new Schema({
+//     name: String,
+//     description: String,
+// })
+// export const ThreatType = mongoose.model('ThreatType', threatTypeSchema); 
+
+export const threatTypeSchema = {
     name: String,
     description: String,
-})
-export const ThreatType = mongoose.model('ThreatType', threatTypeSchema); 
+}
+
+export function ThreatType(name: string, description: string){
+    this.name = name;
+    this.description = description;
+}
 
 
 // Threat Level
-export const threatLevelSchema = new Schema({
+export const threatLevelSchema = {
     name: String,
     color: String,
-})
-export const ThreatLevel = mongoose.model('ThreatLevel', threatLevelSchema); 
+}
+// export const ThreatLevel = mongoose.model('ThreatLevel', threatLevelSchema);
+export function ThreatLevel(name: string, color: string){
+    this.name = name;
+    this.color = color;
+}
 
 
 // Message Attribute
