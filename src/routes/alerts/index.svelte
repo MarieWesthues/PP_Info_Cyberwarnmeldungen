@@ -32,7 +32,7 @@ export async function load({fetch}){
         
         {#each alerts as alert}
             <!--erste Bootstrap Komponente wuw-->
-            <div class="rounded"> {alert._id}
+            <div class="rounded"> {alert.title}
                 <!-- <button type="button" id="button" class="btn btn-primary pull-right"  on:click={()=> setSelection(obj)}> Review </button> -->
                 <a href="alerts/{alert._id}">click</a>
             </div>
