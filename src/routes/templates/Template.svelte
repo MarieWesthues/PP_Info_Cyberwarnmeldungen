@@ -7,7 +7,7 @@
 </script>
 
 <div class="">
-    Tempalte schmemplate
+    Template schmemplate
     greeting = {obj.name}
 </div>
 
