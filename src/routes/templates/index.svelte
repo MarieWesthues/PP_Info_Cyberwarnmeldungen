@@ -51,9 +51,14 @@ import Template from "./Template.svelte"; "./index.svelte";
 
         {#each exampleObjects as obj}
             <!--erste Bootstrap Komponente wuw-->
-            <div class="rounded"> Template Beispiel
-                <button type="button" id="button" class="btn btn-primary pull-right"  on:click={()=> setSelection(obj)}>Edit </button>
-            </div>
+            <a href="templates/{obj.cert_id}">
+                <div class="rounded d-flex justify-content-between"> 
+                    <div>Template Beispiel</div>
+                    <div>
+                        <button type="button" id="button" class=""  on:click={()=> setSelection(obj)}>Edit </button>
+                    </div>
+                </div>
+            </a>
         {/each}
     
         <div class="text">
@@ -71,15 +76,13 @@ import Template from "./Template.svelte"; "./index.svelte";
         background-color: gray;
         color: white;
         padding: 10px;
-        display: flex;
-        align-items: center;
+
+
         margin: 5%;
         height: 60px;
+        width: 500px;
     }
 
-    #button{
-        align-content: right;
-    }
 
 
 </style>
