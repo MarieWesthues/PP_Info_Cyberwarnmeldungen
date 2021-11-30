@@ -22,7 +22,7 @@ export async function post(request) {
 // GET api/alert (Liste von Warnmeldungen erhalten)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ params }) {
-    console.log("Errorrr");
+    // console.log("Errorrr");
     const pendingAlerts = await PendingAlert.find({cert_id: getStoreValue(certIdStore)})
 
      return {
