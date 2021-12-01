@@ -13,7 +13,10 @@ export const userPermissionsSchema = new Schema({
 export const userPermissions = mongoose.model('UserPermissions', userPermissionsSchema);
 
 export const userSchema = new Schema({
-    cert_id: ObjectId,
+    cert:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Cert'
+    }, 
     email: String,
     name: String,
     password: String,

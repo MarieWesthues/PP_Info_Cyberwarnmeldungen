@@ -5,7 +5,10 @@ const {Mixed, ObjectId} = Schema.Types;
 
 
 const templateSchema = new Schema({
-    cert_id: ObjectId,
+    cert_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Cert'
+    },
     channel: String,
     name: String,
     used: Boolean,

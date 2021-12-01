@@ -39,7 +39,10 @@ export const messageAttributeSchema = new Schema({
     key: String,
     type: {type: String}, //Attributes with name 'type' have to be written like this because type is a mongoose keyword.
     selectOptions: Mixed,
-    usedBy: [ObjectId]
+    usedBy: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Template'
+    }]
 })
 export const MessageAttribute = mongoose.model('MessageAttribute', messageAttributeSchema); 
 
