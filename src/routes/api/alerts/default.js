@@ -6,7 +6,8 @@ import { get } from 'svelte/store';
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function post(request) { 
 
-   
+    
+
     const pendingAlert = new PendingAlert({
         ...request.body,
         dateCreated: new Date(),
@@ -26,7 +27,7 @@ export async function post(request) {
     })
 
      const res = await pendingAlert.save()
-    
+
      return {
          body: {
              res
