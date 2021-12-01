@@ -31,15 +31,27 @@ export const AlertAttribute = mongoose.model('AlertAttribute', alertAttributeSch
 // }
 
 export const pendingAlertSchema = new Schema({
-    cert_id: ObjectId,
+    cert_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Cert'
+    },
     dateCreated: Date,
-    createdBy: ObjectId,
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
     threatLevel: String,
     threatType: String,
     title: String,
     intern: Boolean,
-    selectedGroups: [ObjectId],
-    selectedChannels: [String],
+    selectedGroups: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Group'
+    }],
+    selectedChannels: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Channel'
+    }],
     attributes: [alertAttributeSchema]
 })
 export const PendingAlert = mongoose.model('PendingAlert', pendingAlertSchema);
@@ -48,24 +60,39 @@ export const PendingAlert = mongoose.model('PendingAlert', pendingAlertSchema);
 // Alert Link
 export const alertLinkSchema = new Schema({
     uri: String,
-    channel: ObjectId,
+    channel: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Channel'
+    },
 })
 export const AlertLink = mongoose.model('AlertLink', alertLinkSchema);
 
 
 // Persisted Alert
 export const persistedAlertSchema = new Schema({
-    cert_id: ObjectId,
+    cert_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Cert'
+    }, 
     dateCreated: Date,
-    createdBy: ObjectId,
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
     threatLevel: String,
     threatType: String,
     title: String,
     intern: Boolean,
-    selectedGroups: [ObjectId],
+    selectedGroups: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Group'
+    }],
     attributes: [alertAttributeSchema],
     dateSend: Date,
-    authorizedBy: ObjectId,
+    authorizedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
     links: [alertLinkSchema]
 })
 export const PersistedAlert = mongoose.model('PersistedAlert', persistedAlertSchema);
