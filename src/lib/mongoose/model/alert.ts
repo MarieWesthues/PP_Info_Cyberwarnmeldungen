@@ -10,25 +10,25 @@ export interface AlertAttribute {
 }
 export const alertAttributeSchema = new Schema<AlertAttribute>({
     key: {type: String, required: true},
-    value: {type: String, required: true},
+    value: {type: Mixed, required: true},
 })
 export const AlertAttribute = mongoose.model('AlertAttribute', alertAttributeSchema);
 
 
 // Pending Alert
-export interface PendingAlertDocument {
-    cert_id: ObjectIdType,
-    dateCreated: Date,
-    createdBy: ObjectIdType,
-    threatLevel: String,
-    threatType: String,
-    title: String,
-    intern: Boolean,
-    selectedGroups: [ObjectIdType],
-    selectedChannels: [String],
-    attributes: [AlertAttribute],
-    _id: ObjectIdType,
-}
+// export interface PendingAlertDocument {
+//     cert_id: ObjectIdType,
+//     dateCreated: Date,
+//     createdBy: ObjectIdType,
+//     threatLevel: String,
+//     threatType: String,
+//     title: String,
+//     intern: Boolean,
+//     selectedGroups: [ObjectIdType],
+//     selectedChannels: [String],
+//     attributes: [AlertAttribute],
+//     _id: ObjectIdType,
+// }
 
 export const pendingAlertSchema = new Schema({
     cert_id: ObjectId,
