@@ -7,11 +7,10 @@ import {get as getStoreValue} from 'svelte/store'
 export async function post(request) { 
 
     
-
+    
     const pendingAlert = new PendingAlert(request.body)
 
      const res = await pendingAlert.save()
-
      return {
          body: {
              res

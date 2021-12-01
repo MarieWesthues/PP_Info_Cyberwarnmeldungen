@@ -21,7 +21,8 @@
         {href: "/alerts", label: 'Send'},
         {href: "/subscribers", label: "Subscribers"},
         {href: "/groups", label: "Groups"},
-        {href: "/templates", label: "Templates"}
+        {href: "/templates", label: "Templates"},
+        {href: "/channels", label: "Channels"}
         ]
 </script>
   
