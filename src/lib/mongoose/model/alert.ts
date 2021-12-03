@@ -33,17 +33,19 @@ export const AlertAttribute = mongoose.model('AlertAttribute', alertAttributeSch
 export const pendingAlertSchema = new Schema({
     cert_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Cert'
+        ref: 'Cert',
+        required: true
     },
-    dateCreated: Date,
+    dateCreated:  {type: Date, required: true},
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     },
-    threatLevel: String,
-    threatType: String,
-    title: String,
-    intern: Boolean,
+    threatLevel: {type: String, required: true},
+    threatType: {type: String, required: true},
+    title: {type: String, required: true},
+    intern: {type: Boolean, required: true},
     selectedGroups: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Group'
@@ -59,10 +61,11 @@ export const PendingAlert = mongoose.model('PendingAlert', pendingAlertSchema);
 
 // Alert Link
 export const alertLinkSchema = new Schema({
-    uri: String,
+    uri: {type: String, required: true},
     channel: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Channel'
+        ref: 'Channel',
+        required: true
     },
 })
 export const AlertLink = mongoose.model('AlertLink', alertLinkSchema);
@@ -72,26 +75,29 @@ export const AlertLink = mongoose.model('AlertLink', alertLinkSchema);
 export const persistedAlertSchema = new Schema({
     cert_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Cert'
+        ref: 'Cert',
+        required: true
     }, 
-    dateCreated: Date,
+    dateCreated: {type: Date, required: true},
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     },
-    threatLevel: String,
-    threatType: String,
-    title: String,
-    intern: Boolean,
+    threatLevel: {type: String, required: true},
+    threatType: {type: String, required: true},
+    title: {type: String, required: true},
+    intern: {type: Boolean, required: true},
     selectedGroups: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Group'
     }],
     attributes: [alertAttributeSchema],
-    dateSend: Date,
+    dateSend: {type: Date, required: true},
     authorizedBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     },
     links: [alertLinkSchema]
 })

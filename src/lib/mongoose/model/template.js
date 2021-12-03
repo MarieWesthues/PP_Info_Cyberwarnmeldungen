@@ -7,13 +7,14 @@ const {Mixed, ObjectId} = Schema.Types;
 const templateSchema = new Schema({
     cert_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Cert'
+        ref: 'Cert',
+        required: true
     },
-    channel: String,
-    name: String,
-    used: Boolean,
-    templateString: String,
-    usesAttributes: [String],
+    channel: {type: String, required: true},
+    name: {type: String, required: true},
+    used: {type: Boolean, required: true},
+    templateString: {type: String, required: true},
+    usesAttributes: [{type: String, required: true}],
     matches: {
         type: {type: String, default: ""},
         level: {type: String, default: ""},
