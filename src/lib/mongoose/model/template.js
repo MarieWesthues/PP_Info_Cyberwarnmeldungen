@@ -62,8 +62,8 @@ const defaultRedditTemplate = {
 }
 
 const defaultTwitterTemplate = {
-    channel: 'Reddit',
-    name: 'Default Reddit Template',
+    channel: 'Twitter',
+    name: 'Default Twitter Template',
     used: true,
     templateString: 'Moin Leude. Es gibts 1 Threat von type ${threatType} und level ${threatLevel}. Er befällt ${OS} Betriebssysteme',
     usesAttributes: ['OS'],
