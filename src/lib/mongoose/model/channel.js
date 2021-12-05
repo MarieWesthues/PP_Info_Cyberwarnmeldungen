@@ -5,14 +5,14 @@ const {Mixed, ObjectId} = Schema.Types;
 
 
 export const channelSchema = new Schema({
-    name: String,
+    name: {type: String, required: true},
     colors: {
         primary: String,
-        onPrimary: String,
+        onPrimary: String
     },
     logo: String, //link to logo 
-    messageFormat: String,
-    authenticated: Boolean,
+    messageFormat: {type: String, required: true},
+    authenticated: {type: Boolean, required: true}
 })
 
 export const Channel = mongoose.model('Channel', channelSchema);

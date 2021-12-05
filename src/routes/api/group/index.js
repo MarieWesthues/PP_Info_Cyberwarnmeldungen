@@ -17,7 +17,7 @@ export async function post(request) {
 // GET api/group (eine Liste von allen gruppen erhalten)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ params }) {
-    console.log("Nein");
+
     const groups = await Group.find({})
 
      return {

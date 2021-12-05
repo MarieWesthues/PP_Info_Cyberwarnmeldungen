@@ -12,8 +12,8 @@ const {Mixed, ObjectId} = Schema.Types;
 // export const ThreatType = mongoose.model('ThreatType', threatTypeSchema); 
 
 export const threatTypeSchema = {
-    name: String,
-    description: String,
+    name: {type: String, required: true},
+    description: {type: String}
 }
 
 export function ThreatType(name: string, description: string){
@@ -24,8 +24,8 @@ export function ThreatType(name: string, description: string){
 
 // Threat Level
 export const threatLevelSchema = {
-    name: String,
-    color: String,
+    name: {type: String, required: true},
+    color: {type: String, required: true}
 }
 // export const ThreatLevel = mongoose.model('ThreatLevel', threatLevelSchema);
 export function ThreatLevel(name: string, color: string){
@@ -36,22 +36,25 @@ export function ThreatLevel(name: string, color: string){
 
 // Message Attribute
 export const messageAttributeSchema = new Schema({
-    key: String,
-    type: {type: String}, //Attributes with name 'type' have to be written like this because type is a mongoose keyword.
-    selectOptions: Mixed,
-    usedBy: [ObjectId]
+    key: {type: String, required: true},
+    type: {type: String, required: true}, //Attributes with name 'type' have to be written like this because type is a mongoose keyword.
+    selectOptions: {type: Mixed},
+    usedBy: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Template'
+    }]
 })
 export const MessageAttribute = mongoose.model('MessageAttribute', messageAttributeSchema); 
 
 
 // Configuration
 export const configurationSchema = new Schema({
-    name: String,
-    replyEmail: String,
+    name: {type: String, required: true},
+    replyEmail: {type: String, required: true},
     logo: Buffer, //Buffer is used for Binary data like blob
     colors: {
-        primary: String,
-        secondary: String,
+        primary: {type: String, default: '#79A3B1'},
+        secondary: {type: String, default: '#FCF8EC'},
     },
     threatTypes: [threatTypeSchema],
     threatLevels: [threatLevelSchema],
