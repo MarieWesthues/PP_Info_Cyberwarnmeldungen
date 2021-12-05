@@ -10,3 +10,18 @@ export async function get({ params }) {
          body: channels
      };
 }
+
+
+// POST api/subscriber (neuen Channel anlegen)
+/** @type {import('@sveltejs/kit').RequestHandler} */
+export async function post(request) {
+    const channel = new Channel(request.body)
+
+     const res = await channel.save()
+
+     return {
+         body: {
+             res
+         }
+     };
+}

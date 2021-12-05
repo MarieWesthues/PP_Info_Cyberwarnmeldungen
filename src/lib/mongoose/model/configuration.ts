@@ -13,7 +13,7 @@ const {Mixed, ObjectId} = Schema.Types;
 
 export const threatTypeSchema = {
     name: {type: String, required: true},
-    description: {type: String, required: true}
+    description: {type: String}
 }
 
 export function ThreatType(name: string, description: string){
@@ -38,7 +38,7 @@ export function ThreatLevel(name: string, color: string){
 export const messageAttributeSchema = new Schema({
     key: {type: String, required: true},
     type: {type: String, required: true}, //Attributes with name 'type' have to be written like this because type is a mongoose keyword.
-    selectOptions: {type: Mixed, required: true},
+    selectOptions: {type: Mixed},
     usedBy: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Template'

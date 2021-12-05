@@ -4,10 +4,12 @@ import {Subscriber} from '$lib/mongoose/model/subscriber';
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function put(request) {
     const {id} = request.params;
+    
+    let temp = Subscriber.findById(id)
     let subscriber = await Subscriber.findById(id).update(request.body)
     
     return {
-        body: "hollllllla"
+        body: temp
     }
 }
 
@@ -17,7 +19,7 @@ export async function del(request) {
     let subscriber = await Subscriber.findByIdAndRemove(id)
 
     return {
-        body: "Klappt das?!Sollte passen!"
+        body: "User gelöscht"
     }
 }
 
