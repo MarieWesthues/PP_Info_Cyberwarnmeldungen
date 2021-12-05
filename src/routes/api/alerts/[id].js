@@ -5,9 +5,10 @@ import {PendingAlert} from '$lib/mongoose/model/alert';
 export async function put(request) {
        const {id} = request.params;
        let pendingAlert = await PendingAlert.findById(id).update(request.body)
+       let temp = await PendingAlert.findById(id)
        
        return {
-           body: "Testi Test"
+           body: temp
        }
    }
 
@@ -18,16 +19,16 @@ export async function del(request) {
     let pendingAlert = await PendingAlert.findByIdAndRemove(id)
 
     return {
-        body: "efojofejofjfw"
+        body: "Warnmeldung wurde gelöscht!"
     }
 }  
 
-// GET api/alerts/id (Gezielte PendingAlerts finden)
+// GET api/alerts/id (Gezielte PendingAlerts finden) Frag mich grade wofür wir den hier brauchen...
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get(request) {
     const {id} = request.params;
 
-    let pendingAlert = await PendingAlert.findById(id).exec()
+    let pendingAlert = await PendingAlert.find(request.body).exec()
 
 
     if (pendingAlert){

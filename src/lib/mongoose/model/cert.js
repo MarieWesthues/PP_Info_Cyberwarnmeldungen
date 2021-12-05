@@ -11,17 +11,4 @@ export const certSchema = new Schema({
     channels: [channelSchema],
 })
 
-//Test
-//export const certSchema = new Schema({
-  //  configuration: {
-  //      type: mongoose.Schema.Types.ObjectId,
-    //    ref: 'Configuration',
-   //     required: true
-  //  },
-   // channels: [{
-  //      type: mongoose.Schema.Types.ObjectId,
- //       ref: 'Channel',
-//    }],
-//})
-
 export const Cert = mongoose.model('Cert', certSchema);

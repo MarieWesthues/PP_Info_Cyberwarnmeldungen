@@ -1,15 +1,15 @@
 import {Template} from '$lib/mongoose/model/template';
 
-// GET api/templates (nach Templates/Keys suchen)
+// GET api/templates (nach Templates/Keys suchen VIA ID!)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get(request) {
     const {id} = request.params;
 
-    let template = await Template.findById(id).exec()
+    let template = await Template.find(request.body).exec()  //Über find werden die inhalte der templates mit dem body inhalt vergleichen/gesucht
 
     if (template){
         return {
-            body: template
+            body: template           //Die ergebnisse werden hier angezeigt
         }
     }
 }
@@ -21,17 +21,22 @@ export async function del(request) {
     let template = await Template.findByIdAndRemove(id)
 
     return {
-        body: "Klappt das?!"
+        body: "Template gelöscht"
     }
 }
 
 // PUT api/Template (Template überschreiben)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function put(request) {
-       const {id} = request.params;
-       let template = await Template.findById(id).update(request.body)
-       
-       return {
-           body: "Testi Test"
+       const {id} = request.params; //holt sich das doc zu der ID
+
+       let template = await Template.findById(id).update(request.body)  //Verändert die Werte des docs
+
+       let temp2 = await Template.findById(id).exec() //Speichert das geänderte Doc als temp2
+
+       if (template){
+           return {
+               body: temp2      //gebt das gesamte doc aus inkl veränderungen
+           }
        }
    }

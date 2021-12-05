@@ -5,11 +5,13 @@ import {Subscriber} from '$lib/mongoose/model/subscriber';
 export async function put(request) {
     const {id} = request.params;
     
-    let temp = Subscriber.findById(id)
     let subscriber = await Subscriber.findById(id).update(request.body)
-    
-    return {
-        body: temp
+    let temp2 = await Subscriber.findById(id).exec()
+
+    if (subscriber){
+        return {
+            body: temp2
+        }
     }
 }
 
