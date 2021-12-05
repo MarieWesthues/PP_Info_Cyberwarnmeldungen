@@ -4,22 +4,23 @@ const Schema = mongoose.Schema;
 const {Mixed, ObjectId} = Schema.Types;
 
 export const userPermissionsSchema = new Schema({
-    sendAlert: Boolean,
-    createAlert: Boolean,
-    editSubscribers: Boolean,
-    editGroups: Boolean,
-    editConfig: Boolean,
+    sendAlert: {type: Boolean, required: true},
+    createAlert: {type: Boolean, required: true},
+    editSubscribers: {type: Boolean, required: true},
+    editGroups: {type: Boolean, required: true},
+    editConfig: {type: Boolean, required: true},
 })
 export const userPermissions = mongoose.model('UserPermissions', userPermissionsSchema);
 
 export const userSchema = new Schema({
     cert:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Cert'
+        ref: 'Cert',
+        required: true
     }, 
-    email: String,
-    name: String,
-    password: String,
+    email: {type: String, required: true},
+    name:  {type: String, required: true},
+    password:  {type: String, required: true},
     permissions: userPermissionsSchema,
 })
 export const User = mongoose.model('User', userSchema);

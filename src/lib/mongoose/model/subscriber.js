@@ -6,11 +6,12 @@ const {Mixed, ObjectId} = Schema.Types;
 export const subscriberSchema = new Schema({
     cert_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Cert'
+        ref: 'Cert',
+        required: true
     }, 
-    name: String,
+    name: {type: String, required: true},
     email: {type:String, required:true},
-    intern: Boolean,
+    intern: {type: Boolean, required: true},
     groups: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Group'
@@ -21,11 +22,12 @@ export const Subscriber = mongoose.model('Subscriber', subscriberSchema);
 export const groupSchema = new Schema({
     cert_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Cert'
+        ref: 'Cert',
+        required: true
     }, 
-    name: String,
-    description: String,
-    color: String,
+    name: {type: String, required: true},
+    description: {type: String, required: true},
+    color:  {type: String, default: 'green'},
     subscribers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Subscriber'
