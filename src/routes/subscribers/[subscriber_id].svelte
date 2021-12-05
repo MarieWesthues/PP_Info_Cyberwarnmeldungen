@@ -1,9 +1,9 @@
 <script>
 
-    let groups =["Group 1", "Group 2", "Group 3"];
+let groups =["Group 1", "Group 2", "Group 3"];
 
-    function saveTemplate() {
-        alert("saved")
+function saveSubscriber() {
+        
     }
 
 </script>
@@ -13,30 +13,47 @@
 
     <h1>Add new Subscriber</h1>
 
-    <p>Name <input></p>
-    <p>E-mail <input></p>
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+        <input type="text" class="form-control" aria-label="Name" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+        <input type="text" class="form-control" aria-label="Email" aria-describedby="inputGroup-sizing-sm">
+    </div>
 
-    <p><label>
-        Intern
-        <input type=checkbox>
-    </label></p>
+    <div class="input-group">
+        <label>
+            Intern
+            <input class="form-check-input" type="checkbox" id="intern" value="intern">
+        </label>
+    </div>
 
     <h3>Subscriber Groups</h3>
 
     {#each groups as group, i}
-       <label>
-            <input type=checkbox><p>{group}</p>
-        </label>
+        <div class="input-group">
+            <label>
+                <input class="form-check-input" type="checkbox" id="groups" value="">
+                {group}  
+            </label> 
+        </div>
     {/each}
 
-    <p>
-    <button on:click={saveTemplate}>
-        Save Template
-    </button>
-    </p>
+    <div>
+        <button class="btn btn-outline-dark border-2" on:click={saveSubscriber}>
+            Save Subscriber
+        </button>
+    </div>
 
 </main>
 
 <style>
   
+  .input-group {
+    width: 30%;
+    margin-left: auto;
+    margin-right:auto;
+}
+
 </style>
