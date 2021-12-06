@@ -22,6 +22,9 @@
     </div>
 </div>
 
+<div class="text">
+            selected greeting {selectedObject.name}
+        </div>
 
 <style>
 

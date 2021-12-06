@@ -43,7 +43,7 @@
 
                 <p></p>
                 <h1 class="text-secondary">Templates</h1>
-                <div class="col rounded overflow-auto p-4 bg-secondary vh-100">
+                <div class="col rounded overflow-auto p-4 bg-secondary vh-100 m-3 ml-5 mr-5">
                     <h4 class="text-light">Default Tempalte</h4>
                     <div class="container">
                         <div class="text-center bg-light">
@@ -88,7 +88,7 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container ">
             <div class="row">
                 <ButtonDropdown>
                     <DropdownToggle color="primary" caret>Template Type</DropdownToggle>
@@ -104,7 +104,7 @@
                 </ButtonDropdown>
                 <p></p>
                 <h1 class="text-secondary">Preview</h1>
-                <div class="col rounded bg-secondary vh-100" placeholder="placeholder">
+                <div class="col rounded bg-secondary vh-100 m-3 ml-5 mr-5" placeholder="placeholder">
     
                 </div>
                 <div class="container">
@@ -128,17 +128,3 @@
             </div>
         </div>
     </div>
-
-
-<style>
-
-    .rounded{
-        background-color: gray;
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-bottom: 5%;
-        /* height: 700px; */
-
-    }
-
-</style>

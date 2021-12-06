@@ -1,4 +1,20 @@
-<script>
+<script context="module" lang="ts">
+    
+    export async function load({fetch}){
+        const url = '/api/template';
+        const res = await fetch(url)
+        const template = await res.json()
+    
+        if (res.ok){
+            return {
+                props: {
+                    template
+                }
+            }
+        }
+    }
+    export let Template;
+
 import Template from "./Template.svelte"; "./index.svelte";
 
     let exampleObjects = [
@@ -61,9 +77,6 @@ import Template from "./Template.svelte"; "./index.svelte";
             </a>
         {/each}
     
-        <!--<div class="text">
-            selected greeting {selectedObject.name}
-        </div>-->
     </body>
 
 </html>
