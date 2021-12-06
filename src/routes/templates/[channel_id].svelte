@@ -16,7 +16,6 @@
      aria-label="Search" />
 </div>
 
-<!-- Test -->
 
 <p></p>
 
@@ -44,7 +43,7 @@
 
                 <p></p>
                 <h1 class="text-secondary">Templates</h1>
-                <div class="col rounded overflow-auto p-4">
+                <div class="col rounded overflow-auto p-4 bg-secondary vh-100">
                     <h4 class="text-light">Default Tempalte</h4>
                     <div class="container">
                         <div class="text-center bg-light">
@@ -105,7 +104,7 @@
                 </ButtonDropdown>
                 <p></p>
                 <h1 class="text-secondary">Preview</h1>
-                <div class="col rounded" placeholder="placeholder">
+                <div class="col rounded bg-secondary vh-100" placeholder="placeholder">
     
                 </div>
                 <div class="container">
@@ -138,7 +137,7 @@
         margin-left: 5%;
         margin-right: 5%;
         margin-bottom: 5%;
-        height: 700px;
+        /* height: 700px; */
 
     }
 
