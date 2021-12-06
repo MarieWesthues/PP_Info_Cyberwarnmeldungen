@@ -1,6 +1,9 @@
+
 <script context="module" lang="ts">
     
-    export async function load({fetch}){
+import Template from "./Template.svelte"; "./index.svelte";
+    
+    /*export async function load({fetch}){
         const url = '/api/template';
         const res = await fetch(url)
         const template = await res.json()
@@ -13,9 +16,8 @@
             }
         }
     }
-    export let Template;
+    export let template: any;*/
 
-import Template from "./Template.svelte"; "./index.svelte";
 
     let exampleObjects = [
         {cert_id: "randomString1", 
