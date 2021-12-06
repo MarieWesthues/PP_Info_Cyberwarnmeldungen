@@ -1,3 +1,24 @@
+<!-- <script context="module" lang="ts">
+    
+        
+        export async function load({fetch, page}){
+            const url = `/api/templates/${page.params.channel_id}`;
+            const res = await fetch(url)
+            const templates = await res.json()
+            
+            if (res.ok){
+                return {
+                    props: {
+                        templates
+                    }
+                }
+            }
+        }
+        
+</script> -->
+
+
+
 <script lang="ts">
     import { Col, Container, Row } from 'sveltestrap';
     import {
@@ -6,7 +27,34 @@
     DropdownMenu,
     DropdownToggle
   } from 'sveltestrap';
+
+
+//   export let templates;
+// const defaultTemplate = ? 
+// default template ist selected und matcht keinen type oder level (maybe use array.reduce)
+
+// const usedTemplates = (maybe use array.filter)
+// const unusedTemplates
 </script>
+
+
+<!-- 1. display default template -->
+
+
+<!-- 2. iterate over usedtemplates -->
+<!-- {#each usedTemplates as template}
+    <Template {template} selected={selectedTemplate === template} on:click={selectedTemplate = template }></Template>
+{/each} -->
+
+<!-- 3. iterate over unused templates -->
+
+
+
+<!-- für preview -->
+<!-- <div>
+    {selecteTemplate.templateString}
+</div> -->
+
 
 
 
