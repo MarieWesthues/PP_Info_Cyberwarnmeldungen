@@ -52,37 +52,18 @@ import Template from "./Template.svelte"; "./index.svelte";
         {#each exampleObjects as obj}
             <!--erste Bootstrap Komponente wuw-->
             <a href="templates/{obj.cert_id}">
-                <div class="rounded d-flex justify-content-between"> 
-                    <div>Template Beispiel</div>
+                <div class="rounded d-flex justify-content-between p-3 m-5 bg-secondary"> 
+                    <div class= "text-light">ChannelName</div>
                     <div>
-                        <button type="button" id="button" class=""  on:click={()=> setSelection(obj)}>Edit </button>
+                        <button type="button" id="button" class="btn btn-primary" on:click={()=> setSelection(obj)}>Edit </button>
                     </div>
                 </div>
             </a>
         {/each}
     
-        <div class="text">
+        <!--<div class="text">
             selected greeting {selectedObject.name}
-        </div>
+        </div>-->
     </body>
 
 </html>
-
-
-<style>
-
-    .rounded
-     {
-        background-color: gray;
-        color: white;
-        padding: 10px;
-
-
-        margin: 5%;
-        height: 60px;
-        width: 500px;
-    }
-
-
-
-</style>
