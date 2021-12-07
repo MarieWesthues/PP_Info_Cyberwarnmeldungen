@@ -25,7 +25,7 @@
         ]
 </script>
   
-  <Navbar color="primary" dark light expand="md">
+  <Navbar color="primary" dark light expand="md" class="fixed-top">
     <NavbarToggler on:click={() => (isOpen = !isOpen)} />
     <Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
       <Nav class="me-auto" navbar>
