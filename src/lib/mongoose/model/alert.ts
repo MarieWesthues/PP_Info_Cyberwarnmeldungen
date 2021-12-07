@@ -4,15 +4,15 @@ const Schema = mongoose.Schema;
 const {Mixed, ObjectId} = Schema.Types;
 
 // Alert Attribute
-export interface AlertAttribute {
-    key: string,
-    value: any,
-}
-export const alertAttributeSchema = new Schema<AlertAttribute>({
+// export interface AlertAttribute {
+//     key: string,
+//     value: any,
+// }
+export const alertAttributeSchema = {
     key: {type: String, required: true},
     value: {type: Mixed, required: true},
-})
-export const AlertAttribute = mongoose.model('AlertAttribute', alertAttributeSchema);
+}
+// export const AlertAttribute = mongoose.model('AlertAttribute', alertAttributeSchema);
 
 
 // Pending Alert
@@ -60,15 +60,11 @@ export const PendingAlert = mongoose.model('PendingAlert', pendingAlertSchema);
 
 
 // Alert Link
-export const alertLinkSchema = new Schema({
+export const alertLinkSchema = {
     uri: {type: String, required: true},
-    channel: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Channel',
-        required: true
-    },
-})
-export const AlertLink = mongoose.model('AlertLink', alertLinkSchema);
+    channel: {type: String, required: true},
+}
+// export const AlertLink = mongoose.model('AlertLink', alertLinkSchema);
 
 
 // Persisted Alert
