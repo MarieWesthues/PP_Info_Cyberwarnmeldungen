@@ -1,15 +1,15 @@
 import {Template} from '$lib/mongoose/model/template';
 
-// GET api/templates (nach Templates/Keys suchen VIA ID!)
+// GET api/templates (nach Templates via Channel ID suchen)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get(request) {
     const {id} = request.params;
 
-    let template = await Template.find(request.body).exec()  //Über find werden die inhalte der templates mit dem body inhalt vergleichen/gesucht
+    let template = await Template.findById(id).exec()  
 
     if (template){
         return {
-            body: template           //Die ergebnisse werden hier angezeigt
+            body: template          
         }
     }
 }
