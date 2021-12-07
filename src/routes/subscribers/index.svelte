@@ -1,18 +1,32 @@
+<script context="module">
+  // API requests sollten in einem module ausgeführt werden, damit die Notwendigen Daten schon bei Page load zur verfügung stehen
+  
+  // Für mehr info über die load function siehe => https://kit.svelte.dev/docs#loading
+  export async function load({fetch}){
+      const url = '/api/subscribers';
+      const res = await fetch(url)
+      const subscribers = await res.json()
+  
+      // Inhalt von props wird Komponenten als properties zur verfügung gestellt
+      if (res.ok){
+          return {
+              props: {
+                  subscribers
+              }
+          }
+      }
+  }
+</script>
+
+
+
 <script>
-let subscribers = ["Erkan Alles", "Anna Bolika", "Tim Buktu"]
-let emails = [["erkanalles@dings.de"],["annabolika@dings.de"],["timbuktu@dings.de"]]
-let groups = [["Group 1 Group 3"],["Group 2"],["Group 1 Group 2"]]
+import Subscriber from "./Subscriber.svelte";
 
-function deleteMe() {
-      
-  }
+
+export let subscribers;
+console.log(subscribers);
  
-let isOpen = false;
-
-function editMe(event) {
-    isOpen = event.detail.isOpen;
-  }
-      
 </script>
 
 <div class="input-group mb-3">
@@ -24,48 +38,18 @@ function editMe(event) {
 
 <main>
 
+
+
 <div class= "subscribers">
-  {#each subscribers as element, i (element)}
-    <div class="card">
-      <h5 class="card-header fs-4">{element}</h5>
-        <div class="card-body">
-          <p class="card-title fw-light fs-5">{emails[i ++]}</p>
-          <p class="card-text fw-light fs-6"><span class="border border-2 rounded-pill">{groups[i --,i ++]}</span></p>
-          
-
-          <div class="buttons text-end">
-            <a href="subscribers/[subscriber_id]">
-                <button class="btn btn-outline-warning border-2" on:click={() => editMe()}>Edit</button>
-            </a>
-
-            <button class="btn btn-outline-danger border-2" on:click={deleteMe}>
-                Delete
-            </button>
-          </div>
-    </div> 
-  </div>
-  <p></p>
-  {/each}
+{#each subscribers as subscriber }
+  <Subscriber {subscriber} />
+{/each}
 </div>
 
 <div class="add text-center">
-  <a href="subscribers/[subscriber_id]">
-      <button class="btn btn-outline-dark border-2" on:click={() => editMe()}>Add new Subscriber</button>
+  <a href="subscribers/new">
+      <button class="btn btn-outline-dark border-2">Add new Subscriber</button>
   </a>
 </div>
-
 </main>
 
-<style>
-.input-group{
-  width: 45%;
-  margin: 0 auto;
-}
-
-.card {
-    width: 45%;
-    margin: 0 auto;
-}
-
-
-</style>
