@@ -1,15 +1,14 @@
-import {Configuration} from '$lib/mongoose/model/configuration';
+import { Cert } from '$lib/mongoose/model/cert';
+import { certIdStore } from '$lib/stores';
+import {get as getStoreValue} from 'svelte/store'
 
-// POST api/configuraiton (neue Configuration anlegen)
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function post(request) {
-    const configuration = new Configuration(request.body)
+export async function get() {
+ 
+    const cert = await Cert.findById(getStoreValue(certIdStore))
 
-     const res = await configuration.save()
 
      return {
-         body: {
-             res
-         }
+         body: cert.configuration
      };
 }

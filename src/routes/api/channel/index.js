@@ -1,27 +1,29 @@
-import {Channel} from '$lib/mongoose/model/channel';
+import { certIdStore } from '$lib/stores';
+import {get as getStoreValue} from 'svelte/store'
 
-// GET api/channel (Channel Übersicht erhalten)
+import { Cert } from '$lib/mongoose/model/cert';
+
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ params }) {
 
-    const channels = await Channel.find({params})
+    const cert = await Cert.findById(getStoreValue(certIdStore))
 
      return {
-         body: channels
+         body: cert.channels
      };
 }
 
+// This endpoint is not needed
+// // POST api/subscriber (neuen Channel anlegen)
+// /** @type {import('@sveltejs/kit').RequestHandler} */
+// export async function post(request) {
+//     const channel = new Channel(request.body)
 
-// POST api/subscriber (neuen Channel anlegen)
-/** @type {import('@sveltejs/kit').RequestHandler} */
-export async function post(request) {
-    const channel = new Channel(request.body)
+//      const res = await channel.save()
 
-     const res = await channel.save()
-
-     return {
-         body: {
-             res
-         }
-     };
-}
+//      return {
+//          body: {
+//              res
+//          }
+//      };
+// }
