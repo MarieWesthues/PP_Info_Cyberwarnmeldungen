@@ -4,7 +4,7 @@ import {get as getStoreValue} from 'svelte/store'
 import { Cert } from '$lib/mongoose/model/cert';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ params }) {
+export async function get() {
 
     const cert = await Cert.findById(getStoreValue(certIdStore))
 

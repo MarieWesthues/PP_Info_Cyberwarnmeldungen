@@ -14,9 +14,6 @@ export async function get({ params, body }) {
     const cert = await Cert.findById(getStoreValue(certIdStore))
     let attribute = await cert.configuration.messageAttributes.id(body.id)
     // console.log(cert);
-    
-
-
     // let attribute = await query.exec()
      return {
          body: attribute

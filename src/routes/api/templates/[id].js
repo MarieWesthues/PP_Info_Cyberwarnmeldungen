@@ -1,11 +1,12 @@
 import {Template} from '$lib/mongoose/model/template';
 
-// GET api/templates (nach Templates via Channel ID suchen)
+// GET api/templates (nach Templates nach Namen/Werten suchen)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get(request) {
     const {id} = request.params;
+  //  let inputName = request.body
 
-    let template = await Template.findById(id).exec()  
+    let template = await Template.find(request.body).exec()  
 
     if (template){
         return {
