@@ -23,6 +23,10 @@ export async function load({fetch}){
 <script lang="ts">
     // In dem alerst property kann man nun auf die API response zugreifen
     export let alerts;
+    import {Button} from 'sveltestrap';
+  
+
+    
 
 </script>
 
@@ -33,13 +37,22 @@ export async function load({fetch}){
         {#each alerts as alert}
             <!--erste Bootstrap Komponente wuw-->
             <div class="rounded"> {alert.title}
-                <!-- <button type="button" id="button" class="btn btn-primary pull-right"  on:click={()=> setSelection(obj)}> Review </button> -->
-                <a href="alerts/{alert._id}">click</a>
+                <a href="alerts/{alert._id}">
+                    <Button type= "button" class= "btn btn-warning border-right-0">
+                        Review
+                    </Button>
+                </a>
             </div>
         {/each}
-    
+
+                <a href="alerts/sendingalerts">
+                    <Button type="Button" class="btn btn-warning btn-rounded-circle">
+                        +
+                    </Button></a>
+            
         
-        <!-- <button type="button" id="Hinzufügen" class="btn btn-primary pull-right"  on:click= {() => addMessage()}> + </button>  -->
+          
+        
         
     </body>
 </html>
@@ -56,21 +69,10 @@ export async function load({fetch}){
         margin: 5%;
         height: 100px;
         width: 1200px;
-    }
-
-    #button{
-        align-content: right;
-        margin-left: 85%;
-    }
-
-    #Hinzufügen{
-        margin-left: 92%;
-        margin-bottom: 50px;
-        background-color: white;
-        border-radius: 50%;
         
     }
 
+    
 
 </style>
 
