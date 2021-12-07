@@ -5,6 +5,7 @@ import { Template } from "$lib/mongoose/model/template";
 import { certIdStore } from '$lib/stores';
 import {get as getStoreValue} from 'svelte/store'
 import { PendingAlert } from "$lib/mongoose/model/alert";
+import populateTemplate from "$lib/populate";
 
 
 // POST api/subscriber (neuen Subscriber erstellen)
@@ -15,7 +16,7 @@ export async function post(request) {
     const alert = await PendingAlert.findById(request.params.alert_id);
 
     if (alert) {
-        console.log(alert);
+        // console.log(alert);
     }
 
     const matches = {
@@ -26,7 +27,11 @@ export async function post(request) {
 
     for (let channel of alert.selectedChannels){
         const template = await Template.chooseTemplate(cert_id, channel, matches)
-        // const populatedTemplate = populateTemplate()
+        
+        if (template) {
+            const populatedTemplate = populateTemplate(template, alert)
+            console.log(populatedTemplate);
+        }
     }
 
 

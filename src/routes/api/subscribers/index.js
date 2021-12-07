@@ -15,11 +15,9 @@ export async function post(request) {
 		};
 }
 
-
 // GET api/subscriber (eine Liste von allen subscribern erhalten)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ params }) {
-    console.log("bruh wtf");
     const subscribers = await Subscriber.find({})
 
      return {

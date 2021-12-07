@@ -4,10 +4,12 @@ import {Group} from '$lib/mongoose/model/subscriber';
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function put(request) {
     const {id} = request.params;
-    let group = await Group.findById(id).update(request.body)
-    
+
+    let group = await Group.findById(id).update(request.body)  //Zuerst wird die Gruppe via ID rausgesucht und die Werte werden geändert
+    let temp = await Group.findById(id)   //Verändertes Doc wird als temp zwischengespeichert und in Return ausgegeben
+
     return {
-        body: "huhuhuhuhuhuhuhu"
+        body: temp
     }
 }
 

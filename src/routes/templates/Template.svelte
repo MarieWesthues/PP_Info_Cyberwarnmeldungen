@@ -2,12 +2,12 @@
     import { object_without_properties } from "svelte/internal";
     import selectedObject from "../index.svelte";
 
-
+    // es muss das on click event weiter geleitet werden. See svelte event propagation oder bubbeling kp wie das heisst
     export let obj;
 </script>
 
 <div class="">
-    Tempalte schmemplate
+    Template schmemplate
     greeting = {obj.name}
 </div>
 
@@ -22,6 +22,9 @@
     </div>
 </div>
 
+<div class="text">
+            selected greeting {selectedObject.name}
+        </div>
 
 <style>
 
