@@ -27,14 +27,13 @@ import Template from "./Template.svelte"; "./index.svelte";
 <html lang="en">
     <body>
         
-
         {#each channels as channel}
-            <!--erste Bootstrap Komponente wuw-->
-            <a href="templates/{channel.cert_id}">
-                <div class="rounded d-flex justify-content-between p-3 m-5 bg-secondary"> 
-                    <div class= "text-light">ChannelName</div>
+            <!-- mit "--name:value" könnt ihr css variablen setzen.  -->
+            <a href="templates/{channel.name}" style="--channel-primary:{channel.colors.primary}; --channel-on-primary:{channel.colors.onPrimary}">
+                <div class="moped rounded d-flex justify-content-between p-3 m-5 "> 
+                    <div class= "text-light">{channel.name}</div>
                     <div>
-                        <button type="button" id="button" class="btn btn-primary" on:click={()=> setSelection(obj)}>Edit </button>
+                        <button type="button" id="button" class="btn btn-primary" >Edit </button>
                     </div>
                 </div>
             </a>
@@ -43,3 +42,12 @@ import Template from "./Template.svelte"; "./index.svelte";
     </body>
 
 </html>
+
+
+<style>
+    .moped{
+        /* mit dieser syntax könnt ihr css variablen benutzen */
+        background: var(--channel-primary);
+        color: var(--channel-on-primary);
+    }
+</style>
