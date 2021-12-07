@@ -35,7 +35,7 @@ export function ThreatLevel(name: string, color: string){
 
 
 // Message Attribute
-export const messageAttributeSchema = new Schema({
+export const messageAttributeSchema = {
     key: {type: String, required: true},
     type: {type: String, required: true}, //Attributes with name 'type' have to be written like this because type is a mongoose keyword.
     selectOptions: {type: Mixed},
@@ -43,12 +43,12 @@ export const messageAttributeSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Template'
     }]
-})
-export const MessageAttribute = mongoose.model('MessageAttribute', messageAttributeSchema); 
+}
+// export const MessageAttribute = mongoose.model('MessageAttribute', messageAttributeSchema); 
 
 
 // Configuration
-export const configurationSchema = new Schema({
+export const configurationSchema = {
     name: {type: String, required: true},
     replyEmail: {type: String, required: true},
     logo: Buffer, //Buffer is used for Binary data like blob
@@ -59,12 +59,12 @@ export const configurationSchema = new Schema({
     threatTypes: [threatTypeSchema],
     threatLevels: [threatLevelSchema],
     messageAttributes: [messageAttributeSchema], 
-})
-export const Configuration = mongoose.model('Configuration', configurationSchema);
+}
+// export const Configuration = mongoose.model('Configuration', configurationSchema);
 
 
 // Default Configuration
-export const defaultConfiguration = new Configuration({
+export const defaultConfiguration = {
     name: 'Default Cert',
     replyEmail: 'defaultreplyemail@gmail.com',
     // no logo 
@@ -101,4 +101,4 @@ export const defaultConfiguration = new Configuration({
 
     ]
 
-})
+}

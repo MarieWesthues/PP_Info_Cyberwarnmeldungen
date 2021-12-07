@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const {Mixed, ObjectId} = Schema.Types;
 
 
-export const channelSchema = new Schema({
+export const channelSchema = {
     name: {type: String, required: true},
     colors: {
         primary: String,
@@ -13,12 +13,12 @@ export const channelSchema = new Schema({
     logo: String, //link to logo 
     messageFormat: {type: String, required: true},
     authenticated: {type: Boolean, required: true}
-})
+}
 
-export const Channel = mongoose.model('Channel', channelSchema);
+// export const Channel = mongoose.model('Channel', channelSchema);
 
 
-const discord = new Channel({
+const discord = {
     name: 'Discord',
     colors: {
         primary: '#5865F2',
@@ -27,9 +27,9 @@ const discord = new Channel({
     logo: 'https://discord.com/assets/145dc557845548a36a82337912ca3ac5.svg',
     messageFormat: 'json',
     authenticated: false,
-})
+}
 
-const email = new Channel({
+const email = {
     name: 'Email',
     colors: {
         primary: 'red',
@@ -38,9 +38,9 @@ const email = new Channel({
     // no logo yet
     messageFormat: 'html',
     authenticated: true,
-})
+}
 
-const reddit = new Channel({
+const reddit = {
     name: 'Reddit',
     colors: {
         primary: '#FF5700',
@@ -49,9 +49,9 @@ const reddit = new Channel({
     // no logo yet
     messageFormat: 'md',
     authenticated: true,
-})
+}
 
-const twitter = new Channel({
+const twitter = {
     name: 'Twitter',
     colors: {
         primary: '#1DA1F2',
@@ -59,6 +59,6 @@ const twitter = new Channel({
     },
     messageFormat: 'txt',
     authenticated: true,
-})
+}
 
 export const defaultChannels = [email, reddit, twitter];
