@@ -16,27 +16,24 @@
         const urly = `http://localhost:3000/api/configuration`
         const configuration = await fetch(urly).then(res => res.json())
 
-        if (page.params.alert_id == 'new') {
-            return {
-                props: {
-                    alert: new EmptyAlert(configuration),
-                    configuration
-                }
-            }
-        }
+        const groupsUrl = 'http://localhost:3000/api/groups';
+        const groups = await fetch(groupsUrl).then(res => res.json());
+
+        const channelsUrl = 'http://localhost:3000/api/channels';
+        const channels = await fetch(channelsUrl).then(res => res.json());
 
         const url = `/api/alerts/${page.params.alert_id}`;
-        const res = await fetch(url)
-        const alert = await res.json()
+        const alert = page.params.alert_id === 'new' ? new EmptyAlert(configuration) : await fetch(url).then(res => res.json()); 
 
-        if (res.ok){
-            return {
-                props: {
-                    alert,
-                    configuration
-                }
+        return {
+            props: {
+                alert,
+                configuration,
+                groups,
+                channels
             }
         }
+
     }
 </script>
 
@@ -45,17 +42,17 @@
 
 <script>
 
-
-    import InputFactory from "./InputFactory.svelte";
     import Select from "$lib/components/Select.svelte";
-    import Option from "$lib/components/Option.svelte";
 import Checkbox from "$lib/components/Checkbox.svelte";
 import MultiSelect from "$lib/components/MultiSelect.svelte";
+import Subscriber from "../subscribers/Subscriber.svelte";
     export let alert;
     export let configuration;
-    console.log(alert, configuration);
+    export let groups;
+    export let channels;
+    console.log(alert, configuration, groups, channels);
     // destructure static props
-    let {title, threatLevel, threatType, intern} = alert;
+    let {title, threatLevel, threatType, intern, selectedChannels} = alert;
 
     
     function setAttribute(key, value){
@@ -63,14 +60,8 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
         console.log(alert);
     }
 
-    function handleDelete(){
-
-    }
-    function handleSave(){
-
-    }
-    function handleSubmit(){
-
+    function saveAlert(){
+        
     }
 </script>
 
@@ -116,3 +107,19 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
         />
     {/if}
 {/each}
+
+<h1>Groups</h1>
+<MultiSelect
+    title="Groups"
+    bind:values={alert.selectedGroups}
+    options={groups.map(g => ({value: g._id, label: g.name}))}/>
+
+<h1>Channels</h1>
+<MultiSelect 
+    title="Channels"
+    bind:values={alert.selectedChannels}
+    options={channels.map(c => ({value: c._id, label: c.name}))}/>
+
+<button>Delete</button>
+<button on:click={saveAlert}>Save</button>
+<button  >Send</button>
