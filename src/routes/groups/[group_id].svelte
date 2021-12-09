@@ -1,6 +1,45 @@
+<script context="module">
+    function EmptyGroup(){
+            this.name= "";
+            
+    }
+
+    export async function load({page}){
+
+        const groupsUrl = `http://localhost:3000/api/groups`
+        const groups = await fetch(groupsUrl).then(res => res.json())
+
+        const url = `http://localhost:3000/api/groups/${page.params.group_id}`;
+
+        const group = page.params.group_id === 'new' ? new EmptyGroup() : await fetch(url).then(res => res.json())
+
+
+            return {
+                props: {
+                    groups
+                }
+            }
+
+    }
+</script>
 <script>
 
-function saveGroup() {
+    import axios from "axios";
+    import MultiSelect from "$lib/components/MultiSelect.svelte";
+
+    export let group 
+    // man kann keinen attribute eines objekts binden. Deshalb müsssen attribute welche gebunden werden sollen destructured werden.
+
+    
+    console.log(group);
+
+    function saveGroup(){
+        if (group._id) {
+            axios.put(`http://localhost:3000/api/subscribers/${group._id}`,group)
+        }else{
+            // validation fehlt noch
+            axios.post('http://localhost:3000/api/groups', group)  
+        }
         
     }
 
@@ -35,6 +74,7 @@ function saveGroup() {
             Save Group
         </button>
     </p>
+
     
 </main>
 

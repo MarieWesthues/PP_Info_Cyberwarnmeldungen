@@ -28,10 +28,6 @@
 </div>
 
 <style>
-    .input-group{
-      width: 45%;
-      margin: 0 auto;
-    }
     
     .card {
         width: 45%;
