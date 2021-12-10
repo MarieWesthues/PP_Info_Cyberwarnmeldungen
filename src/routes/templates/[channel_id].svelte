@@ -1,8 +1,10 @@
  <script context="module" lang="ts">
     
         
+        
         export async function load({fetch, page}){
-            const url = `/api/templates/${page.params.channel_id}`;
+            console.log("channel", page.params.channel_id);
+            const url = 'http://localhost:3000/api/templates?' + new URLSearchParams({channel: page.params.channel_id})
             const res = await fetch(url)
             const templates = await res.json()
             
@@ -29,9 +31,12 @@
   } from 'sveltestrap';
 
 
-  export let templates ({}){
-      const defaultTemplate = Array.reduce()
-  }
+export let templates;
+console.log(templates);
+
+//   export let templates ({}){
+//       const defaultTemplate = Array.reduce()
+//   }
 //   export let templates;
 // const defaultTemplate = ? 
 // default template ist selected und matcht keinen type oder level (maybe use array.reduce)
