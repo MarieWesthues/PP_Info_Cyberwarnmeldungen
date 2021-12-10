@@ -22,6 +22,7 @@
 
 
 <script lang="ts">
+    import Template from './Template.svelte';
     import { Col, Container, Row } from 'sveltestrap';
     import {
     ButtonDropdown,
@@ -43,6 +44,8 @@ console.log(templates);
 
 // const usedTemplates = (maybe use array.filter)
 // const unusedTemplates
+const usedTemplates = [{name: "moin"}, {name: "sheeesh"}]
+let selectedTemplate = usedTemplates[0]
 </script>
 
 
@@ -50,10 +53,21 @@ console.log(templates);
 
 
 <!-- 2. iterate over usedtemplates -->
-<!-- {#each usedTemplates as template}
-    <Template {template} selected={selectedTemplate === template} on:click={selectedTemplate = template }></Template>
-{/each} -->
+<div class="moped">
+    {#each usedTemplates as template}
+    <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
+{/each}
+</div>
+<style>
+    .moped{
+        margin-top: 100px;
+    }
+</style>
 
+
+<div>
+    preview : {selectedTemplate.name}
+</div>
 <!-- 3. iterate over unused templates -->
 
 
@@ -65,7 +79,7 @@ console.log(templates);
 
 
 
-
+<!-- 
 
 <div class="form-outline">
     <input type="search" id="form1" class="form-control" placeholder="... search"
@@ -183,4 +197,4 @@ console.log(templates);
                   </div>
             </div>
         </div>
-    </div>
+    </div> -->
