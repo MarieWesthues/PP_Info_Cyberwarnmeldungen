@@ -5,7 +5,7 @@
         this.threatLevel = null;
         this.threatType = null;
         this.intern = null;
-        this.messageAttributes = Object.fromEntries(configuration.messageAttributes.map(attr => [attr.key, null]));
+        this.attributes = Object.fromEntries(configuration.messageAttributes.map(attr => [attr.key, null]));
         this.selectedChannels = [];
         this.selectedGroups = [];
     }
@@ -22,9 +22,11 @@
         const channelsUrl = 'http://localhost:3000/api/channels';
         const channels = await fetch(channelsUrl).then(res => res.json());
 
-        const url = `/api/alerts/${page.params.alert_id}`;
+        const url = `http://localhost:3000/api/alerts/${page.params.alert_id}`;
         const alert = page.params.alert_id === 'new' ? new EmptyAlert(configuration) : await fetch(url).then(res => res.json()); 
-
+        
+        console.log("soooos", page.params.alert_id);
+        console.log('backend', alert);
         return {
             props: {
                 alert,
@@ -41,67 +43,72 @@
 
 
 <script>
-
     import Select from "$lib/components/Select.svelte";
-import Checkbox from "$lib/components/Checkbox.svelte";
-import MultiSelect from "$lib/components/MultiSelect.svelte";
-import Subscriber from "../subscribers/Subscriber.svelte";
+    import Checkbox from "$lib/components/Checkbox.svelte";
+    import MultiSelect from "$lib/components/MultiSelect.svelte";
+    import Subscriber from "../subscribers/Subscriber.svelte";
+    import axios from "axios";
     export let alert;
     export let configuration;
     export let groups;
     export let channels;
-    console.log(alert, configuration, groups, channels);
+    // console.log(alert, configuration, groups, channels);
     // destructure static props
-    let {title, threatLevel, threatType, intern, selectedChannels} = alert;
 
+    console.log("alert", alert);
     
     function setAttribute(key, value){
-        alert.messageAttributes[key] = value;
-        console.log(alert);
+        alert.attributes[key] = value;
     }
 
     function saveAlert(){
-        
+        //no validation! ...meh who cares?
+        if (alert._id) {
+            axios.put(`http://localhost:3000/api/alerts/${alert._id}`, alert)
+        }else{
+            // create new alert
+            axios.post('http://localhost:3000/api/alerts', alert)
+        }
     }
 </script>
 
 
 <h1>Static Props</h1>
 <h3>Threat Name</h3>
-<input bind:value={title}>
+<input bind:value={alert.title}>
 
 <!-- Threat Type -->
 <h3>Threat Type Selection</h3>
 <Select 
-    bind:value={threatType} 
+    bind:value={alert.threatType} 
     title="Threat Type" 
     options={configuration.threatTypes.map(t => ({label: t.name, value: t._id}))}
 />
 <!-- Threat Level -->
 <h3>Threat Level Selection</h3>
 <Select
-    bind:value={threatLevel}
+    bind:value={alert.threatLevel}
      title="Threat Level"
      options={configuration.threatLevels.map(t => ({label: t.name, value: t._id}))}
 />
 <h3>Intern</h3>
-
+<input type="checkbox" bind:checked={alert.intern}>
 
 <h1>Message Attributes</h1>
 {#each configuration.messageAttributes as attr}
     {#if attr.type === 'BOOLEAN'}
         <div>{attr.key}</div>
-        <Checkbox value={alert.messageAttributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
+        <Checkbox value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
     {:else if attr.type === 'SELECT'}
         <Select 
             title={attr.key}
-            value={alert.messageAttributes[attr.key]} 
+            value={alert.attributes[attr.key]} 
             on:change={({detail})=> setAttribute(attr.key, detail)} 
             options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}/>
     {:else if attr.type === 'MULTISELECT'}
         <MultiSelect
             title={attr.key}
-            values={alert.messageAttributes[attr.key] || []}
+            values={alert.attributes[attr.key] || []}
             on:change={({detail})=> setAttribute(attr.key, detail)}
             options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}
         />
