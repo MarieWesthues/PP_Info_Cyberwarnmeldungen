@@ -30,8 +30,7 @@
     export let group 
     // man kann keinen attribute eines objekts binden. Deshalb müsssen attribute welche gebunden werden sollen destructured werden.
 
-    
-    console.log(group);
+
 
     function saveGroup(){
         if (group._id) {

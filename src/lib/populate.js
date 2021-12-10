@@ -14,7 +14,7 @@ export default function populateTemplate(templateObject, messageObject){
     attributes.title = messageObject.threatType;
 
     const populated = templateObject.templateString.replace(/\${(.*?)}/g, (match, content)=> {
-        // console.log(content);
+
         return attributes[content]
     })
     

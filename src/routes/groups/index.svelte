@@ -17,7 +17,6 @@
     import Groups from "./Groups.svelte";
     
     export let groups;
-    console.log(groups);
 </script>
 
 <main>

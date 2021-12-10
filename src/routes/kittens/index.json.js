@@ -9,7 +9,6 @@ export async function post(request) {
 
         const res = await cat.save()
 
-        console.log(res);
 
 		return {
 			body: {

@@ -19,7 +19,6 @@ export async function post(request) {
 
 
     const defaultTemplates = createDefaultTemplates(certDocument.id)
-    // console.log(defaultTemplates);
     Template.insertMany(defaultTemplates)
 
 

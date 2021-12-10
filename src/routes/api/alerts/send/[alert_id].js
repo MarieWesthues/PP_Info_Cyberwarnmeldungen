@@ -43,7 +43,6 @@ export async function post(request) {
 
     // make alert persistend
 
-    // console.log(template);
      return {
          body: {
              mkay: "mkay"

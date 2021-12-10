@@ -5,8 +5,6 @@ import Snoowrap from 'snoowrap';
 // require('dotenv').config()
 
 
-// console.log(process.env['REDDIT_USER_AGENT']);
-
 const r = new Snoowrap({
     userAgent: process.env['REDDIT_USER_AGENT'],
     clientId: process.env['REDDIT_CLIENT_ID'],

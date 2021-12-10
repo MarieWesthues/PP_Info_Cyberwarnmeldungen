@@ -25,7 +25,7 @@ import Subscriber from "./Subscriber.svelte";
 
 
 export let subscribers;
-console.log(subscribers);
+
  
 </script>
 

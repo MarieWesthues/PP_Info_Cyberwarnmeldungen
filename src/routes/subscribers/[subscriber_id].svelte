@@ -36,7 +36,7 @@
 
     export let groups;
 
-    console.log(subscriber);
+
 
     function saveSubscriber(){
         if (subscriber._id) {

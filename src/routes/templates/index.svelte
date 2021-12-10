@@ -7,7 +7,6 @@ import Template from "./Template.svelte"; "./index.svelte";
         const url = '/api/channels';
         const res = await fetch(url)
         const channels = await res.json()
-        console.log(channels);
         
         if (res.ok){
             return {

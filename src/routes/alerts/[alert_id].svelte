@@ -25,8 +25,6 @@
         const url = `http://localhost:3000/api/alerts/${page.params.alert_id}`;
         const alert = page.params.alert_id === 'new' ? new EmptyAlert(configuration) : await fetch(url).then(res => res.json()); 
         
-        console.log("soooos", page.params.alert_id);
-        console.log('backend', alert);
         return {
             props: {
                 alert,
@@ -52,10 +50,6 @@
     export let configuration;
     export let groups;
     export let channels;
-    // console.log(alert, configuration, groups, channels);
-    // destructure static props
-
-    console.log("alert", alert);
     
     function setAttribute(key, value){
         alert.attributes[key] = value;
