@@ -4,11 +4,10 @@ import {PendingAlert} from '$lib/mongoose/model/alert';
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function put(request) {
        const {id} = request.params;
-       let pendingAlert = await PendingAlert.findById(id).update(request.body)
-       let temp = await PendingAlert.findById(id)
-       
+
+       const updatedAlert = await PendingAlert.findOneAndUpdate({_id: id}, request.body, {new: true})
        return {
-           body: temp
+           body: updatedAlert
        }
    }
 
@@ -28,7 +27,7 @@ export async function del(request) {
 export async function get(request) {
     const {id} = request.params;
 
-    let pendingAlert = await PendingAlert.find(request.body).exec()
+    let pendingAlert = await PendingAlert.findById(id).exec()
 
 
     if (pendingAlert){
