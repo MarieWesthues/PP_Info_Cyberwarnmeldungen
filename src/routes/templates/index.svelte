@@ -29,11 +29,11 @@ import Template from "./Template.svelte"; "./index.svelte";
         {#each channels as channel}
             <!-- mit "--name:value" könnt ihr css variablen setzen.  -->
             <a href="templates/{channel.name}" style="--channel-primary:{channel.colors.primary}; --channel-on-primary:{channel.colors.onPrimary}">
-                <div class="moped rounded d-flex justify-content-between p-3 m-5 "> 
+                <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
                     <div class= "text-light">{channel.name}</div>
-                    <div>
-                        <button type="button" id="button" class="btn btn-primary" >Edit </button>
-                    </div>
+                    <!--<div>
+                        <button type="button" id="button" class="btn btn-primary" > </button>
+                    </div>-->
                 </div>
             </a>
         {/each}
@@ -44,9 +44,15 @@ import Template from "./Template.svelte"; "./index.svelte";
 
 
 <style>
-    .moped{
+    .box{
         /* mit dieser syntax könnt ihr css variablen benutzen */
         background: var(--channel-primary);
         color: var(--channel-on-primary);
+        width: 40vw;
+        height: 8vh;
+        align-items: center;
+        /*margin: auto;
+        display: flex;
+        -Container werden nicht zentriert dargestellt */
     }
 </style>

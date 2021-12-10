@@ -1,4 +1,4 @@
-<!-- <script context="module" lang="ts">
+ <script context="module" lang="ts">
     
         
         export async function load({fetch, page}){
@@ -15,7 +15,7 @@
             }
         }
         
-</script> -->
+</script> 
 
 
 
@@ -29,6 +29,9 @@
   } from 'sveltestrap';
 
 
+  export let templates ({}){
+      const defaultTemplate = Array.reduce()
+  }
 //   export let templates;
 // const defaultTemplate = ? 
 // default template ist selected und matcht keinen type oder level (maybe use array.reduce)
