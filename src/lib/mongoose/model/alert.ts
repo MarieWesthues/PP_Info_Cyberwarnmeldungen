@@ -54,7 +54,7 @@ export const pendingAlertSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Channel'
     }],
-    attributes: [alertAttributeSchema]
+    attributes: Mixed 
 })
 export const PendingAlert = mongoose.model('PendingAlert', pendingAlertSchema);
 
