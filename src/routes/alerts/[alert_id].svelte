@@ -55,14 +55,18 @@
         alert.attributes[key] = value;
     }
 
-    function saveAlert(){
+    async function saveAlert(){
         //no validation! ...meh who cares?
         if (alert._id) {
             axios.put(`http://localhost:3000/api/alerts/${alert._id}`, alert)
         }else{
             // create new alert
-            axios.post('http://localhost:3000/api/alerts', alert)
+            alert = await axios.post('http://localhost:3000/api/alerts', alert).then(res => res.data)
         }
+    }
+
+    function sendAlert(){
+        axios.post(`http://localhost:3000/api/alerts/send/${alert._id}`)
     }
 </script>
 
@@ -76,14 +80,14 @@
 <Select 
     bind:value={alert.threatType} 
     title="Threat Type" 
-    options={configuration.threatTypes.map(t => ({label: t.name, value: t._id}))}
+    options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}
 />
 <!-- Threat Level -->
 <h3>Threat Level Selection</h3>
 <Select
     bind:value={alert.threatLevel}
      title="Threat Level"
-     options={configuration.threatLevels.map(t => ({label: t.name, value: t._id}))}
+     options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
 />
 <h3>Intern</h3>
 <input type="checkbox" bind:checked={alert.intern}>
@@ -119,8 +123,8 @@
 <MultiSelect 
     title="Channels"
     bind:values={alert.selectedChannels}
-    options={channels.map(c => ({value: c._id, label: c.name}))}/>
+    options={channels.map(c => ({value: c.name, label: c.name}))}/>
 
 <button>Delete</button>
 <button on:click={saveAlert}>Save</button>
-<button  >Send</button>
+<button on:click={sendAlert} >Send</button>
