@@ -50,10 +50,11 @@ export const pendingAlertSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Group'
     }],
-    selectedChannels: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Channel'
-    }],
+    // selectedChannels: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Channel'
+    // }],
+    selectedChannels: [String],
     attributes: Mixed 
 })
 export const PendingAlert = mongoose.model('PendingAlert', pendingAlertSchema);
