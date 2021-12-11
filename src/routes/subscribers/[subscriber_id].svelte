@@ -47,6 +47,8 @@
         }
         
     }
+
+
 </script>
 
 
@@ -89,11 +91,13 @@
         </div>
     {/each} -->
 
+    
     <div>
         <button class="btn btn-outline-dark border-2" on:click={saveSubscriber}>
-            Save Changes
+            Save Subscriber
         </button>
     </div>
+    
 
 </main>
 

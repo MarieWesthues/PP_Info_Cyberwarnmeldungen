@@ -53,3 +53,11 @@ export let subscribers;
 </div>
 </main>
 
+<style>
+  .input-group
+  {
+    width:  45%;
+    margin: 0 auto;
+  }
+</style>
+
