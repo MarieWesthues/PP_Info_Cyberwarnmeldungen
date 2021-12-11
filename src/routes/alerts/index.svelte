@@ -24,6 +24,7 @@ export async function load({fetch}){
     // In dem alerst property kann man nun auf die API response zugreifen
     export let alerts;
     
+import NewButton from '$lib/components/NewButton.svelte';
     import {Button} from 'sveltestrap';
   
 
@@ -44,10 +45,12 @@ export async function load({fetch}){
             </div>
         {/each}
 
-                <a href="/alerts/new">
+        
+        <NewButton href="/alerts/new" />
+                <!-- <a href="/alerts/new">
                     <Button type="Button" class="btn btn-warning btn-rounded-circle">
                         +
-                    </Button></a>
+                    </Button></a> -->
             
         
           
