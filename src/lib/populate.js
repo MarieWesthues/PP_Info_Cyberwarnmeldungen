@@ -1,17 +1,17 @@
 
 
 
-export default function populateTemplate(templateObject, messageObject){
+export default function populateTemplate(templateObject, alert){
     // reduce list of key value pairs to actual key value pairs
-    const reducer = (acc, {key, value}) => {
-        acc[key] = value;
-        return acc;
-    }
-    const attributes = messageObject.attributes.reduce(reducer, {})
-
-    attributes.threatLevel = messageObject.threatLevel;
-    attributes.threatType = messageObject.threatType;
-    attributes.title = messageObject.threatType;
+    // const reducer = (acc, {key, value}) => {
+    //     acc[key] = value;
+    //     return acc;
+    // }
+    const attributes = alert.attributes;
+    
+    attributes.threatLevel = alert.threatLevel;
+    attributes.threatType = alert.threatType;
+    attributes.title = alert.threatType;
 
     const populated = templateObject.templateString.replace(/\${(.*?)}/g, (match, content)=> {
 
