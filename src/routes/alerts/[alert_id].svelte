@@ -125,6 +125,9 @@
     bind:values={alert.selectedChannels}
     options={channels.map(c => ({value: c.name, label: c.name}))}/>
 
-<button>Delete</button>
-<button on:click={saveAlert}>Save</button>
-<button on:click={sendAlert} >Send</button>
+    <div class="text-center">
+        <button type="button" class="btn btn-danger">Löschen</button>
+        <button type="button" class="btn btn-warning">Speichern</button>
+        <button type="button" class="btn btn-success">Submit</button>
+      </div>
+      
