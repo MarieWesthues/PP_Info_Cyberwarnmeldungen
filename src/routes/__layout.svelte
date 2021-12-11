@@ -10,10 +10,12 @@
 
 <Nav/>
 
-<slot></slot>
+<main class="content">
+    <slot></slot>
+</main>
+
 <style>
-
+    .content{
+        margin-top: 70px;
+    }
 </style>
-<!-- <style windi:preflights:global windi:safelist:global>
-
-</style> -->
