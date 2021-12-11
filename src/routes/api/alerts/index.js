@@ -19,9 +19,7 @@ export async function post(request) {
      const res = await pendingAlert.save()
 
      return {
-         body: {
-             res
-         }
+         body: res
      };
 }
 
