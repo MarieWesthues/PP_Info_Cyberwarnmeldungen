@@ -1,9 +1,11 @@
 <script context="module">
     export async function load({fetch}){
-        const url = '/api/groups';
+        const url = 'http://localhost:3000/api/groups';
         const res = await fetch(url)
         const groups = await res.json()
-    
+        
+        console.log(groups);
+
         if (res.ok){
             return {
                 props: {

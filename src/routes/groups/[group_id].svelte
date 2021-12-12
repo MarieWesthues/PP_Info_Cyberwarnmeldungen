@@ -60,7 +60,7 @@
 
     <div class="input-group input-group-sm mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Color</label>
-        <select class="form-select" id="inputGroupSelect01">
+        <select class="form-select" id="inputGroupSelect01" bind:value={group.color}>
           <option selected>Choose...</option>
           <option value="1">Blue</option>
           <option value="2">Green</option>

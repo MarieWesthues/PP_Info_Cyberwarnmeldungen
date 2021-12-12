@@ -6,9 +6,9 @@
 <div class="card">
     <h5 class="card-header fs-4">{group.name}</h5>
       <div class="card-body">
-        {#each group as group }
+        <!-- {#each group as group }
             <p class="card-text fw-light fs-6"><span class="border border-2 rounded-pill">Example Member</span></p>
-        {/each}
+        {/each} -->
         
         
         <div class="buttons text-end">
@@ -27,4 +27,4 @@
     }
     
     
-    </style>
+</style>
