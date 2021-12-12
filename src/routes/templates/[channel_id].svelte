@@ -43,27 +43,83 @@ console.log(templates);
 // default template ist selected und matcht keinen type oder level (maybe use array.reduce)
 
 // const usedTemplates = (maybe use array.filter)
-// const unusedTemplates
-const usedTemplates = [{name: "moin"}, {name: "sheeesh"}]
+
+const defaultTemplates = [{name: "moin"}]
+const usedTemplates = [{name: "moin"}]
 let selectedTemplate = usedTemplates[0]
+const unusedTemplates = [{name: "moin"}]
+
+
 </script>
 
 
 <!-- 1. display default template -->
-
-
-<!-- 2. iterate over usedtemplates -->
-<div class="moped">
-    {#each usedTemplates as template}
+<!--<div class="defaultTemplate">
+    {#each defaultTemplates as template}
     <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
 {/each}
 </div>
 <style>
-    .moped{
+    .defaultTemplate{
+        margin-top: 100px;
+    }
+</style>-->
+<!--{#each channels as channel}
+            mit "--name:value" könnt ihr css variablen setzen.  
+            <a href="templates/{channel.name}" class = --channel:align-items-center style="--channel-primary:{channel.colors.primary}; --channel-primary:{channel.colors.primary}">
+                <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
+                    <div class= "text-light">{channel.name}</div>
+                    <div>
+                        <button type="button" id="button" class="btn btn-primary" > </button>
+                    </div>
+                </div>
+            </a>
+        {/each} 
+
+
+ 2. iterate over usedtemplates -->
+ <div class="defaultTemplate">
+    {#each defaultTemplates as template}
+        <Template {template} selected={selectedTemplate == template} on:click={()=>selectedTemplate = template}></Template>
+            <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
+                <div class= "text-light">{template.name}</div>
+                </div>
+{/each}
+</div>
+
+<div class="usedTemplate">
+    {#each usedTemplates as templates }
+    <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
+        <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
+            <div class= "text-light">{usedTemplates.name}</div>
+            </div>
+{/each}
+</div>
+
+<div class="unusedTemplate">
+    {#each templates as unusedTemplates}
+        <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
+            <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
+                <div class= "text-light">{unusedTemplates.name}</div>
+                </div>
+{/each}
+</div>
+
+
+
+<style>
+    .defaultTemplate{
+        margin-top: 100px;
+        color: secondary;
+        background-color: primary;
+    }
+    .usedTemplate{
+        margin-top: 100px;
+    }
+    .unusedTemplate{
         margin-top: 100px;
     }
 </style>
-
 
 <div>
     preview : {selectedTemplate.name}
@@ -114,15 +170,15 @@ let selectedTemplate = usedTemplates[0]
                 <p></p>
                 <h1 class="text-secondary">Templates</h1>
                 <div class="col rounded overflow-auto p-4 bg-secondary vh-100 m-3 ml-5 mr-5">
-                    <h4 class="text-light">Default Tempalte</h4>
+                    <h4 class="text-light">Default Template</h4>
                     <div class="container">
                         <div class="text-center bg-light">
-                            <p>Twitter Default Tempalte 3</p>
+                            <p>Twitter Default Template 3</p>
                         </div>
                         
                     </div>
                     <p></p>
-                    <h4 class="text-light">Used Tempaltes</h4>
+                    <h4 class="text-light">Used Templates</h4>
                     <div class="container">
                         <div class="text-center bg-light">
                             <h6> Phishing Template</h6> 
