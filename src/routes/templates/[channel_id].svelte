@@ -44,11 +44,11 @@ console.log(templates);
 
 // const usedTemplates = (maybe use array.filter)
 
-const defaultTemplate = {name: "moin"}
-const usedTemplates = [{name: "moin"}]
-let selectedTemplate = usedTemplates[0]
-const unusedTemplates = [{name: "moin"}]
-
+const defaultTemplate = templates.filter(t=> t.used && t.matches.type === "" && t.matches.level === "")[0]
+// const usedTemplates = templates.filter(t => t.used && (t.matches.type != "" || t.matches.level != ""))
+let selectedTemplate = defaultTemplate
+const unusedTemplates = templates.filter(t => ! t.used)
+const usedTemplates = [...unusedTemplates]
 
 </script>
 

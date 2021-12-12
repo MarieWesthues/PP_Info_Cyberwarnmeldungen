@@ -26,17 +26,20 @@ import Template from "./Template.svelte"; "./index.svelte";
 <!--<html lang="en">
     <body> -->
         
-        {#each channels as channel}
-            <!-- mit "--name:value" könnt ihr css variablen setzen.  -->
-            <a href="templates/{channel.name}" class = --channel:align-items-center style="--channel-primary:{channel.colors.primary}; --channel-primary:{channel.colors.primary}">
-                <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
-                    <div class= "text-light">{channel.name}</div>
-                    <!--<div>
-                        <button type="button" id="button" class="btn btn-primary" > </button>
-                    </div>-->
-                </div>
-            </a>
-        {/each}
+        <div class="moped">
+            {#each channels as channel}
+                <!-- mit "--name:value" könnt ihr css variablen setzen.  -->
+                <a href="templates/{channel.name}" class = --channel:align-items-center style="--channel-primary:{channel.colors.primary}; --channel-primary:{channel.colors.primary}">
+            
+                        
+                    <div class="box">
+                        <div class= "text-dark">{channel.name}</div>
+                    </div>
+                 
+                </a>
+                
+            {/each}
+        </div>
     
    <!-- </body>
 
@@ -44,12 +47,18 @@ import Template from "./Template.svelte"; "./index.svelte";
 
 
 <style>
+    .moped{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     .box{
         /* mit dieser syntax könnt ihr css variablen benutzen */
         background: var(--channel-primary);
         color: var(--channel-on-primary);
-        width: 40vw;
-        height: 8vh;
+        width: 500px;
+        min-height: 10rem;
         align-items: center;
 
         /*margin: auto;
