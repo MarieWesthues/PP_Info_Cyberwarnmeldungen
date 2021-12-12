@@ -70,6 +70,7 @@
     }
 </script>
 
+<main class="text-center">
 
 <h1>Static Props</h1>
 <h3>Threat Name</h3>
@@ -84,7 +85,7 @@
 />
 <!-- Threat Level -->
 <h3>Threat Level Selection</h3>
-<Select
+<Select 
     bind:value={alert.threatLevel}
      title="Threat Level"
      options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
@@ -130,4 +131,4 @@
         <button type="button" class="btn btn-warning">Speichern</button>
         <button type="button" class="btn btn-success">Submit</button>
       </div>
-      
+    </main>
