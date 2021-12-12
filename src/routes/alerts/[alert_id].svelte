@@ -64,7 +64,7 @@
             alert = await axios.post('http://localhost:3000/api/alerts', alert).then(res => res.data)
         }
     }
-
+    
     function sendAlert(){
         axios.post(`http://localhost:3000/api/alerts/send/${alert._id}`)
     }
@@ -128,7 +128,7 @@
 
     <div class="text-center">
         <button type="button" class="btn btn-danger">Löschen</button>
-        <button type="button" class="btn btn-warning">Speichern</button>
-        <button type="button" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-warning" on:click={saveAlert}>Speichern</button>
+        <button type="button" class="btn btn-success" on:click={sendAlert}>Submit</button>
       </div>
     </main>
