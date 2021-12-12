@@ -8,22 +8,12 @@
 
 </script>
 
-<div on:click>
+<div on:click class="moped">
     <div class="">
-        greeting = {template.name}
+        name = {template.name}
     </div>
     
-    <!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6">
-                Container Left
-            </div>
-            <div class="col-lg-6">
-                Container Right
-            </div>
-        </div>
-    </div> -->
-    
+
     {#if selected}
         I bims selected
     {/if}
@@ -31,7 +21,8 @@
 
 <style>
 
-    .container-fluid{
-        background-color: gray;
+    .moped{
+        background: lightgrey;
+        border: 1px solid black;
     }
 </style>

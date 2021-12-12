@@ -23,12 +23,12 @@ import Template from "./Template.svelte"; "./index.svelte";
     export let channels;
 </script>
 
-<html lang="en">
-    <body>
+<!--<html lang="en">
+    <body> -->
         
         {#each channels as channel}
             <!-- mit "--name:value" könnt ihr css variablen setzen.  -->
-            <a href="templates/{channel.name}" style="--channel-primary:{channel.colors.primary}; --channel-on-primary:{channel.colors.onPrimary}">
+            <a href="templates/{channel.name}" class = --channel:align-items-center style="--channel-primary:{channel.colors.primary}; --channel-primary:{channel.colors.primary}">
                 <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
                     <div class= "text-light">{channel.name}</div>
                     <!--<div>
@@ -38,9 +38,9 @@ import Template from "./Template.svelte"; "./index.svelte";
             </a>
         {/each}
     
-    </body>
+   <!-- </body>
 
-</html>
+</html> -->
 
 
 <style>
@@ -51,6 +51,7 @@ import Template from "./Template.svelte"; "./index.svelte";
         width: 40vw;
         height: 8vh;
         align-items: center;
+
         /*margin: auto;
         display: flex;
         -Container werden nicht zentriert dargestellt */
