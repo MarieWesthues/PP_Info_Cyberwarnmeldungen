@@ -8,20 +8,20 @@
 
 </script>
 
-<div on:click class="moped">
+<div on:click class="frame">
     <div class="">
-        name = {template.name}
+        Channel = {template.name}
     </div>
-    
+
 
     {#if selected}
-        I bims selected
+        
     {/if}
 </div>
 
 <style>
 
-    .moped{
+    .frame{
         background: lightgrey;
         border: 1px solid black;
     }
