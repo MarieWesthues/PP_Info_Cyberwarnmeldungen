@@ -44,7 +44,7 @@ console.log(templates);
 
 // const usedTemplates = (maybe use array.filter)
 
-const defaultTemplates = [{name: "moin"}]
+const defaultTemplate = {name: "moin"}
 const usedTemplates = [{name: "moin"}]
 let selectedTemplate = usedTemplates[0]
 const unusedTemplates = [{name: "moin"}]
@@ -78,34 +78,37 @@ const unusedTemplates = [{name: "moin"}]
 
 
  2. iterate over usedtemplates -->
- <div class="defaultTemplate">
-    {#each defaultTemplates as template}
-        <Template {template} selected={selectedTemplate == template} on:click={()=>selectedTemplate = template}></Template>
-            <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
-                <div class= "text-light">{template.name}</div>
-                </div>
-{/each}
-</div>
-
-<div class="usedTemplate">
-    {#each usedTemplates as templates }
-    <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
-        <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
-            <div class= "text-light">{usedTemplates.name}</div>
+<div class="d-flex">
+    <div class="w-50">
+        <div class="defaultTemplate">
+    
+            <Template template={defaultTemplate} selected={selectedTemplate == defaultTemplate} on:click={()=>selectedTemplate = defaultTemplate}></Template>
+            
             </div>
-{/each}
+            
+            <div class="usedTemplate">
+                {#each usedTemplates as template }
+                <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
+                    <!-- <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
+                        <div class= "text-light">{template.name}</div>
+                        </div> -->
+            {/each}
+            </div>
+            
+            <div class="unusedTemplate">
+                {#each unusedTemplates as template}
+                    <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
+                        <!-- <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
+                            <div class= "text-light">{template.name}</div>
+                            </div> -->
+            {/each}
+            </div>
+     </div>
+    
+    <div class="w-50">
+        preview : {selectedTemplate.name}
+    </div>
 </div>
-
-<div class="unusedTemplate">
-    {#each templates as unusedTemplates}
-        <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
-            <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
-                <div class= "text-light">{unusedTemplates.name}</div>
-                </div>
-{/each}
-</div>
-
-
 
 <style>
     .defaultTemplate{
@@ -121,9 +124,7 @@ const unusedTemplates = [{name: "moin"}]
     }
 </style>
 
-<div>
-    preview : {selectedTemplate.name}
-</div>
+
 <!-- 3. iterate over unused templates -->
 
 
