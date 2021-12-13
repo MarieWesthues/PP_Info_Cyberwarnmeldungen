@@ -13,20 +13,24 @@
     export let options;
     // options must be array of type [{value:String, label: String}]
 
-    function changeHandler({detail}){
-        value = detail.value
+    function changeHandler(option){
+        value = option.value
         dispatch('change', value);
     }
 
 </script>
 
 
-<Dropdown>
-    <DropdownToggle caret>{title}</DropdownToggle>
-    <DropdownMenu>
+<Dropdown class="custom-dropdown">
+    <DropdownToggle class="custom-dropdown__toggle" caret>{value}</DropdownToggle>
+    <DropdownMenu class="custom-dropdown__menu">
         {#each options as option}
-            <Option {option} checked={value === option.value} on:change={changeHandler} />
+            <DropdownItem on:click={()=> changeHandler(option)}>
+                <input type=radio checked={value === option.value}> {option.label}
+            </DropdownItem>
         {/each}
+
     </DropdownMenu>
 </Dropdown>
+
 
