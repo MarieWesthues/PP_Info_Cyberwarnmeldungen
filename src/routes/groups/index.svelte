@@ -16,7 +16,8 @@
     }
 </script>
 <script>
-    import Groups from "./Groups.svelte";
+    import NewButton from "$lib/components/NewButton.svelte";
+import Groups from "./Groups.svelte";
     
     export let groups;
 </script>
@@ -37,12 +38,9 @@
             
         <p></p>
 
-        <div class="add text-center">
-            <a href="groups/new">
-                <button class="btn btn-outline-dark border-2">Add new Group</button>
-            </a>
-        </div>
+        
 </main>
+<NewButton href="/groups/new"/>
 
 <style>
 .input-group {
