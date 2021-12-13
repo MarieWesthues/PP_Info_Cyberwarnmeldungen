@@ -22,7 +22,7 @@
 
 <script>
 import Subscriber from "./Subscriber.svelte";
-
+import NewButton from "$lib/components/NewButton.svelte";
 
 export let subscribers;
 
@@ -46,11 +46,7 @@ export let subscribers;
 {/each}
 </div>
 
-<div class="add text-center">
-  <a href="subscribers/new">
-      <button class="btn btn-outline-dark border-2">Add new Subscriber</button>
-  </a>
-</div>
+<NewButton href="/subscribers/new"/>
 </main>
 
 <style>
