@@ -26,14 +26,14 @@ import Template from "./Template.svelte"; "./index.svelte";
 <!--<html lang="en">
     <body> -->
         
-        <div class="moped">
+        <div class="channel">
             {#each channels as channel}
                 <!-- mit "--name:value" könnt ihr css variablen setzen.  -->
                 <a href="templates/{channel.name}" class = --channel:align-items-center style="--channel-primary:{channel.colors.primary}; --channel-primary:{channel.colors.primary}">
             
                         
-                    <div class="box">
-                        <div class= "text-dark">{channel.name}</div>
+                    <div class="box justify-content-center p-5">
+                        <h3 class= "text-dark">{channel.name} </h3>
                     </div>
                  
                 </a>
@@ -47,19 +47,25 @@ import Template from "./Template.svelte"; "./index.svelte";
 
 
 <style>
-    .moped{
+    .channel{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        min-height: 5rem;
     }
     .box{
         /* mit dieser syntax könnt ihr css variablen benutzen */
         background: var(--channel-primary);
         color: var(--channel-on-primary);
-        width: 500px;
-        min-height: 10rem;
+        width: 300px;
+        min-height: 5rem;
         align-items: center;
+        text-align: center;
+        margin: 5px;
+        border-radius: 10px;
+        
+        
 
         /*margin: auto;
         display: flex;
