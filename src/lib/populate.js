@@ -1,5 +1,4 @@
-
-
+import { Group, Subscriber } from "./mongoose/model/subscriber";
 
 export default function populateTemplate(templateObject, alert){
     // reduce list of key value pairs to actual key value pairs
@@ -16,17 +15,20 @@ export default function populateTemplate(templateObject, alert){
     const populated = templateObject.templateString.replace(/\${(.*?)}/g, (match, content)=> {
 
         return attributes[content]
-    })
-    
+    }) 
     return populated;
- 
-
 }
 
-// for reference
+export function getGroupBySubscriber(name) {
+    return Group.findOne({name: name})
+    .populate('groups').exec((err,groups) => {
+        console.log("Populated Subscriber " + groups)
+    })
+}
 
-// function fillTemplate(str, obj){
-//     return str.replace(/\${(.+)}/g, (match, content)=> (
-//         objectPath.get(obj, content)
-//     ))
-// } 
+export function getSubByGroup(name) {
+    return Subscriber.findOne({name: name})
+    .populate('subscribers').exec((err,subscribers) => {
+        console.log("Populated Subscriber " + subscribers)
+    })
+}

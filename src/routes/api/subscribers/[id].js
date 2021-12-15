@@ -30,12 +30,24 @@ export async function del(request) {
 export async function get(request) {
     const {id} = request.params;
 
-    let subscriber = await Subscriber.findById(id).exec()
-
+    let subscriber = await Subscriber.findById(id).populate('groups').exec()
     // no return is equal to 404
     if (subscriber){
         return {
             body: subscriber
         }
     }
+}
+
+
+/** @type {import('@sveltejs/kit').RequestHandler} */
+export async function post(request) {
+    // Find Subsriber
+    const subscriber = await Subscriber.findById(request.params._id).lean();
+
+     return {
+         body: {
+             mkay: "mkay"
+         }
+     };
 }

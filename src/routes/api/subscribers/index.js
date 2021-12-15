@@ -1,5 +1,4 @@
 import {Subscriber} from '$lib/mongoose/model/subscriber';
-
 import { certIdStore } from '$lib/stores';
 import {get as getStoreValue} from 'svelte/store'
 
@@ -24,7 +23,7 @@ export async function post(request) {
 // GET api/subscriber (eine Liste von allen subscribern erhalten)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ params }) {
-    const subscribers = await Subscriber.find({})
+    const subscribers = await Subscriber.find({}).populate('groups').exec()
 
      return {
          body: subscribers
