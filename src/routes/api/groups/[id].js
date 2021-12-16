@@ -30,7 +30,7 @@ export async function del(request) {
 export async function get(request) {
     const {id} = request.params;
 
-    let group = await Group.findById(id).exec()
+    let group = await Group.findById(id).populate({path: 'subscribers' , model: 'Subscriber'}).exec()
 
     // no return is equal to 404
     if (group){

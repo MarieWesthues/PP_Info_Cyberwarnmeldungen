@@ -23,7 +23,7 @@ export async function post(request) {
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get(request) {
 
-    const groups = await Group.find(request.body).exec()
+    const groups = await Group.find(request.body).populate({path: 'subscribers' , model: 'Subscriber'}).exec()
 
      return {
          body: groups
