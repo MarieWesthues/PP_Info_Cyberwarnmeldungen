@@ -1,4 +1,7 @@
 <script context="module">
+    import SuccessAlert from "$lib/components/alertSuccess.svelte";
+    import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
+
 
     function EmptyAlert(configuration){
         this.title = null;
@@ -46,6 +49,7 @@
     import MultiSelect from "$lib/components/MultiSelect.svelte";
     import Subscriber from "../subscribers/Subscriber.svelte";
     import axios from "axios";
+import AlertSuccess from "$lib/components/alertSuccess.svelte";
     export let alert;
     export let configuration;
     export let groups;
@@ -59,31 +63,29 @@
         //no validation! ...meh who cares?
         if (alert._id) {
             axios.put(`http://localhost:3000/api/alerts/${alert._id}`, alert)
+            showSuccess()
         }else{
             // create new alert
             alert = await axios.post('http://localhost:3000/api/alerts', alert).then(res => res.data)
+            showSuccess()
         }
     }
     
-    function sendAlert(){
-        axios.post(`http://localhost:3000/api/alerts/send/${alert._id}`)
-    }
-    function showAlert(){
-        document.getElementById("save").style.display="block";
-        setTimeout(hideAlert, 3000); 
+    function showSuccess(){
+            document.getElementById("success").style.display="block";
+            setTimeout(hideSuccess, 3000); 
+        }
+    function showNoSuccess(){
+            document.getElementById("nosuccess").style.display="block";
+            setTimeout(hideNoSuccess, 3000); 
+        }
         
-    }
-    function hideAlert(){
-        document.getElementById("save").style.display="none";
+    function hideSuccess(){
+        document.getElementById("success").style.display="none";
     }
 
-    function showConfirm(){
-        document.getElementById("submit").style.display="block";
-        setTimeout(hideConfirm, 3000); 
-        
-    }
-    function hideConfirm(){
-        document.getElementById("submit").style.display="none";
+    function hideNoSuccess(){
+        document.getElementById("nosuccess").style.display="none";
     }
 
 </script>
@@ -146,11 +148,12 @@
 
     <div class="text-center">
         <button type="button" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-warning" on:click={saveAlert} on:click={showAlert}>Save</button>
-        <button type="button" class="btn btn-success" on:click={sendAlert} on:click={showConfirm}>Submit</button>
+        <button type="button" class="btn btn-warning" on:click={saveAlert} >Save</button>
+        <button type="button" class="btn btn-success" on:click={sendAlert} >Submit</button>
       </div>
-
-      <div id="save" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
+      <SuccessAlert> </SuccessAlert>
+      <NoSuccessAlert> </NoSuccessAlert>
+   <!--    <div id="save" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
         Alert saved successfully!
         <button type="button" class="btn-close" aria-label="Close" on:click={hideAlert}>
           </button>
@@ -160,5 +163,5 @@
         Alert successfully submitted!
         <button type="button" class="btn-close" aria-label="Close" on:click={hideConfirm}>
           </button>
-      </div>
+      </div>-->
     </main>

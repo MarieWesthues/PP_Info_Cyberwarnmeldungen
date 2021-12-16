@@ -1,4 +1,8 @@
 <script context="module">
+import SuccessAlert from "$lib/components/alertSuccess.svelte";
+import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
+
+
     function EmptySubscriber(){
             this.email= "";
             this.intern = false;
@@ -118,8 +122,10 @@
             Save Subscriber
         </button>
     </div>
+    <SuccessAlert> </SuccessAlert>
+    <NoSuccessAlert> </NoSuccessAlert>
 
-    <div id="success" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
+  <!--   <div id="success" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
         Changes successfully saved!
         <button type="button" class="btn-close" aria-label="Close" on:click={hideSuccess}>
           </button>
@@ -129,7 +135,7 @@
         Changes could not be saved!
         <button type="button" class="btn-close" aria-label="Close" on:click={hideNoSuccess}>
           </button>
-      </div>
+      </div>-->
     
 
 </main>

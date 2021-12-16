@@ -1,4 +1,7 @@
 <script context="module">
+import SuccessAlert from "$lib/components/alertSuccess.svelte";
+import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
+
     function EmptyGroup(){
             this.name= "";
             this.description="";
@@ -64,7 +67,6 @@
 
     
 </script>
-
 <main class="text-center">
 
     <h2>Add new Group</h2>
@@ -94,17 +96,8 @@
             Save Group
         </button>
     </p>
-    <div id="success" class="alert alert-success" role="alert" style="width: 300px ; display: none; position: fixed; right: 10px; top: 80px; ">
-        Changes successfully saved!
-        <button type="button" class="btn-close" aria-label="Close" on:click={hideSuccess}>
-          </button>
-      </div>
-
-      <div id="nosuccess" class="alert alert-danger" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
-        Changes could not be saved!
-        <button type="button" class="btn-close" aria-label="Close" on:click={hideNoSuccess}>
-          </button>
-      </div>
+      <SuccessAlert> </SuccessAlert>
+      <NoSuccessAlert> </NoSuccessAlert>
 
 </main>
 
