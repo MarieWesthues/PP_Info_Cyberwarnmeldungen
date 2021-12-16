@@ -21,21 +21,19 @@
             }
     }
    
-    function showAlert(bool){
-        if (bool==true) {
+    function showSuccess(){
             document.getElementById("success").style.display="block";
             setTimeout(hideSuccess, 3000); 
         }
-        else{
+    function showNoSuccess(){
             document.getElementById("nosuccess").style.display="block";
             setTimeout(hideNoSuccess, 3000); 
-            
         }
         
-    }
     function hideSuccess(){
-        document.getElementById("alert").style.display="none";
+        document.getElementById("success").style.display="none";
     }
+
     function hideNoSuccess(){
         document.getElementById("nosuccess").style.display="none";
     }
@@ -53,11 +51,12 @@
     function saveGroup(){
         if (group._id) {
             axios.put(`http://localhost:3000/api/groups/${group._id}`,group)
-            let bool=true
-            return(bool)
+            showSuccess()
+            
         }else{
             // validation fehlt noch
             axios.post('http://localhost:3000/api/groups', group)  
+            showNoSuccess()
             
         }
         
@@ -91,11 +90,11 @@
     </div>
 
     <p>
-        <button class="btn btn-outline-dark border-2" on:click={saveGroup} on:click={showAlert} >
+        <button class="btn btn-outline-dark border-2" on:click={saveGroup}>
             Save Group
         </button>
     </p>
-    <div id="success" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
+    <div id="success" class="alert alert-success" role="alert" style="width: 300px ; display: none; position: fixed; right: 10px; top: 80px; ">
         Changes successfully saved!
         <button type="button" class="btn-close" aria-label="Close" on:click={hideSuccess}>
           </button>

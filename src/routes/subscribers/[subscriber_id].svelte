@@ -44,16 +44,12 @@
             showSuccess()
         }
         else {
-            try{
             // validation fehlt noch
             axios.post('http://localhost:3000/api/subscribers', subscriber)  
-            showSuccess()
-            }
-            catch (createError) {
             showNoSuccess()
+            }
+           
         }
-        }
-    }
         
 
     function showSuccess(){
