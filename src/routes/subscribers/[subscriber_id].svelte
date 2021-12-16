@@ -39,29 +39,33 @@
 
 
     function saveSubscriber(){
-        if (subscriber._id) {
+            if (subscriber._id) {
             axios.put(`http://localhost:3000/api/subscribers/${subscriber._id}`,subscriber)
-            let bool=true
-            return(bool)
-        }else{
+            showSuccess()
+        }
+        else {
+            try{
             // validation fehlt noch
             axios.post('http://localhost:3000/api/subscribers', subscriber)  
+            showSuccess()
+            }
+            catch (createError) {
+            showNoSuccess()
         }
-        
+        }
     }
+        
 
-    function showAlert(bool){
-        if (bool==true){
+    function showSuccess(){
             document.getElementById("success").style.display="block";
-        setTimeout(hideSuccess, 3000); 
+            setTimeout(hideSuccess, 3000); 
         }
-        else{
-            document.getElementById("nosuccess").style.display="block";
-        setTimeout(hideSuccess, 3000); 
-        }
-       
         
-    }
+    function showNoSuccess(){
+            document.getElementById("nosuccess").style.display="block";
+            setTimeout(hideNoSuccess, 3000); 
+        }
+        
     function hideSuccess(){
         document.getElementById("success").style.display="none";
     }
@@ -69,8 +73,7 @@
     function hideNoSuccess(){
         document.getElementById("nosuccess").style.display="none";
     }
-
-
+    
 </script>
 
 
@@ -115,7 +118,7 @@
 
     
     <div>
-        <button class="btn btn-outline-dark border-2" on:click={saveSubscriber} on:click={showAlert}>
+        <button class="btn btn-outline-dark border-2" on:click={saveSubscriber}>
             Save Subscriber
         </button>
     </div>
