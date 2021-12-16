@@ -21,15 +21,24 @@
             }
     }
    
-    function showAlert(){
-        document.getElementById("alert").style.display="block";
-        setTimeout(hideAlert, 3000); 
+    function showAlert(bool){
+        if (bool==true) {
+            document.getElementById("success").style.display="block";
+            setTimeout(hideSuccess, 3000); 
+        }
+        else{
+            document.getElementById("nosuccess").style.display="block";
+            setTimeout(hideNoSuccess, 3000); 
+            
+        }
         
     }
-    function hideAlert(){
+    function hideSuccess(){
         document.getElementById("alert").style.display="none";
     }
-
+    function hideNoSuccess(){
+        document.getElementById("nosuccess").style.display="none";
+    }
 </script>
 <script>
 
@@ -44,9 +53,12 @@
     function saveGroup(){
         if (group._id) {
             axios.put(`http://localhost:3000/api/groups/${group._id}`,group)
+            let bool=true
+            return(bool)
         }else{
             // validation fehlt noch
             axios.post('http://localhost:3000/api/groups', group)  
+            
         }
         
     }
@@ -83,9 +95,15 @@
             Save Group
         </button>
     </p>
-    <div id="alert" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
+    <div id="success" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
         Changes successfully saved!
-        <button type="button" class="btn-close" aria-label="Close" on:click={hideAlert}>
+        <button type="button" class="btn-close" aria-label="Close" on:click={hideSuccess}>
+          </button>
+      </div>
+
+      <div id="nosuccess" class="alert alert-danger" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
+        Changes could not be saved!
+        <button type="button" class="btn-close" aria-label="Close" on:click={hideNoSuccess}>
           </button>
       </div>
 

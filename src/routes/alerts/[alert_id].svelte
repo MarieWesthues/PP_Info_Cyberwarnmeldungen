@@ -68,6 +68,24 @@
     function sendAlert(){
         axios.post(`http://localhost:3000/api/alerts/send/${alert._id}`)
     }
+    function showAlert(){
+        document.getElementById("save").style.display="block";
+        setTimeout(hideAlert, 3000); 
+        
+    }
+    function hideAlert(){
+        document.getElementById("save").style.display="none";
+    }
+
+    function showConfirm(){
+        document.getElementById("submit").style.display="block";
+        setTimeout(hideConfirm, 3000); 
+        
+    }
+    function hideConfirm(){
+        document.getElementById("submit").style.display="none";
+    }
+
 </script>
 
 <main class="text-center">
@@ -128,7 +146,19 @@
 
     <div class="text-center">
         <button type="button" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-warning" on:click={saveAlert}>Save</button>
-        <button type="button" class="btn btn-success" on:click={sendAlert}>Submit</button>
+        <button type="button" class="btn btn-warning" on:click={saveAlert} on:click={showAlert}>Save</button>
+        <button type="button" class="btn btn-success" on:click={sendAlert} on:click={showConfirm}>Submit</button>
+      </div>
+
+      <div id="save" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
+        Alert saved successfully!
+        <button type="button" class="btn-close" aria-label="Close" on:click={hideAlert}>
+          </button>
+      </div>
+
+      <div id="submit" class="alert alert-warning" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
+        Alert successfully submitted!
+        <button type="button" class="btn-close" aria-label="Close" on:click={hideConfirm}>
+          </button>
       </div>
     </main>

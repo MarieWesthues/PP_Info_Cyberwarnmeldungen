@@ -41,11 +41,33 @@
     function saveSubscriber(){
         if (subscriber._id) {
             axios.put(`http://localhost:3000/api/subscribers/${subscriber._id}`,subscriber)
+            let bool=true
+            return(bool)
         }else{
             // validation fehlt noch
             axios.post('http://localhost:3000/api/subscribers', subscriber)  
         }
         
+    }
+
+    function showAlert(bool){
+        if (bool==true){
+            document.getElementById("success").style.display="block";
+        setTimeout(hideSuccess, 3000); 
+        }
+        else{
+            document.getElementById("nosuccess").style.display="block";
+        setTimeout(hideSuccess, 3000); 
+        }
+       
+        
+    }
+    function hideSuccess(){
+        document.getElementById("success").style.display="none";
+    }
+
+    function hideNoSuccess(){
+        document.getElementById("nosuccess").style.display="none";
     }
 
 
@@ -93,10 +115,22 @@
 
     
     <div>
-        <button class="btn btn-outline-dark border-2" on:click={saveSubscriber}>
+        <button class="btn btn-outline-dark border-2" on:click={saveSubscriber} on:click={showAlert}>
             Save Subscriber
         </button>
     </div>
+
+    <div id="success" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
+        Changes successfully saved!
+        <button type="button" class="btn-close" aria-label="Close" on:click={hideSuccess}>
+          </button>
+      </div>
+
+      <div id="nosuccess" class="alert alert-danger" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
+        Changes could not be saved!
+        <button type="button" class="btn-close" aria-label="Close" on:click={hideNoSuccess}>
+          </button>
+      </div>
     
 
 </main>
