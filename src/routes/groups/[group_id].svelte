@@ -20,8 +20,11 @@
                 }
             }
     }
+   
     function showAlert(){
         document.getElementById("alert").style.display="block";
+        setTimeout(hideAlert, 3000); 
+        
     }
     function hideAlert(){
         document.getElementById("alert").style.display="none";
