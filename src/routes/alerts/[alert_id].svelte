@@ -127,8 +127,8 @@
     options={channels.map(c => ({value: c.name, label: c.name}))}/>
 
     <div class="text-center">
-        <button type="button" class="btn btn-danger">Löschen</button>
-        <button type="button" class="btn btn-warning" on:click={saveAlert}>Speichern</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-warning" on:click={saveAlert}>Save</button>
         <button type="button" class="btn btn-success" on:click={sendAlert}>Submit</button>
       </div>
     </main>
