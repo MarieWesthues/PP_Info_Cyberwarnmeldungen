@@ -20,7 +20,13 @@
                 }
             }
     }
-  
+    function showAlert(){
+        document.getElementById("alert").style.display="block";
+    }
+    function hideAlert(){
+        document.getElementById("alert").style.display="none";
+    }
+
 </script>
 <script>
 
@@ -42,6 +48,7 @@
         
     }
 
+    
 </script>
 
 <main class="text-center">
@@ -69,13 +76,18 @@
     </div>
 
     <p>
-        <button class="btn btn-outline-dark border-2" on:click={saveGroup}>
+        <button class="btn btn-outline-dark border-2" on:click={saveGroup} on:click={showAlert} >
             Save Group
         </button>
     </p>
+    <div id="alert" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
+        Changes successfully saved!
+        <button type="button" class="btn-close" aria-label="Close" on:click={hideAlert}>
+          </button>
+      </div>
 
-    
 </main>
+
 
 <style>
     
