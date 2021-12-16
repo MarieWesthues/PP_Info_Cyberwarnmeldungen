@@ -3,7 +3,7 @@
 </script>
 
 
-<div class="card">
+<div class="card" style="margin: 25px auto;">
     <h5 class="card-header fs-4">{group.name}</h5>
       <div class="card-body">
         <!-- {#each group as group }
