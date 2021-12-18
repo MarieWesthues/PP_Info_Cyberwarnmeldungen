@@ -72,6 +72,13 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     }
     function sendAlert(){
         axios.post(`http://localhost:3000/api/alerts/send/${alert._id}`)
+        window.location.href = "http://localhost:3000/alerts";
+    }
+    function deleteAlert(){
+        if (alert._id) {
+            axios.delete(`http://localhost:3000/api/alerts/send/${alert._id}`)
+        }
+        window.location.href = "http://localhost:3000/alerts";
     }
     
     function showSuccess(){
@@ -152,7 +159,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     <div class="text-center">
         <button type="button" class="btn btn-danger">Delete</button>
         <button type="button" class="btn btn-warning" on:click={saveAlert} >Save</button>
-        <button type="button" class="btn btn-success" on:click={sendAlert} >Submit</button>
+        <button type="button" class="btn btn-success" class:disabled={! alert._id} on:click={sendAlert} >Submit</button>
       </div>
       <SuccessAlert> </SuccessAlert>
       <NoSuccessAlert> </NoSuccessAlert>
