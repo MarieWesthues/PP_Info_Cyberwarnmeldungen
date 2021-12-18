@@ -18,24 +18,23 @@ export const channelSchema = {
 // export const Channel = mongoose.model('Channel', channelSchema);
 
 
-const discord = {
-    name: 'Discord',
-    colors: {
-        primary: '#5865F2',
-        onPrimary: 'white'
-    },
-    logo: 'https://discord.com/assets/145dc557845548a36a82337912ca3ac5.svg',
-    messageFormat: 'json',
-    authenticated: false,
-}
-
+// const discord = {
+//     name: 'Discord',
+//     colors: {
+//         primary: '#5865F2',
+//         onPrimary: 'white'
+//     },
+//     logo: 'https://discord.com/assets/145dc557845548a36a82337912ca3ac5.svg',
+//     messageFormat: 'json',
+//     authenticated: false,
+// }
 const email = {
     name: 'Email',
     colors: {
         primary: 'red',
         onPrimary: 'white',
     },
-    // no logo yet
+    logo: "http://localhost/channel-icons/email.png",
     messageFormat: 'html',
     authenticated: true,
 }
@@ -46,7 +45,7 @@ const reddit = {
         primary: '#FF5700',
         onPrimary: 'white',
     },
-    // no logo yet
+    logo: "http://localhost/channel-icons/reddit.png",
     messageFormat: 'md',
     authenticated: true,
 }
@@ -57,6 +56,7 @@ const twitter = {
         primary: '#1DA1F2',
         onPrimary: 'white',
     },
+    logo: "http://localhost/channel-icons/twitter.png",
     messageFormat: 'txt',
     authenticated: true,
 }
