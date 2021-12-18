@@ -8,15 +8,35 @@
 
 </script>
 
-<div on:click class="frame">
+<div on:click class="frame btn-group-toggle" data-toggle="buttons">
+    <label class="btn active">
+      <input type="checkbox" checked autocomplete="off"> Used
+    </label>
     <div class="">
         Channel = {template.name}
     </div>
 
+        {#if template.selected == ""}
 
-    {#if selected}
+        {/if}
+</div>
+   
+    <style>
         
+        .frame{
+        background: lightgrey;
+        border: 1px solid black;
+        }
+
+    </style>
+
+ <!--   {#if template.selected == true}
+        <span class = "selected border border-2 rounded-pill fw-light fs-6"> Used </span>
     {/if}
+
+    <div class = "template-body">
+        <span class = "badge badge-pill-info"> {template.selected} Used</span>
+    </div>
 </div>
 
 <style>
@@ -25,4 +45,5 @@
         background: lightgrey;
         border: 1px solid black;
     }
-</style>
+</style> -->
+

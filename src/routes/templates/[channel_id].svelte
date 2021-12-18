@@ -79,24 +79,24 @@ const usedTemplates = [...unusedTemplates]
 
  2. iterate over usedtemplates -->
 <main>
-    <div class="input-group mb-3">
+   <!-- <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Searchbar</span>
         <input type="text" class="form-control" placeholder="search..." aria-label="Search" aria-describedby="basic-addon1">
-    </div>
+    </div> -->
 
-</main>
-
-
-<div class="d-flex">
-    <div class="m-2 w-50">
-        <h2 class="text-left">Default Template</h2>
-        <div class="defaultTemplate">
+<div class="d-flex ">
     
+    <div class="m-2 w-50 ">
+        <h2 class="text-left">Default Template</h2>
+        
+        <div class="overflow-auto">
+            
+            <div class="defaultTemplate " >
+                
+
             <Template template={defaultTemplate} selected={selectedTemplate == defaultTemplate} on:click={()=>selectedTemplate = defaultTemplate}></Template>
             
             </div>
-            
-            
             <div class="usedTemplate">
                 <h2 class="text-left">Used Template</h2>
                 {#each usedTemplates as template }
@@ -115,9 +115,10 @@ const usedTemplates = [...unusedTemplates]
                             <div class= "text-light">{template.name}</div>
                             </div> -->
             {/each}
-            </div>
-           
-     </div>
+            </div>  
+    </div>
+</div>
+
     
     <div class="w-50 m-2">
         <h2 class="text-right">Preview</h2>
@@ -127,16 +128,12 @@ const usedTemplates = [...unusedTemplates]
         </div>
         <div id = "Button"> 
             <div class="add text-center">
+            <form>
                 <button class="btn btn-outline-success border-2 m-2">Used</button> 
-            </div>
-            <div class="add text-center">
                 <button class="btn btn-outline-secondary border-2 m-2">Not used</button> 
-            </div>
-            <div class="add text-center">
                 <button class="btn btn-outline-primary border-2 m-2">Edit</button> 
-            </div>
-            <div class="add text-center">
                 <button class="btn btn-outline-danger border-2 m-2">Delete</button> 
+            </form>
             </div>
         </div>
     </div>
@@ -147,6 +144,7 @@ const usedTemplates = [...unusedTemplates]
     #Preview{ 
         background: lightgrey;
         border: 1px solid black;
+        height: 100%;
     }
     .defaultTemplate{
         color: secondary;
@@ -160,6 +158,8 @@ const usedTemplates = [...unusedTemplates]
     }
 </style>
 
+
+</main>
 
 <!-- 3. iterate over unused templates -->
 
