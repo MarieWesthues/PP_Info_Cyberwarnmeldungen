@@ -8,7 +8,7 @@
 
     export let title;
 
-    export let value;
+    export let value=""
 
     export let options;
     // options must be array of type [{value:String, label: String}]
@@ -29,6 +29,9 @@
                 <input type=radio checked={value === option.value}> {option.label}
             </DropdownItem>
         {/each}
+        <DropdownItem on:click={()=> changeHandler({value: ""})}>
+            <input checked={ value === ""} type=radio  />Select None
+        </DropdownItem>
 
     </DropdownMenu>
 </Dropdown>
