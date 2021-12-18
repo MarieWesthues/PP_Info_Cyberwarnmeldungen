@@ -142,13 +142,13 @@ const usedTemplates = [...unusedTemplates]
 
 <style>
     #Preview{ 
-        background: lightgrey;
+        background: var(--channel-secondary);
         border: 1px solid black;
         height: 100%;
     }
     .defaultTemplate{
-        color: secondary;
-        background-color: primary;
+        color: var(--channel-on-secondary);
+        background-color: var(--channel-primary);
     }
     .usedTemplate{
         margin-top: 100px;
