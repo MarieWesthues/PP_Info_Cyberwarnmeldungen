@@ -1,6 +1,6 @@
 <script context="module">
-import SuccessAlert from "$lib/components/alertSuccess.svelte";
 import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
+import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhide.svelte";
 
     function EmptyGroup(){
             this.name= "";
@@ -24,22 +24,6 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
             }
     }
    
-    function showSuccess(){
-            document.getElementById("success").style.display="block";
-            setTimeout(hideSuccess, 3000); 
-        }
-    function showNoSuccess(){
-            document.getElementById("nosuccess").style.display="block";
-            setTimeout(hideNoSuccess, 3000); 
-        }
-        
-    function hideSuccess(){
-        document.getElementById("success").style.display="none";
-    }
-
-    function hideNoSuccess(){
-        document.getElementById("nosuccess").style.display="none";
-    }
 </script>
 <script>
 
@@ -99,8 +83,6 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
             Save Group
         </button>
     </p>
-      <SuccessAlert> </SuccessAlert>
-      <NoSuccessAlert> </NoSuccessAlert>
 
 </main>
 

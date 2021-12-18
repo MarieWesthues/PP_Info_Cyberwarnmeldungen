@@ -30,10 +30,14 @@ import Template from "./Template.svelte"; "./index.svelte";
             {#each channels as channel}
                 <!-- mit "--name:value" könnt ihr css variablen setzen.  -->
                 <a href="templates/{channel.name}" class = --channel:align-items-center style="--channel-primary:{channel.colors.primary}; --channel-primary:{channel.colors.primary}">
-            
+
                         
-                    <div class="box justify-content-center p-5">
-                        <h3 class= "text-dark">{channel.name} </h3>
+                    <div class="box justify-content-center grow">
+                        <!-- svelte-ignore a11y-missing-attribute -->
+                        <img class="rounded float-start p-2" width="80" height="80" src={channel.logo}>
+                        <h3 class= "text-light">{channel.name} </h3>
+                        
+                        
                     </div>
                  
                 </a>
@@ -58,11 +62,12 @@ import Template from "./Template.svelte"; "./index.svelte";
         /* mit dieser syntax könnt ihr css variablen benutzen */
         background: var(--channel-primary);
         color: var(--channel-on-primary);
-        width: 300px;
+        filter: drop-shadow(10px 10px 10px rgb(167, 166, 166));
+        width: 250px;
         min-height: 5rem;
         align-items: center;
         text-align: center;
-        margin: 5px;
+        margin: 10px;
         border-radius: 10px;
         
         
@@ -70,5 +75,13 @@ import Template from "./Template.svelte"; "./index.svelte";
         /*margin: auto;
         display: flex;
         -Container werden nicht zentriert dargestellt */
+    }
+
+    .grow { 
+        transition: all .2s ease-in-out; 
+    }
+
+    .grow:hover { 
+        transform: scale(1.1); 
     }
 </style>
