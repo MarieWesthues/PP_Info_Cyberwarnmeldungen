@@ -70,6 +70,9 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             showSuccess()
         }
     }
+    function sendAlert(){
+        axios.post(`http://localhost:3000/api/alerts/send/${alert._id}`)
+    }
     
     function showSuccess(){
             document.getElementById("success").style.display="block";
