@@ -64,6 +64,10 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
         }
         
     }
+    async function deleteGroup(){
+        await axios.delete(`http://localhost:3000/api/groups/${group._id}`)
+        window.location.href = "http://localhost:3000/groups";
+    }
 
     
 </script>
@@ -83,15 +87,14 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
 
     <div class="input-group input-group-sm mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Color</label>
-        <select class="form-select" id="inputGroupSelect01" bind:value={group.color}>
-          <option selected>Choose...</option>
-          <option value="1">Blue</option>
-          <option value="2">Green</option>
-          <option value="3">Red</option>
-        </select>
+        <input type="color" bind:value={group.color}>
+        
     </div>
 
     <p>
+        <button class="btn btn-danger" class:disabled={! group._id} on:click={deleteGroup}>
+            Delete Group
+        </button>
         <button class="btn btn-outline-dark border-2" on:click={saveGroup}>
             Save Group
         </button>
