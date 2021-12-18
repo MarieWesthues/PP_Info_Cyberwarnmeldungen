@@ -1,7 +1,6 @@
 <script context="module">
-    import SuccessAlert from "$lib/components/alertSuccess.svelte";
     import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
-
+    import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhide.svelte";
 
     function EmptyAlert(configuration){
         this.title = null;
@@ -67,27 +66,10 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         }else{
             // create new alert
             alert = await axios.post('http://localhost:3000/api/alerts', alert).then(res => res.data)
-            showSuccess()
+            showNoSuccess()
         }
     }
     
-    function showSuccess(){
-            document.getElementById("success").style.display="block";
-            setTimeout(hideSuccess, 3000); 
-        }
-    function showNoSuccess(){
-            document.getElementById("nosuccess").style.display="block";
-            setTimeout(hideNoSuccess, 3000); 
-        }
-        
-    function hideSuccess(){
-        document.getElementById("success").style.display="none";
-    }
-
-    function hideNoSuccess(){
-        document.getElementById("nosuccess").style.display="none";
-    }
-
 </script>
 
 <main class="text-center">
@@ -151,8 +133,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         <button type="button" class="btn btn-warning" on:click={saveAlert} >Save</button>
         <button type="button" class="btn btn-success" on:click={sendAlert} >Submit</button>
       </div>
-      <SuccessAlert> </SuccessAlert>
-      <NoSuccessAlert> </NoSuccessAlert>
+
    <!--    <div id="save" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
         Alert saved successfully!
         <button type="button" class="btn-close" aria-label="Close" on:click={hideAlert}>
