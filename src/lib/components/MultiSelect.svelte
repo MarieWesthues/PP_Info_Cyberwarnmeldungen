@@ -10,9 +10,12 @@
     export let values;
     export let title;
 
+    $: selectedOptions = options.filter(o => values.includes(o.value)).map(o => o.label)
+
     let isOpen = false;
 
     function changeHandler(detail){
+        console.log(options, values, selectedOptions);
         let checked = values.includes(detail.value);
         if (!checked) {
             values = [...values, detail.value]
@@ -37,7 +40,7 @@
 
 
 <Dropdown  class="custom-dropdown" >
-    <DropdownToggle class="custom-dropdown__toggle" caret>{values}</DropdownToggle>
+    <DropdownToggle class="custom-dropdown__toggle" caret>{selectedOptions}</DropdownToggle>
         <DropdownMenu class="custom-dropdown__menu" >
             {#each options as option}
                 <DropdownItem on:click={()=> changeHandler(option)}>
