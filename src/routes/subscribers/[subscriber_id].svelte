@@ -54,7 +54,15 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
             }
            
         }
+    async function deleteSubscriber(){
+        if (subscriber._id){
+            await axios.delete(`http://localhost:3000/api/subscribers/${subscriber._id}`)
+            window.location.href = 'http://localhost:3000/subscribers'
+        }else{
+            window.location.href = 'http://localhost:3000/subscribers'
+        }
         
+    }
 
     function showSuccess(){
             document.getElementById("success").style.display="block";
@@ -118,6 +126,9 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
 
     
     <div>
+        <button class="btn btn-danger" on:click={deleteSubscriber}>
+            Delete
+        </button>
         <button class="btn btn-outline-dark border-2" on:click={saveSubscriber}>
             Save Subscriber
         </button>
