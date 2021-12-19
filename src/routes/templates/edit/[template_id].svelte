@@ -57,7 +57,7 @@ import axios from "axios";
     }
 </script>
 
-<div>
+<div class="text-center">
 <Select
     title="Channel"
     value="Channel"
@@ -84,16 +84,15 @@ import axios from "axios";
 </div>
 
 <div class="m-5">
-<button on:click={saveTemplate}> Sample Message</button>
 <button on:click={saveTemplate}> Save As</button><input bind:value={template.name}>
 </div>
 
-<div>
+<div class="w-50">
     <textarea bind:value={templateString}></textarea>
 
     {@html templateString}
+    
 </div>
-
 
 
 <!-- svelte-ignore a11y-missing-attribute -->
@@ -129,6 +128,16 @@ div {
     padding-bottom 50px;
     margin 50px;
     border 5px;
+}
+
+.w-50 {
+    display: flex;
+    flex-grow: 1;
+    margin-left: 48px;
+   
+   
+
+
 }
 
 </style>
