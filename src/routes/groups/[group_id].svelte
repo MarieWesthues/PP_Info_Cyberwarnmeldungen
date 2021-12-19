@@ -70,25 +70,26 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
 <main class="text-center">
 
     <h2>Add new Group</h2>
+    <div width=50% align=center>
+    <div class="input-group input-group-sm mb-3" style="text-align: left;"></div>
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%; height: 30px;">Group name</span>
+        <input bind:value={group.name} type="text" class="form-control" style="max-width: 40%; height: 30px;" placeholder="write group name" aria-label="Name" aria-describedby="inputGroup-sizing-sm">
     
-    <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Group name</span>
-        <input bind:value={group.name} type="text" class="form-control" placeholder="write group name" aria-label="Name" aria-describedby="inputGroup-sizing-sm">
-    </div>
 
-    <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Description</span>
-        <textarea bind:value={group.description} class="form-control" placeholder="write group description" aria-label="Description"></textarea> 
-    </div>
+    <div class="input-group input-group-sm mb-3"> </div>
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%; height: 30px; justify-content: left;">Description</span>
+        <textarea bind:value={group.description} class="form-control" style="max-width: 40%;" placeholder="write group description" aria-label="Description"></textarea> 
+    
 
-    <div class="input-group input-group-sm mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Color</label>
-        <select class="form-select" id="inputGroupSelect01" bind:value={group.color}>
+    <div class="input-group input-group-sm mb-3"> </div>
+        <label class="input-group-text" for="inputGroupSelect01" style="max-width: 40%; height: 30px;">Color</label>
+        <select class="form-select" style="max-width: 40%; height: 35px;" id="inputGroupSelect01" bind:value={group.color}>
           <option selected>Choose...</option>
           <option value="1">Blue</option>
           <option value="2">Green</option>
           <option value="3">Red</option>
         </select>
+   
     </div>
 
     <p>
@@ -99,15 +100,16 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
       <SuccessAlert> </SuccessAlert>
       <NoSuccessAlert> </NoSuccessAlert>
 
-</main>
+      </main>
+
+
 
 
 <style>
     
-.input-group {
+    .input-group {
     width: 45%;
     margin-left: auto;
     margin-right:auto;
-}
-
-</style>
+    align:left;
+}</style>
