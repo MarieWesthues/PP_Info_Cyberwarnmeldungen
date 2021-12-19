@@ -117,7 +117,7 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
         </button>
     </div>
    
-    <NoSuccessAlert> </NoSuccessAlert>
+
 
   <!--   <div id="success" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
         Changes successfully saved!
