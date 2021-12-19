@@ -36,7 +36,7 @@
         width: 45%;
         margin: 0 auto;
         overflow: auto;
-        margin-bottom: 0.5em;
+        margin: 25px auto;
     }
     .border {
         padding-left: 0.4em;

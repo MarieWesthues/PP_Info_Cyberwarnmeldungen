@@ -1,6 +1,6 @@
 <script context="module">
-import SuccessAlert from "$lib/components/alertSuccess.svelte";
 import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
+import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhide.svelte";
 
     function EmptyGroup(){
             this.name= "";
@@ -24,22 +24,6 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
             }
     }
    
-    function showSuccess(){
-            document.getElementById("success").style.display="block";
-            setTimeout(hideSuccess, 3000); 
-        }
-    function showNoSuccess(){
-            document.getElementById("nosuccess").style.display="block";
-            setTimeout(hideNoSuccess, 3000); 
-        }
-        
-    function hideSuccess(){
-        document.getElementById("success").style.display="none";
-    }
-
-    function hideNoSuccess(){
-        document.getElementById("nosuccess").style.display="none";
-    }
 </script>
 <script>
 
@@ -64,6 +48,10 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
         }
         
     }
+    async function deleteGroup(){
+        await axios.delete(`http://localhost:3000/api/groups/${group._id}`)
+        window.location.href = "http://localhost:3000/groups";
+    }
 
     
 </script>
@@ -81,24 +69,20 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
         <textarea bind:value={group.description} class="form-control" style="max-width: 40%;" placeholder="write group description" aria-label="Description"></textarea> 
     
 
-    <div class="input-group input-group-sm mb-3"> </div>
+    <div class="input-group input-group-sm mb-3">  </div>
         <label class="input-group-text" for="inputGroupSelect01" style="max-width: 40%; height: 30px;">Color</label>
-        <select class="form-select" style="max-width: 40%; height: 35px;" id="inputGroupSelect01" bind:value={group.color}>
-          <option selected>Choose...</option>
-          <option value="1">Blue</option>
-          <option value="2">Green</option>
-          <option value="3">Red</option>
-        </select>
+        <input type="color" bind:value={group.color} class="form-control" style="max-width: 40%;">
+        
    
-    </div>
 
     <p>
+        <button class="btn btn-danger" class:disabled={! group._id} on:click={deleteGroup}>
+            Delete Group
+        </button>
         <button class="btn btn-outline-dark border-2" on:click={saveGroup}>
             Save Group
         </button>
     </p>
-      <SuccessAlert> </SuccessAlert>
-      <NoSuccessAlert> </NoSuccessAlert>
 
       </main>
 

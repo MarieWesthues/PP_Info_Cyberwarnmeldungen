@@ -1,6 +1,6 @@
 <script context="module">
-import SuccessAlert from "$lib/components/alertSuccess.svelte";
 import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
+import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhide.svelte";
 
 
     function EmptySubscriber(){
@@ -54,26 +54,17 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
             }
            
         }
-        
-
-    function showSuccess(){
-            document.getElementById("success").style.display="block";
-            setTimeout(hideSuccess, 3000); 
+    async function deleteSubscriber(){
+        if (subscriber._id){
+            await axios.delete(`http://localhost:3000/api/subscribers/${subscriber._id}`)
+            window.location.href = 'http://localhost:3000/subscribers'
+        }else{
+            window.location.href = 'http://localhost:3000/subscribers'
         }
         
-    function showNoSuccess(){
-            document.getElementById("nosuccess").style.display="block";
-            setTimeout(hideNoSuccess, 3000); 
-        }
-        
-    function hideSuccess(){
-        document.getElementById("success").style.display="none";
     }
 
-    function hideNoSuccess(){
-        document.getElementById("nosuccess").style.display="none";
-    }
-    
+
 </script>
 
 
@@ -118,12 +109,15 @@ import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
 
     
     <div>
+        <button class="btn btn-danger" on:click={deleteSubscriber}>
+            Delete
+        </button>
         <button class="btn btn-outline-dark border-2" on:click={saveSubscriber}>
             Save Subscriber
         </button>
     </div>
-    <SuccessAlert> </SuccessAlert>
-    <NoSuccessAlert> </NoSuccessAlert>
+   
+
 
   <!--   <div id="success" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
         Changes successfully saved!

@@ -1,7 +1,6 @@
 <script context="module">
-    import SuccessAlert from "$lib/components/alertSuccess.svelte";
     import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
-
+    import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhide.svelte";
 
     function EmptyAlert(configuration){
         this.title = null;
@@ -67,101 +66,154 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         }else{
             // create new alert
             alert = await axios.post('http://localhost:3000/api/alerts', alert).then(res => res.data)
-            showSuccess()
+            showNoSuccess()
         }
+    }
+    function sendAlert(){
+        axios.post(`http://localhost:3000/api/alerts/send/${alert._id}`)
+        window.location.href = "http://localhost:3000/alerts";
+    }
+    function deleteAlert(){
+        if (alert._id) {
+            axios.delete(`http://localhost:3000/api/alerts/send/${alert._id}`)
+        }
+        window.location.href = "http://localhost:3000/alerts";
     }
     
-    function showSuccess(){
-            document.getElementById("success").style.display="block";
-            setTimeout(hideSuccess, 3000); 
-        }
-    function showNoSuccess(){
-            document.getElementById("nosuccess").style.display="block";
-            setTimeout(hideNoSuccess, 3000); 
-        }
-        
-    function hideSuccess(){
-        document.getElementById("success").style.display="none";
-    }
-
-    function hideNoSuccess(){
-        document.getElementById("nosuccess").style.display="none";
-    }
-
 </script>
 
 <main class="text-center">
 
-<h1>Static Props</h1>
-<h3>Threat Name</h3>
-<input bind:value={alert.title}>
+    <h1>Static Props</h1>
+<div class="abschnitt">
+<div class="container"> 
+    <h3>Threat Name</h3>
+    <input bind:value={alert.title} style="width: 300px; height: 50px;"/>
+</div>
 
 <!-- Threat Type -->
-<h3>Threat Type Selection</h3>
-<Select 
-    bind:value={alert.threatType} 
-    title="Threat Type" 
-    options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}
-/>
+<div class="container">
+    <h3>Threat Type Selection</h3>
+    <Select 
+        bind:value={alert.threatType} 
+        title="Threat Type" 
+        options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}
+    />
+</div >
 <!-- Threat Level -->
-<h3>Threat Level Selection</h3>
-<Select 
-    bind:value={alert.threatLevel}
-     title="Threat Level"
-     options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
-/>
-<h3>Intern</h3>
-<input type="checkbox" bind:checked={alert.intern}>
-
+<div class="container">
+    <h3>Threat Level Selection</h3>
+    <Select 
+        bind:value={alert.threatLevel}
+        title="Threat Level"
+        options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
+    />
+</div>
+</div>
 <h1>Message Attributes</h1>
-{#each configuration.messageAttributes as attr}
-    {#if attr.type === 'BOOLEAN'}
-        <div>{attr.key}</div>
-        <Checkbox value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
-    {:else if attr.type === 'SELECT'}
-        <Select 
-            title={attr.key}
-            value={alert.attributes[attr.key]} 
-            on:change={({detail})=> setAttribute(attr.key, detail)} 
-            options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}/>
-    {:else if attr.type === 'MULTISELECT'}
-        <MultiSelect
-            title={attr.key}
-            values={alert.attributes[attr.key] || []}
-            on:change={({detail})=> setAttribute(attr.key, detail)}
-            options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}
-        />
-    {/if}
-{/each}
+<div class="abschnitt">
 
-<h1>Groups</h1>
-<MultiSelect
-    title="Groups"
-    bind:values={alert.selectedGroups}
-    options={groups.map(g => ({value: g._id, label: g.name}))}/>
+   
+    {#each configuration.messageAttributes as attr}
+        {#if attr.type === 'BOOLEAN'}
+            <div class="check">
+                <h3>{attr.key}</h3>
+            <Checkbox value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
+            </div>
+        {:else if attr.type === 'SELECT'}
+            <div class="container">
+                <h3>{attr.key}</h3>
+            <Select 
+                title={attr.key}
+                value={alert.attributes[attr.key]} 
+                on:change={({detail})=> setAttribute(attr.key, detail)} 
+                options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}/>
+            </div>
+    
+        {:else if attr.type === 'MULTISELECT'}
+        <div class="container"> 
+            <h3>{attr.key}</h3>
+            <MultiSelect
+                title={attr.key}
+                values={alert.attributes[attr.key] || []}
+                on:change={({detail})=> setAttribute(attr.key, detail)}
+                options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}
+            />
+        </div>
+        {/if}
+    {/each}
+</div>
+    <h1>Groups</h1>
+<div class="abschnitt">
+<div class="container">
+    <h3>Choose (a) Group(s)</h3>
+    <MultiSelect
+        title="Groups"
+        bind:values={alert.selectedGroups}
+        options={groups.map(g => ({value: g._id, label: g.name}))}/>
+    </div>
+<div class="check">
+    <h4>Intern</h4>
+    <input type="checkbox" bind:checked={alert.intern} style="width: 20px; height: 20px;">
+</div>
+</div>
 
-<h1>Channels</h1>
-<MultiSelect 
-    title="Channels"
-    bind:values={alert.selectedChannels}
-    options={channels.map(c => ({value: c.name, label: c.name}))}/>
 
-    <div class="text-center">
+
+    <h1>Channels</h1>
+<div class="abschnitt">
+    <div class="container">
+        <h3>Choose (a) Channel(s)</h3>
+    <MultiSelect 
+        title="Channels"
+        bind:values={alert.selectedChannels}
+        options={channels.map(c => ({value: c.name, label: c.name}))}/>
+    </div>
+</div>
+    <div class="text-center" style="margin: 30px;">
         <button type="button" class="btn btn-danger">Delete</button>
         <button type="button" class="btn btn-warning" on:click={saveAlert} >Save</button>
-        <button type="button" class="btn btn-success" on:click={sendAlert} >Submit</button>
-      </div>
-      <SuccessAlert> </SuccessAlert>
-      <NoSuccessAlert> </NoSuccessAlert>
-   <!--    <div id="save" class="alert alert-success" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
-        Alert saved successfully!
-        <button type="button" class="btn-close" aria-label="Close" on:click={hideAlert}>
-          </button>
+        <button type="button" class="btn btn-success" class:disabled={! alert._id} on:click={sendAlert} >Submit</button>
       </div>
 
-      <div id="submit" class="alert alert-warning" role="alert" style="width: 300px ; display: none;position: fixed; right: 10px; top: 80px; ">
-        Alert successfully submitted!
-        <button type="button" class="btn-close" aria-label="Close" on:click={hideConfirm}>
-          </button>
-      </div>-->
+  
     </main>
+    <style>
+        
+        h1{
+            margin-bottom: 25px;
+            margin-top: 25px;
+        }
+        h3 {
+            margin: 10px;
+        }
+        h4 {
+            margin: 10px;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 15px;
+            align-items: center;
+
+        }
+        .text-center{
+            margin-right: 250px;
+            margin-left: 250px;
+            margin-bottom: 50px;
+        }
+
+        .abschnitt{
+            border: 0.5px solid grey; 
+            padding-right: 50px;
+         
+        }
+        .check{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 25px;
+        }
+
+    </style>
