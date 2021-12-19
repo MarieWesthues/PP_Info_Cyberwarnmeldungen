@@ -57,36 +57,81 @@ import axios from "axios";
     }
 </script>
 
-<button on:click={saveTemplate}> Save As</button><input bind:value={template.name}> 
-
+<div>
 <Select
     title="Channel"
-    bind:value={template.channel}
+    value="Channel"
     options={channels.map(c => ({label: c.name, value: c.name}))}
 />
 
-<Select 
+<Select
     title="matches type"
-    bind:value={template.matches.type}
+    value="Threat Type"
     options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}
 />
 
 <Select
     title="matches level"
-    bind:value={template.matches.level}
+    value="Threat Level"
     options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
 />
 
 <Select
     title="format"
-    value="txt"
+    value="Format"
     options={['txt', 'html', 'md'].map(x => ({label: x, value: x}))}
 />
+</div>
 
+<div class="m-5">
+<button on:click={saveTemplate}> Sample Message</button>
+<button on:click={saveTemplate}> Save As</button><input bind:value={template.name}>
+</div>
 
 <div>
     <textarea bind:value={templateString}></textarea>
-</div>
-<div>
+
     {@html templateString}
 </div>
+
+
+
+<!-- svelte-ignore a11y-missing-attribute -->
+<html>
+<head>
+<style>
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+div {
+    position: relative;
+    margin-left 50px;
+    margin-right 50px;
+    padding 50px;
+    padding-top 50 px;
+    padding-bottom 50px;
+    margin 50px;
+    border 5px;
+}
+
+</style>
+</head>
+</html>
+

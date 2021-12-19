@@ -8,6 +8,13 @@ export async function put(request) {
     let subscriber = await Subscriber.findById(id).update(request.body)
     let temp2 = await Subscriber.findById(id).exec()
 
+    const addGroupToSubscriber = function(subscriberID, group) {
+        return Subscriber.findByIdAndUpdate(subscriberID, 
+            {$push: {group : group._id} },
+            {new:true, useFindAndModify: false}
+            );
+    }
+
     if (subscriber){
         return {
             body: temp2
