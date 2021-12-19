@@ -14,7 +14,7 @@
         <div class="card-body">
             <p class="card-title fw-light fs-5">{subscriber.email}</p>
                 {#each subscriber.groups as group }
-                    <span class="card-text fw-light fs-6"><span class="border border-2 rounded-pill list-group-horizontal" style="background:{group.color}">{group}</span></span>
+                    <span class="card-text fw-light fs-6"><span class="border border-2 rounded-pill list-group-horizontal" style="background:{group.color}">{group.name}</span></span>
                 {/each}
         
             <div class="buttons text-end">
