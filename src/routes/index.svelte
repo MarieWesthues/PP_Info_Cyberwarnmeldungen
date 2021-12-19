@@ -1,10 +1,27 @@
 
 
-<h1 class="text-blue-500">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="sos">
+    sooos
 
-<a href="/examples" class="text-red-600 text-6xl font-bold hover:text-red-400"> Go to examples</a>
+    <div class="sas">
+            sas
+            <div class="sus">sus</div>
+    </div>
+</div>
 
-<br/>
-sheeeeeeeeeeeeeesh yooooooo testss 
-testtestestesssss
+<style>
+    .sos{
+        background: blue;
+        display: flex;
+        height: 100%;
+    }
+    .sas{
+        background: green;
+        height: 100%;
+        overflow-y: scroll;
+    }
+    .sus{
+        background: red;
+        height: 3000px;
+    }
+</style>
