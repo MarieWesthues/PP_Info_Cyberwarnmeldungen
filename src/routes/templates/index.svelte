@@ -60,7 +60,7 @@ import Template from "./Template.svelte"; "./index.svelte";
     .box{
         /* mit dieser syntax könnt ihr css variablen benutzen */
         background: var(--channel-primary);
-        filter: drop-shadow(10px 10px 10px rgb(167, 166, 166));
+        
         width: 250px;
         min-height: 5rem;
         text-align: center;
@@ -84,6 +84,7 @@ import Template from "./Template.svelte"; "./index.svelte";
     }
 
     .grow:hover { 
-        transform: scale(1.1); 
+        transform: scale(1.1);
+        filter: drop-shadow(10px 10px 10px rgb(167, 166, 166)); 
     }
 </style>
