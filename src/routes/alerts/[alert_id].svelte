@@ -85,6 +85,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 <main class="text-center">
 
     <h1>Static Props</h1>
+<div class="abschnitt">
 <div class="container"> 
     <h3>Threat Name</h3>
     <input bind:value={alert.title} style="width: 300px; height: 50px;"/>
@@ -108,13 +109,14 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
     />
 </div>
+</div>
 <h1>Message Attributes</h1>
-
+<div class="abschnitt">
 
    
     {#each configuration.messageAttributes as attr}
         {#if attr.type === 'BOOLEAN'}
-            <div class="container">
+            <div class="check">
                 <h3>{attr.key}</h3>
             <Checkbox value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
             </div>
@@ -127,6 +129,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
                 on:change={({detail})=> setAttribute(attr.key, detail)} 
                 options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}/>
             </div>
+    
         {:else if attr.type === 'MULTISELECT'}
         <div class="container"> 
             <h3>{attr.key}</h3>
@@ -139,8 +142,9 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         </div>
         {/if}
     {/each}
- 
+</div>
     <h1>Groups</h1>
+<div class="abschnitt">
 <div class="container">
     <h3>Choose (a) Group(s)</h3>
     <MultiSelect
@@ -148,14 +152,16 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         bind:values={alert.selectedGroups}
         options={groups.map(g => ({value: g._id, label: g.name}))}/>
     </div>
-<div class="container">
+<div class="check">
     <h4>Intern</h4>
-    <input type="checkbox" bind:checked={alert.intern}>
+    <input type="checkbox" bind:checked={alert.intern} style="width: 20px; height: 20px;">
+</div>
 </div>
 
 
 
     <h1>Channels</h1>
+<div class="abschnitt">
     <div class="container">
         <h3>Choose (a) Channel(s)</h3>
     <MultiSelect 
@@ -163,7 +169,8 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         bind:values={alert.selectedChannels}
         options={channels.map(c => ({value: c.name, label: c.name}))}/>
     </div>
-    <div class="text-center" style="margin: 15px;">
+</div>
+    <div class="text-center" style="margin: 30px;">
         <button type="button" class="btn btn-danger">Delete</button>
         <button type="button" class="btn btn-warning" on:click={saveAlert} >Save</button>
         <button type="button" class="btn btn-success" class:disabled={! alert._id} on:click={sendAlert} >Submit</button>
@@ -174,7 +181,8 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     <style>
         
         h1{
-            margin-bottom: 50px;
+            margin-bottom: 25px;
+            margin-top: 25px;
         }
         h3 {
             margin: 10px;
@@ -187,12 +195,25 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             flex-direction: row;
             justify-content: space-between;
             margin: 15px;
+            align-items: center;
 
         }
         .text-center{
             margin-right: 250px;
             margin-left: 250px;
             margin-bottom: 50px;
+        }
+
+        .abschnitt{
+            border: 0.5px solid grey; 
+            padding-right: 50px;
+         
+        }
+        .check{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 25px;
         }
 
     </style>

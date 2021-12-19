@@ -12,4 +12,4 @@
     }
 </script>
 
-<input type='checkbox' bind:checked={checked} on:change={changeHandler}>
+<input type='checkbox' bind:checked={checked} on:change={changeHandler} style="width: 20px; height: 20px;">
