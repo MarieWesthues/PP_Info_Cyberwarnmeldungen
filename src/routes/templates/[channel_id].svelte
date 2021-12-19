@@ -78,62 +78,52 @@ const usedTemplates = [...unusedTemplates]
 
 
  2. iterate over usedtemplates -->
-<main>
+
    <!-- <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Searchbar</span>
         <input type="text" class="form-control" placeholder="search..." aria-label="Search" aria-describedby="basic-addon1">
     </div> -->
 
-<div class="d-flex ">
+<div class="wrapper">
     
-    <div class="m-2 w-50 ">
+    <div class="w-50 templates">
         <h2 class="text-left">Default Template</h2>
         
-        <div class="overflow-auto">
-            
-            <div class="defaultTemplate " >
-                
-
+        <div class="defaultTemplate">
             <Template template={defaultTemplate} selected={selectedTemplate == defaultTemplate} on:click={()=>selectedTemplate = defaultTemplate}></Template>
-            
-            </div>
-            <div class="usedTemplate">
-                <h2 class="text-left">Used Template</h2>
-                {#each usedTemplates as template }
+        </div>
+
+        <div class="usedTemplate">
+            <h2 class="text-left">Used Template</h2>
+            {#each usedTemplates as template }
                 <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
-                    <!-- <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
-                        <div class= "text-light">{template.name}</div>
-                        </div> -->
             {/each}
-            </div>
+        </div>
             
-            <div class="unusedTemplate">
-                <h2 class="text-left">Unused Template</h2>
-                {#each unusedTemplates as template}
-                    <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
-                        <!-- <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
-                            <div class= "text-light">{template.name}</div>
-                            </div> -->
+        <div class="unusedTemplate">
+            <h2 class="text-left">Unused Template</h2>
+            {#each unusedTemplates as template}
+                <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
             {/each}
-            </div>  
+        </div>  
+   
     </div>
-</div>
 
     
-    <div class="w-50 m-2">
+    <div class="preview w-50">
         <h2 class="text-right">Preview</h2>
-        <div id= "Preview">
-       
-        preview : {selectedTemplate.templateString}
-        </div>
+            <div id= "Preview">
+        
+            preview : {selectedTemplate.templateString}
+            </div>
         <div id = "Button"> 
             <div class="add text-center">
-            <form>
-                <button class="btn btn-outline-success border-2 m-2">Used</button> 
-                <button class="btn btn-outline-secondary border-2 m-2">Not used</button> 
-                <button class="btn btn-outline-primary border-2 m-2">Edit</button> 
-                <button class="btn btn-outline-danger border-2 m-2">Delete</button> 
-            </form>
+                <form>
+                    <button class="btn btn-outline-success border-2 m-2">Used</button> 
+                    <button class="btn btn-outline-secondary border-2 m-2">Not used</button> 
+                    <button class="btn btn-outline-primary border-2 m-2">Edit</button> 
+                    <button class="btn btn-outline-danger border-2 m-2">Delete</button> 
+                </form>
             </div>
         </div>
     </div>
@@ -141,10 +131,29 @@ const usedTemplates = [...unusedTemplates]
 
 
 <style>
+    .wrapper{
+        background: black;
+        height: 100%;
+        display: flex;
+        /* position: relative; */
+    }
+    .preview{
+        background: blue;
+        display: flex;
+        flex-direction: column;
+    }
+    .templates{
+        height: 100%;
+        background: green;
+        overflow-y: scroll;
+    }
+
+
     #Preview{ 
+        display: flex;
+        flex-grow: 1;
         background: var(--channel-secondary);
         border: 1px solid black;
-        height: 100%;
     }
     .defaultTemplate{
         color: var(--channel-on-secondary);
@@ -159,7 +168,7 @@ const usedTemplates = [...unusedTemplates]
 </style>
 
 
-</main>
+
 
 <!-- 3. iterate over unused templates -->
 
