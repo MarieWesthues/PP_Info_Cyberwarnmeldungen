@@ -9,15 +9,29 @@
 
 </script>
 
+<main >
 <Nav/>
 <SuccessAlert> </SuccessAlert>
 <NoSuccessAlert > </NoSuccessAlert>
-<main class="content">
+<div class="content">
     <slot></slot>
+</div>
+    
 </main>
 
 <style>
     .content{
-        margin-top: 70px;
+        display: flex;
+        flex-direction: column;
+        /* overflow-y: scroll; */
+        flex-grow: 1;
+        /* margin-top: 56px; */
+ 
+    }
+    main{
+        display: flex;
+        padding-top: 56px; /*navbar height*/
+        height: 100vh;
+
     }
 </style>
