@@ -156,7 +156,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     </div>
 <div class="check">
     <h4>Intern</h4>
-    <input type="checkbox" bind:checked={alert.intern} style="width: 20px; height: 20px;">
+    <input type="checkbox" bind:checked={alert.intern} style="width: 20px; height: 20px; float:right;">
 </div>
 	<div class="box">
         <h4>Channels</h4>
