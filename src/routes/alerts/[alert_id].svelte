@@ -93,7 +93,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 
 <!-- Threat Type -->
 <div class="box">
-    <h4>Threat Type Selection</h4>
+    <h5>Threat Type Selection</h5>
     <Select 
         bind:value={alert.threatType} 
         title="Threat Type" 
@@ -102,7 +102,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 </div >
 <!-- Threat Level -->
 <div class="box">
-    <h4>Threat Level Selection</h4>
+    <h5>Threat Level Selection</h5>
     <Select 
         bind:value={alert.threatLevel}
         title="Threat Level"
@@ -116,13 +116,15 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
    
     {#each configuration.messageAttributes as attr}
         {#if attr.type === 'BOOLEAN'}
+	<div class="box">
+	  <h5>{attr.key}</h5>
             <div class="check">
-                <h4>{attr.key}</h4>
-            <Checkbox value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
+            	<Checkbox value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
             </div>
+	</div>
         {:else if attr.type === 'SELECT'}
             <div class="box">
-                <h4>{attr.key}</h4>
+                <h5>{attr.key}</h5>
             <Select 
                 title={attr.key}
                 value={alert.attributes[attr.key]} 
@@ -132,7 +134,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     
         {:else if attr.type === 'MULTISELECT'}
         <div class="box"> 
-            <h4>{attr.key}</h4>
+            <h5>{attr.key}</h5>
             <MultiSelect
                 title={attr.key}
                 values={alert.attributes[attr.key] || []}
@@ -147,19 +149,24 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 
 <h2>User Attributes</h2>
 <div class="abschnitt">
+	
 <div class="box">
-    <h4>Groups</h4>
+    <h5>Groups</h5>
     <MultiSelect
         title="Groups"
         bind:values={alert.selectedGroups}
         options={groups.map(g => ({value: g._id, label: g.name}))}/>
     </div>
-<div class="check">
-    <h4>Intern</h4>
-    <input type="checkbox" bind:checked={alert.intern} style="width: 20px; height: 20px; float:right;">
+	
+<div class="box">
+   	<h5>Intern</h5>
+    <div class="check">
+    	<input type="checkbox" bind:checked={alert.intern} style="width: 20px; height: 20px;">
+    </div>
 </div>
+	
 	<div class="box">
-        <h4>Channels</h4>
+        <h5>Channels</h5>
     <MultiSelect 
         title="Channels"
         bind:values={alert.selectedChannels}
@@ -181,7 +188,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             margin-bottom: 25px;
             margin-top: 25px;
         }
-        h4 {
+        h5 {
             margin: 10px;
         }
         .box {
