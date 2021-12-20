@@ -36,12 +36,15 @@ import NewButton from '$lib/components/NewButton.svelte';
         
         {#each alerts as alert}
             <!--erste Bootstrap Komponente wuw-->
-            <div class="rounded"> {alert.title}
+            <div class="card">
+                <h5 class="card-header fs-4">{alert.title}</h5>
+                <div class="buttons text-center">
                 <a href="alerts/{alert._id}">
-                    <Button type= "button" class= "btn btn-warning border-right-0">
+                    <Button type= "button" class= "btn btn-outline-primary border-2">
                         Review
                     </Button>
                 </a>
+            </div>
             </div>
         {/each}
 
@@ -61,21 +64,12 @@ import NewButton from '$lib/components/NewButton.svelte';
 
 
 <style>
-    .rounded
-    {
-        background-color: gray;
-        color: white;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        margin: 5%;
-        height: 100px;
-        width: 1200px;
-        
+    .card {
+        width: 45%;
+        margin: 0 auto;
+        overflow: auto;
+        margin: 25px auto;
     }
-
-    
-
 </style>
 
 
