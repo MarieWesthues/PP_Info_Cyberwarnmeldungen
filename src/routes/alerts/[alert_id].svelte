@@ -84,16 +84,16 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 
 <main class="text-center">
 
-    <h1>Static Props</h1>
+<h2>Static Props</h2>
 <div class="abschnitt">
-<div class="container"> 
-    <h3>Threat Name</h3>
+<div class="box"> 
+    <h4>Threat Name</h4>
     <input bind:value={alert.title} style="width: 300px; height: 50px;"/>
 </div>
 
 <!-- Threat Type -->
-<div class="container">
-    <h3>Threat Type Selection</h3>
+<div class="box">
+    <h4>Threat Type Selection</h4>
     <Select 
         bind:value={alert.threatType} 
         title="Threat Type" 
@@ -101,8 +101,8 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     />
 </div >
 <!-- Threat Level -->
-<div class="container">
-    <h3>Threat Level Selection</h3>
+<div class="box">
+    <h4>Threat Level Selection</h4>
     <Select 
         bind:value={alert.threatLevel}
         title="Threat Level"
@@ -110,19 +110,19 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     />
 </div>
 </div>
-<h1>Message Attributes</h1>
+<h2>Message Attributes</h2>
 <div class="abschnitt">
 
    
     {#each configuration.messageAttributes as attr}
         {#if attr.type === 'BOOLEAN'}
             <div class="check">
-                <h3>{attr.key}</h3>
+                <h4>{attr.key}</h4>
             <Checkbox value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
             </div>
         {:else if attr.type === 'SELECT'}
-            <div class="container">
-                <h3>{attr.key}</h3>
+            <div class="box">
+                <h4>{attr.key}</h4>
             <Select 
                 title={attr.key}
                 value={alert.attributes[attr.key]} 
@@ -131,8 +131,8 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             </div>
     
         {:else if attr.type === 'MULTISELECT'}
-        <div class="container"> 
-            <h3>{attr.key}</h3>
+        <div class="box"> 
+            <h4>{attr.key}</h4>
             <MultiSelect
                 title={attr.key}
                 values={alert.attributes[attr.key] || []}
@@ -143,10 +143,12 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         {/if}
     {/each}
 </div>
-    <h1>Groups</h1>
+
+
+<h2>User Attributes</h2>
 <div class="abschnitt">
-<div class="container">
-    <h3>Choose (a) Group(s)</h3>
+<div class="box">
+    <h4>Groups</h4>
     <MultiSelect
         title="Groups"
         bind:values={alert.selectedGroups}
@@ -156,20 +158,15 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     <h4>Intern</h4>
     <input type="checkbox" bind:checked={alert.intern} style="width: 20px; height: 20px;">
 </div>
-</div>
-
-
-
-    <h1>Channels</h1>
-<div class="abschnitt">
-    <div class="container">
-        <h3>Choose (a) Channel(s)</h3>
+	<div class="box">
+        <h4>Channels</h4>
     <MultiSelect 
         title="Channels"
         bind:values={alert.selectedChannels}
         options={channels.map(c => ({value: c.name, label: c.name}))}/>
     </div>
 </div>
+
     <div class="text-center" style="margin: 30px;">
         <button type="button" class="btn btn-danger">Delete</button>
         <button type="button" class="btn btn-warning" on:click={saveAlert} >Save</button>
@@ -180,30 +177,25 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     </main>
     <style>
         
-        h1{
+        h2{
             margin-bottom: 25px;
             margin-top: 25px;
-        }
-        h3 {
-            margin: 10px;
         }
         h4 {
             margin: 10px;
         }
-        .container {
+        .box {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             margin: 15px;
             align-items: center;
-
         }
         .text-center{
-            margin-right: 250px;
-            margin-left: 250px;
+            margin-right: 350px;
+            margin-left: 350px;
             margin-bottom: 50px;
         }
-
         .abschnitt{
             border: 0.5px solid grey; 
             padding-right: 50px;
@@ -215,5 +207,4 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             align-items: center;
             margin: 25px;
         }
-
     </style>
