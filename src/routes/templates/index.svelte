@@ -27,6 +27,7 @@ import Template from "./Template.svelte"; "./index.svelte";
     <body> -->
         
         <div class="channel">
+            <h2>Templates</h2>
             {#each channels as channel}
                 <!-- mit "--name:value" könnt ihr css variablen setzen.  -->
                 <a href="templates/{channel.name}" class = --channel:align-items-center style="text-decoration:none; --channel-primary:{channel.colors.primary}; --channel-primary:{channel.colors.primary}">
@@ -55,13 +56,13 @@ import Template from "./Template.svelte"; "./index.svelte";
         display: flex;
         flex-direction: column;
         align-items: center;
-     
+        margin-top: 1rem;     
     }
     .box{
         /* mit dieser syntax könnt ihr css variablen benutzen */
         background: var(--channel-primary);
         
-        width: 250px;
+        width: 20rem;
         min-height: 5rem;
         text-align: center;
         margin: 15px;
