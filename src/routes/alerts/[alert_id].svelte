@@ -87,7 +87,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 <h2>Static Props</h2>
 <div class="abschnitt">
 <div class="box"> 
-    <h4>Threat Name</h4>
+    <h5>Threat Name</h5>
     <input bind:value={alert.title} style="width: 300px; height: 50px;"/>
 </div>
 
