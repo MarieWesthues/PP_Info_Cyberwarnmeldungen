@@ -7,6 +7,8 @@
     import SuccessAlert from "$lib/components/alertSuccess.svelte";
     import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte"; 
 
+    import '@fortawesome/fontawesome-free/js/all';
+
 </script>
 
 <main >
