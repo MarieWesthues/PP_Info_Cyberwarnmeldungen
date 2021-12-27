@@ -49,10 +49,19 @@ import axios from "axios";
 
     let templateString = template.templateString
 
-    function saveTemplate(){
+    async function saveTemplate(){
         template.templateString = templateString;
-        axios.post('http://localhost:3000/api/templates', template)
-        
+        if (template._id) {
+            axios.put('http://localhost:3000/api/templates', template)
+        }else{
+            let res = await axios.post('http://localhost:3000/api/templates', template)
+            if (res.status=200) {
+                template = res.data;
+                // success popup
+            }else{
+                // error popup
+            }
+        }
     }
 </script>
 
@@ -60,17 +69,18 @@ import axios from "axios";
 
 <div class="d-flex flex-wrap p-3">
     <div class="m-2">
-        <Select title="Channel" options={channels.map(c => ({label: c.name, value: c.name}))}/>
+        <Select title="Channel" bind:value={template.channel} options={channels.map(c => ({label: c.name, value: c.name}))}/>
     </div>
     <div class="m-2">
-        <Select title="matches type" options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}/>
+        <Select title="matches type" bind:value={template.matches.type} options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}/>
     </div>
     <div class="m-2">
-        <Select title="matches level" options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}/>
+        <Select title="matches level" bind:value={template.matches.level} options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}/>
     </div>
-    <div class="m-2">
+    <!-- Das Format Soll automatisch durch den channel inferred werden -->
+    <!-- <div class="m-2">
         <Select title="format" options={['txt', 'html', 'md'].map(x => ({label: x, value: x}))}/>
-    </div>
+    </div> -->
 
     <div class="m-2">
         <div class="input-group ">
