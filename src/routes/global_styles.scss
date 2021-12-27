@@ -1,7 +1,11 @@
 @import "../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
 
 
-$primary: orange;
-$secondary: grey;
+$primary: #0516fd;
+$secondary: black;
+
+$body-bg: #f4f4f5;
+
 
 @import '../../node_modules/bootstrap/scss/bootstrap';
