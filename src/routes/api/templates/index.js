@@ -9,12 +9,10 @@ export async function post(request) {
         ...request.body,
         cert_id: getStoreValue(certIdStore)
     })
-     const temp = await template.save()
+     const createdTemplate = await template.save()
 
      return {
-         body: {
-             temp
-         }
+         body: createdTemplate
      };
 }
 
