@@ -52,60 +52,24 @@ const usedTemplates = [...unusedTemplates]
 
 </script>
 
-
-<!-- 1. display default template -->
-<!--<div class="defaultTemplate">
-    {#each defaultTemplates as template}
-    <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
-{/each}
-</div>
-<style>
-    .defaultTemplate{
-        margin-top: 100px;
-    }
-</style>-->
-<!--{#each channels as channel}
-            mit "--name:value" könnt ihr css variablen setzen.  
-            <a href="templates/{channel.name}" class = --channel:align-items-center style="--channel-primary:{channel.colors.primary}; --channel-primary:{channel.colors.primary}">
-                <div class="box rounded d-flex justify-content-center p-3 m-5 "> 
-                    <div class= "text-light">{channel.name}</div>
-                    <div>
-                        <button type="button" id="button" class="btn btn-primary" > </button>
-                    </div>
-                </div>
-            </a>
-        {/each} 
-
-
- 2. iterate over usedtemplates -->
-
-   <!-- <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Searchbar</span>
-        <input type="text" class="form-control" placeholder="search..." aria-label="Search" aria-describedby="basic-addon1">
-    </div> -->
-
 <div class="wrapper">
     
-    <div class="w-50 templates">
-        <h2 class="text-left">Default Template</h2>
-        
-        <div class="defaultTemplate">
-            <Template template={defaultTemplate} selected={selectedTemplate == defaultTemplate} on:click={()=>selectedTemplate = defaultTemplate}></Template>
-        </div>
+    <div class="w-50 px-3 pb-3 templates">
+        <h2 class="mt-3 text-dark">Default Template</h2>
+        <Template template={defaultTemplate} selected={selectedTemplate == defaultTemplate} on:click={()=>selectedTemplate = defaultTemplate}></Template>
 
-        <div class="usedTemplate">
-            <h2 class="text-left">Used Template</h2>
-            {#each usedTemplates as template }
-                <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
-            {/each}
-        </div>
+
+        <h2 class="mt-3 text-dark">Used Template</h2>
+        {#each usedTemplates as template }
+            <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
+        {/each}
             
-        <div class="unusedTemplate">
-            <h2 class="text-left">Unused Template</h2>
-            {#each unusedTemplates as template}
-                <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
-            {/each}
-        </div>  
+        
+        <h2 class="mt-3 text-dark">Unused Template</h2>
+        {#each unusedTemplates as template}
+            <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
+        {/each}
+ 
    
     </div>
 
@@ -132,7 +96,7 @@ const usedTemplates = [...unusedTemplates]
 
 <style>
     .wrapper{
-        background: black;
+        
         height: 100%;
         display: flex;
         /* position: relative; */
@@ -144,7 +108,6 @@ const usedTemplates = [...unusedTemplates]
     }
     .templates{
         height: 100%;
-        background: green;
         overflow-y: scroll;
     }
 
