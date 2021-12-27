@@ -70,16 +70,17 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 
 <main  class="text-center">
 
-    <h1>Add new Subscriber</h1>
+    <h2>Add new Subscriber</h2>
 
-    <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
-        <input bind:value={subscriber.name} type="text" class="form-control" aria-label="Name" aria-describedby="inputGroup-sizing-sm">
-    </div>
-    <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
-        <input bind:value={subscriber.email} type="text" class="form-control" aria-label="Email" aria-describedby="inputGroup-sizing-sm">
-    </div>
+    <div width=50% align=center>
+    <div class="input-group input-group-sm mb-3"style="text-align: left;"></div>
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%; height: 30px;">Name</span>
+        <input bind:value={subscriber.name} type="text" class="form-control" style="max-width: 40%; height: 30px;" aria-label="Name" aria-describedby="inputGroup-sizing-sm">
+    
+    <div class="input-group input-group-sm mb-3"> </div>
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%; height: 30px; justify-content: left;">Email</span>
+        <input bind:value={subscriber.email} type="text" class="form-control" style="max-width: 40%;" aria-label="Email" aria-describedby="inputGroup-sizing-sm">
+    
 
     <div class="input-group">
         <label>
@@ -88,15 +89,16 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
         </label>
     </div>
 
-    <h3>Subscriber Groups</h3>
-
-
-
+   <div class="input-group input-group-sm mb-3"> </div>
+       <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width:40%; height: 30px;">Subscriber Groups</span>
+       
     <MultiSelect
         title="Groups"
         bind:values={subscriber.groups}
         options={groups.map(g => ({label: g.name, value: g._id}))}
+        
     />
+    
     <!-- {#each groups as group, i}
         <div class="input-group">
              
@@ -136,10 +138,17 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 
 <style>
   
+  button.multiselect {
+    background-color: initial;
+    border: 1px solid #ced4da;
+  }
+
   .input-group {
-    width: 30%;
+    width: 40%;
     margin-left: auto;
     margin-right:auto;
+
 }
+
 
 </style>
