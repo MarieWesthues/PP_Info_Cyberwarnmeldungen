@@ -71,26 +71,31 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 <main  class="text-center">
     <br>
     <h2>Add new Subscriber</h2>
-    <br>
+  
     <div width=50% align=center>
     <div class="input-group input-group-sm mb-3"style="text-align: left;"></div>
-        <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%; height: 40px; font-size: 1.25rem; border: 0"><strong>Name</strong></span>
-        <input bind:value={subscriber.name} type="text" class="form-control" style="max-width: 40%; height: 30px;" aria-label="Name" aria-describedby="inputGroup-sizing-sm">
-    <br>
-    <div class="input-group input-group-sm mb-3"> </div>
-        <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%; height: 40px; font-size: 1.25rem; border: 0"><strong>Email</strong></span>
-        <input bind:value={subscriber.email} type="text" class="form-control" style="max-width: 40%;" aria-label="Email" aria-describedby="inputGroup-sizing-sm">
-    
-
-    <div class="input-group">
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%;background: #f4f4f5; height: 40px; font-size: 1.25rem; border: 0"><strong>Name</strong></span>
+        <input bind:value={subscriber.name} type="text" class="form-control" style="max-width: 40%; height: 35px;" aria-label="Name" aria-describedby="inputGroup-sizing-sm">
+        <br>
         <label>
             Intern
             <input bind:checked={subscriber.intern} class="form-check-input" type="checkbox" id="intern">
         </label>
+  
+    <div class="input-group input-group-sm mb-3"> </div>
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%;background: #f4f4f5; height: 40px; font-size: 1.25rem; border: 0"><strong>Email</strong></span>
+        <input bind:value={subscriber.email} type="text" class="form-control" style="max-width: 40%;" aria-label="Email" aria-describedby="inputGroup-sizing-sm">
+    
+
+    <div class="input-group" style="margin-left:650px;">
+<!--       <label>
+            Intern
+            <input bind:checked={subscriber.intern} class="form-check-input" type="checkbox" id="intern">
+      </label> -->
     </div>
     <br>
    <div class="input-group input-group-sm mb-3"> </div>
-       <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width:40%; height: 40px; font-size: 1.25rem; border: 0"><strong>Subscriber Groups</strong></span>
+       <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width:40%;background: #f4f4f5; height: 40px; font-size: 1.25rem; border: 0"><strong>Subscriber Groups</strong></span>
        
     <MultiSelect
         title="Groups"

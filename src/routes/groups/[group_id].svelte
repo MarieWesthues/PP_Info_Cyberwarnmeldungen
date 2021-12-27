@@ -61,17 +61,17 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
     <br>
     <div width=50% align=center>
     <div class="input-group-prepend" style="text-align: left;"></div>
-        <span class="input-group-text" id="inputGroup-sizing-default" style="max-width: 40%; height: 40px; font-size: 1.25rem; border: 0"><strong>Group name</strong></span>
+        <span class="input-group-text" id="inputGroup-sizing-default" style="max-width: 40%; background: #f4f4f5; height: 40px; font-size: 1.25rem; border: 0;"><strong>Group name</strong></span>
         <input bind:value={group.name} type="text" class="form-control" style="max-width: 40%; height: 35px;" placeholder="write group name" aria-label="Name" aria-describedby="inputGroup-sizing-default">
     
     <br>
     <div class="input-group input-group-sm mb-3"> </div>
-        <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%; height: 40px; font-size: 1.25rem; border: 0; justify-content: left;"><strong>Description</strong></span>
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%;background: #f4f4f5; height: 40px; font-size: 1.25rem; border: 0; justify-content: left;"><strong>Description</strong></span>
         <textarea bind:value={group.description} class="form-control" style="max-width: 40%;" placeholder="write group description" aria-label="Description"></textarea> 
     
     <br>
     <div class="input-group input-group-sm mb-3">  </div>
-        <label class="input-group-text" for="inputGroupSelect01" style="max-width: 40%; height: 40px; font-size: 1.25rem; border: 0"><strong>Color</strong></label>
+        <label class="input-group-text" for="inputGroupSelect01" style="max-width: 40%;background: #f4f4f5; height: 40px; font-size: 1.25rem; border: 0"><strong>Color</strong></label>
         <input type="color" bind:value={group.color} class="form-control" style="max-width: 40% ; height: 30px">
         
 
