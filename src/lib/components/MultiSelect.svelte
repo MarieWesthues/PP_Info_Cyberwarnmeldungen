@@ -62,6 +62,6 @@
     }
     :global(.custom-dropdown__toggle, .custom-dropdown__menu){
         position: relative;
-        width: 300px;
+        width: 40%;
     }
 </style>
