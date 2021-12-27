@@ -38,23 +38,47 @@
 </script>
 
 
+<div class="btn-group w-100 mw-100 position-relative">
+    <button class="rounded btn btn-primary bg-light text-dark border-dark w-100 mw-100 d-flex justify-content-between" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+        <div class="text-nowrap overflow-hidden me-2">
+            {selectedOptions}
+        </div>
+        <div class="">
+            <i class="fas fa-chevron-down "></i>
+        </div>
+    </button>
+    <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuClickableInside">
+        {#each options as option}
+            <li>
+                <button class="dropdown-item" on:click={()=> changeHandler(option)}>
+                    <input type=checkbox checked={values.includes(option.value)}> {option.label}
+                </button>
+            </li>
+        {/each}
+        <li><hr class="dropdown-divider"></li>
+        <li>
+            <button class="dropdown-item" on:click={toggleAll}>
+                <input type=checkbox checked={values.length === options.length}> all
+            </button>
+        </li>
+      </ul>
+</div>
 
-<Dropdown  class="custom-dropdown" >
+<!-- <Dropdown  class="custom-dropdown" >
     <DropdownToggle class="custom-dropdown__toggle" caret>{selectedOptions}</DropdownToggle>
         <DropdownMenu class="custom-dropdown__menu" >
             {#each options as option}
-                <DropdownItem on:click={()=> changeHandler(option)}>
+                <DropdownItem >
                     <input type=checkbox checked={values.includes(option.value)}> {option.label}
                 </DropdownItem>
-                <!-- <Option {option} checked={values.includes(option.value)} on:change={changeHandler} /> -->
+                
             {/each}
     
             <DropdownItem on:click={toggleAll}>
                 <input type=checkbox checked={values.length === options.length}> all
             </DropdownItem>
         </DropdownMenu>
-
-</Dropdown>
+</Dropdown> -->
 
 <style>
     :global(.custom-dropdown__toggle){
