@@ -19,7 +19,7 @@
         const channels = await fetch(channelsUrl).then(res => res.json());
 
         const {template_id} = page.params;
-        const url = `http://localhost:3000/api/templates${template_id}`;
+        const url = `http://localhost:3000/api/templates/${template_id}`;
 
         const template = template_id === 'new' 
             ? new EmptyTemplate()
@@ -34,7 +34,6 @@
         }
     }
 </script>
-
 
 <script>
 import Select from "$lib/components/Select.svelte";
@@ -57,90 +56,60 @@ import axios from "axios";
     }
 </script>
 
-<div class="text-center">
-<Select
-    title="Channel"
-    value="Channel"
-    options={channels.map(c => ({label: c.name, value: c.name}))}
-/>
 
-<Select
-    title="matches type"
-    value="Threat Type"
-    options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}
-/>
 
-<Select
-    title="matches level"
-    value="Threat Level"
-    options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
-/>
+<div class="d-flex flex-wrap p-3">
+    <div class="m-2">
+        <Select title="Channel" options={channels.map(c => ({label: c.name, value: c.name}))}/>
+    </div>
+    <div class="m-2">
+        <Select title="matches type" options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}/>
+    </div>
+    <div class="m-2">
+        <Select title="matches level" options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}/>
+    </div>
+    <div class="m-2">
+        <Select title="format" options={['txt', 'html', 'md'].map(x => ({label: x, value: x}))}/>
+    </div>
 
-<Select
-    title="format"
-    value="Format"
-    options={['txt', 'html', 'md'].map(x => ({label: x, value: x}))}
-/>
-</div>
+    <div class="m-2">
+        <div class="input-group ">
+            <span class="input-group-text">Template Name</span>
+            <input type="text" class="form-control" bind:value={template.name}>
+        </div>
+    </div>
 
-<div class="m-5">
-<button on:click={saveTemplate}> Save As</button><input bind:value={template.name}>
-</div>
-
-<div class="w-50">
-    <textarea bind:value={templateString}></textarea>
-
-    {@html templateString}
-    
+    <div class="m-2">
+        <button class="btn btn-outline-primary border-2 " on:click={saveTemplate}> Save As</button>
+    </div>
 </div>
 
 
-<!-- svelte-ignore a11y-missing-attribute -->
-<html>
-<head>
-<style>
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+<div class="d-flex  flex-grow-1 border-top">
+    <textarea class="col-5 bg-dark text-light p-4" bind:value={templateString}></textarea>
+    <!-- <textarea bind:value={templateString}></textarea> -->
+    <div class="col-5 bg-light p-4">
+        {@html templateString}
+    </div>
+    <div class="col-2 p-3 bg-light border-start">
+        <h3 >Global Attributes</h3>
+        //hart coden schmart coden
+        <h3>Attributes</h3>
+        <ul class="list-group">
+            {#each configuration.messageAttributes as attribute}
+                <li class="list-group-item">
+                    {attribute.key} <span class="badge rounded-pill  bg-primary">{attribute.type}</span>
+                </li>
+            {/each}
+        </ul>
+    </div>
+</div>
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
+<div>
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-div {
-    position: relative;
-    margin-left 50px;
-    margin-right 50px;
-    padding 50px;
-    padding-top 50 px;
-    padding-bottom 50px;
-    margin 50px;
-    border 5px;
-}
-
-.w-50 {
-    display: flex;
-    flex-grow: 1;
-    margin-left: 48px;
-   
-   
+</div>
 
 
-}
 
-</style>
-</head>
-</html>
 
