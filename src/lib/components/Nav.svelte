@@ -20,6 +20,7 @@ import CustomNavLink from './CustomNavLink.svelte';
 
     const navItems = [
         {href: "/alerts", label: 'Send', faClass: 'fas fa-search'},
+        {href: "/history", label: "History", faClass: 'fas fa-search'},
         {href: "/subscribers", label: "Subscribers", faClass: 'fas fa-search'},
         {href: "/groups", label: "Groups", faClass: 'fas fa-search'},
         {href: "/templates", label: "Templates", faClass: 'fas fa-search'}
