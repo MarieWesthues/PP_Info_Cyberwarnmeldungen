@@ -22,7 +22,7 @@
 
 
 <Dropdown class="custom-dropdown">
-    <DropdownToggle class="custom-dropdown__toggle" caret>{value}</DropdownToggle>
+    <DropdownToggle class="custom-dropdown__toggle" caret>{title || value}</DropdownToggle>
     <DropdownMenu class="custom-dropdown__menu">
         {#each options as option}
             <DropdownItem on:click={()=> changeHandler(option)}>
