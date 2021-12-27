@@ -15,7 +15,7 @@
 <Nav/>
 <SuccessAlert> </SuccessAlert>
 <NoSuccessAlert > </NoSuccessAlert>
-<div class="content">
+<div class="content mw-100">
     <slot></slot>
 </div>
     
