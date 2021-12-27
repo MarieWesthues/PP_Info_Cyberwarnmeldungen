@@ -1,5 +1,5 @@
 <script>
-    import {page} from "$app/stores"
+    
 
     import {
       Collapse,
@@ -10,6 +10,7 @@
       NavItem,
       NavLink,
     } from 'sveltestrap';
+import CustomNavLink from './CustomNavLink.svelte';
   
     let isOpen = false;
   
@@ -25,15 +26,17 @@
         ]
 </script>
   
-  <Navbar color="primary" dark light expand="md" class="fixed-top">
+  <Navbar color="white" light expand="sm" class="fixed-top shadow-sm ">
     <NavbarToggler on:click={() => (isOpen = !isOpen)} />
-    <Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
+    <Collapse {isOpen} navbar expand="sm" on:update={handleUpdate}>
       <Nav class="me-auto" navbar>
 
 
         {#each navItems as {href, label}, i }
           <NavItem>
-              <NavLink active={$page.path == href} {href}>{label}</NavLink>
+              <CustomNavLink {href} {label}/>
+
+
           </NavItem>
         {/each}
 
