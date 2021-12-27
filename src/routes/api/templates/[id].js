@@ -6,7 +6,7 @@ export async function get(request) {
     const {id} = request.params;
   //  let inputName = request.body
 
-    let template = await Template.find(request.body).exec()  
+    let template = await Template.findById(id)
 
     if (template){
         return {
