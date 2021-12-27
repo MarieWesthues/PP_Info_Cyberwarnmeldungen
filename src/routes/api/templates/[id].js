@@ -31,13 +31,11 @@ export async function del(request) {
 export async function put(request) {
        const {id} = request.params; //holt sich das doc zu der ID
 
-       let template = await Template.findById(id).update(request.body)  //Verändert die Werte des docs
+       const updatedTemplate = await Template.findOneAndUpdate({_id: id}, request.body, {new: true})
 
-       let temp2 = await Template.findById(id).exec() //Speichert das geänderte Doc als temp2
-
-       if (template){
+       if (updatedTemplate){
            return {
-               body: temp2      //gebt das gesamte doc aus inkl veränderungen
+               body: updatedTemplate      //gebt das gesamte doc aus inkl veränderungen
            }
        }
    }
