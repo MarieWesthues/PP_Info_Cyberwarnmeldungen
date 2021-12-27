@@ -23,11 +23,30 @@
     export let templates;
     console.log(templates);
 
-    const defaultTemplate = templates.filter(t=> t.used && t.matches.type === "" && t.matches.level === "")[0]
-    // const usedTemplates = templates.filter(t => t.used && (t.matches.type != "" || t.matches.level != ""))
+    let defaultTemplate = templates.filter(t=> t.used && t.matches.type === "" && t.matches.level === "")[0]
+    let usedTemplates = templates.filter(t => t.used && t != defaultTemplate)
     let selectedTemplate = defaultTemplate
-    const unusedTemplates = templates.filter(t => ! t.used)
-    const usedTemplates = [...unusedTemplates]
+    let unusedTemplates = templates.filter(t => ! t.used)
+
+
+    function doNotUseTemplate(){
+        selectedTemplate.used = false;
+        unusedTemplates = [...unusedTemplates, selectedTemplate]
+        usedTemplates = usedTemplates.filter(t => t!= selectedTemplate);
+    }
+
+    function useTemplate(){
+        const isUsable = ! usedTemplates.some(t => {
+            return (t.matches.level === selectedTemplate.matches.level) && (t.matches.type === selectedTemplate.matches.type)
+        })
+        if (isUsable) {
+            selectedTemplate.used = true;
+            unusedTemplates = unusedTemplates.filter(t => t!= selectedTemplate)
+            usedTemplates = [...usedTemplates, selectedTemplate]; 
+        }
+        
+
+    }
 
 </script>
 
@@ -62,11 +81,13 @@
         <div class="position-absolute bottom-0 bg-light w-100   py-2 px-3"> 
 
             {#if selectedTemplate.used}
-                <button class="btn btn-outline-secondary border-2 m-2">Do not use</button>
+                <button class="btn btn-outline-secondary border-2 m-2" on:click={doNotUseTemplate}>Do not use</button>
             {:else}
-                <button class="btn btn-outline-secondary border-2 m-2">Use</button>
+                <button class="btn btn-outline-secondary border-2 m-2" on:click={useTemplate} >Use</button>
             {/if}
-            <button class="btn btn-outline-primary border-2 m-2">Edit</button> 
+            <a href="http://localhost:3000/templates/edit/{selectedTemplate._id}">
+                <button class="btn btn-outline-primary border-2 m-2">Edit</button>
+            </a> 
             <button class="btn btn-outline-danger border-2 m-2">Delete</button> 
 
         </div>
