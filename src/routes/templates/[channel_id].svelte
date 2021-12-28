@@ -79,6 +79,11 @@ import Template from './Template.svelte';
         usedTemplates = [...usedTemplates, newTemplate]; 
     }
 
+    function deleteTemplate(template){
+        axios.delete(`http://localhost:3000/api/templates/${template._id}`)
+        unusedTemplates = unusedTemplates.filter(t => t!= template);
+        usedTemplates = usedTemplates.filter(t => t!= template);
+    }
 
 </script>
 
@@ -122,16 +127,16 @@ import Template from './Template.svelte';
         
         <div class="position-absolute bottom-0 bg-light w-100   py-2 px-3"> 
 
+            
+            <a href="http://localhost:3000/templates/edit/{selectedTemplate._id}">
+                <button class="btn btn-outline-primary border-2 m-2">Edit</button>
+            </a> 
+            <button class="btn btn-outline-danger border-2 m-2" class:disabled={selectedTemplate === defaultTemplate} on:click={()=> deleteTemplate(selectedTemplate)}>Delete</button> 
             {#if selectedTemplate.used}
                 <button class="btn btn-outline-secondary border-2 m-2 " class:disabled={selectedTemplate === defaultTemplate} on:click={()=> doNotUseTemplate(selectedTemplate)}>Do not use</button>
             {:else}
                 <button class="btn btn-outline-secondary border-2 m-2" on:click={()=> useTemplate(selectedTemplate)} >Use</button>
             {/if}
-            <a href="http://localhost:3000/templates/edit/{selectedTemplate._id}">
-                <button class="btn btn-outline-primary border-2 m-2">Edit</button>
-            </a> 
-            <button class="btn btn-outline-danger border-2 m-2">Delete</button> 
-
         </div>
     </div>
 </div>
