@@ -5,6 +5,7 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
     function EmptyGroup(){
             this.name= "";
             this.description="";
+            this.color='blue';
     }
 
     export async function load({page}){
