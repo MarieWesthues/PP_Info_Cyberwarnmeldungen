@@ -27,7 +27,7 @@ export async function post(request) {
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get(request) {
 
-    const pendingAlerts = await PendingAlert.find({cert_id:  getStoreValue(certIdStore)})
+    const pendingAlerts = await PendingAlert.find({cert_id:  getStoreValue(certIdStore)}).populate('createdBy')
 
      return {
          body: pendingAlerts
