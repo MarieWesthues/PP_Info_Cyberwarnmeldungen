@@ -88,7 +88,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 <div class="abschnitt">
 <div class="box"> 
     <h5>Threat Name</h5>
-    <input bind:value={alert.title} style="width: 15rem; height: 3rem;"/>
+    <input bind:value={alert.title} style="width: 15rem; height: 2.5rem;"/>
 </div>
 
 <!-- Threat Type -->
@@ -159,7 +159,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     </div>
 	
 <div class="checkbox">
-   	<h5>Intern</h5>
+   	<h5 style="margin-right:1.5rem;">Intern</h5>
     <div class="check">
     	<input type="checkbox" bind:checked={alert.intern} style="width: 20px; height: 20px;">
     </div>
@@ -227,7 +227,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             flex-direction: row;
             align-items: center;
             margin: 25px;
-            margin-left: 50px;
+            margin-left: 14rem;;
         }
        
        
