@@ -52,10 +52,28 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
         await axios.delete(`http://localhost:3000/api/groups/${group._id}`)
         window.location.href = "http://localhost:3000/groups";
     }
-
-    
 </script>
-<main class="text-center">
+
+<div class="mw-100 mb-3" style="width: 45rem">
+    <h2 class="m-4">Add new Group</h2>
+    <div class="mb-3">
+        <label class="form-label">Group Name</label>
+        <input bind:value={group.name} type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea bind:value={group.description} class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <span class="color-picker me-2" style="--color-picker-value:{group.color}">
+            <span class="color-picker__overlay shadow-sm"></span>
+            <input type="color" bind:value={group.color} class="color-picker__input form-control"/>
+        </span>
+        <label>Color</label>
+    </div>
+</div>
+
+<!-- <main class="text-center">
     <br>
     <h2>Add new Group</h2>
     <br>
@@ -86,16 +104,40 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
         </button>
     </p>
 
-      </main>
+      </main> -->
 
 
 
 
 <style>
+    .color-picker{
+        width: 2rem;
+        height: 2rem;
+        position: relative;
+        display: inline-block;
+    }
+    .color-picker__input{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 100px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .color-picker__input:focus{
+        box-shadow: 0 0 0 0.25rem var(--color-picker-value);
+        opacity: .50;
+    }
+    .color-picker__overlay{
+        width: 100%;
+        height: 100%;
+        background: var(--color-picker-value);
+        border-radius: 2rem;
+        position: absolute;
+        opacity: 1;
+        z-index: 1;
+        pointer-events: none;
+    }
     
-    .input-group {
-    width: 45%;
-    margin-left: auto;
-    margin-right:auto;
-    align:left;
-}</style>
+</style>
