@@ -4,7 +4,7 @@
 </script>
 
 
-<div class="card" style="margin: 25px auto;">
+<div class="card mx-auto mb-3" style="max-width: 50rem">
     <h5 class="card-header fs-4">{group.name}</h5>
       <div class="card-body">
         <p class="card-text fw-light fs-6" ><span class="border border-2 rounded-pill">  Members = {anzahl}  </span></p>
@@ -16,12 +16,4 @@
   </div> 
 </div>
 
-<style>
-    
-    .card {
-        width: 45%;
-        margin: 0 auto;
-    }
-    
-    
-</style>
+

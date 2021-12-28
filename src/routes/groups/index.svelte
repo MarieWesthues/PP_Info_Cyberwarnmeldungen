@@ -22,29 +22,23 @@ import Groups from "./Groups.svelte";
     export let groups;
 </script>
 
-<main>
-    <div class="input-group mb-3">
+
+    <!-- <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Searchbar</span>
         <input type="text" class="form-control" placeholder="search..." aria-label="Search" aria-describedby="basic-addon1">
-    </div>
+    </div> -->
 
-    <h2 class="text-center">Group Overview</h2>
+<h2 class="m-4">Group Overview</h2>
 
-        <div class= "groups">
-            {#each groups as group }
-                  <Groups {group}/>
-            {/each}
-        </div>
-            
-        <p></p>
+<div class="container-sm">
+    {#each groups as group }
+            <Groups {group}/>
+    {/each}
+</div>
+ 
+
 
         
-</main>
+
 <NewButton href="/groups/new"/>
 
-<style>
-.input-group {
-    width:  45%;
-    margin: 0 auto;
-}
-</style>

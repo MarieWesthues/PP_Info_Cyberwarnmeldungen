@@ -5,7 +5,7 @@
 </script>
 
 
-<div class="card">
+<div class="card mx-auto mb-3" style="max-width: 50rem">
     <h5 class="card-header fs-4">{subscriber.name}
         {#if subscriber.intern == true}
             <span class="intern border border-2 rounded-pill fw-light fs-6">intern</span>
@@ -32,7 +32,7 @@
 
 <style>
     
-    .card {
+    /* .card {
         width: 45%;
         margin: 0 auto;
         overflow: auto;
@@ -52,5 +52,5 @@
         padding-right: 0.4em;
         background-color:#ffaf0496;
     }
-    
+     */
 </style>

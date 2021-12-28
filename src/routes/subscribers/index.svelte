@@ -29,25 +29,25 @@ export let subscribers;
  
 </script>
 
-<div class="input-group mb-3">
+<!-- <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Searchbar</span>
   <input type="text" class="form-control" placeholder="search..." aria-label="Search" aria-describedby="basic-addon1">
+</div> -->
+
+<h2 class="m-4">Subscriber Overview</h2>
+
+
+<div class="container-sm">
+  {#each subscribers as subscriber }
+    <Subscriber {subscriber} />
+  {/each}
 </div>
 
-<h2 class="text-center">Subscriber Overview</h2>
-
-<main>
 
 
-
-<div class= "subscribers">
-{#each subscribers as subscriber }
-  <Subscriber {subscriber} />
-{/each}
-</div>
 
 <NewButton href="/subscribers/new"/>
-</main>
+
 
 <style>
   .input-group

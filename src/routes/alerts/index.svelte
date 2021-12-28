@@ -30,46 +30,33 @@ import NewButton from '$lib/components/NewButton.svelte';
 
 </script>
 
+ <div class="container-sm" >
+    {#each alerts as alert}
+    <!--erste Bootstrap Komponente wuw-->
+    <div class="card mb-3 mx-auto" style="max-width: 50rem">
+        <h5 class="card-header fs-4">{alert.title}</h5>
+        <div class="buttons text-center">
+        <a href="alerts/{alert._id}">
+            <Button type= "button" class= "btn btn-outline-primary border-2">
+                Review
+            </Button>
+        </a>
+    </div>
+    </div>
+{/each}
+ </div>
 
-<html lang="en">
-    <body>
-        
-        {#each alerts as alert}
-            <!--erste Bootstrap Komponente wuw-->
-            <div class="card">
-                <h5 class="card-header fs-4">{alert.title}</h5>
-                <div class="buttons text-center">
-                <a href="alerts/{alert._id}">
-                    <Button type= "button" class= "btn btn-outline-primary border-2">
-                        Review
-                    </Button>
-                </a>
-            </div>
-            </div>
-        {/each}
-
-        
-        <NewButton href="/alerts/new" />
-                <!-- <a href="/alerts/new">
-                    <Button type="Button" class="btn btn-warning btn-rounded-circle">
-                        +
-                    </Button></a> -->
-            
-        
-          
-        
-        
-    </body>
-</html>
+    
+    <NewButton href="/alerts/new" />
 
 
 <style>
-    .card {
+    /* .card {
         width: 45%;
         margin: 0 auto;
         overflow: auto;
         margin: 25px auto;
-    }
+    } */
 </style>
 
 
