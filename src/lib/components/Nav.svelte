@@ -1,5 +1,6 @@
 <script>
     import {page} from "$app/stores"
+    import { svg_element } from "svelte/internal";
 
     import {
       Collapse,
@@ -19,18 +20,18 @@ import CustomNavLink from './CustomNavLink.svelte';
     }
 
     const navItems = [
-        {href: "/alerts", label: 'Send', faClass: 'fas fa-search'},
-        {href: "/history", label: "History", faClass: 'fas fa-search'},
-        {href: "/subscribers", label: "Subscribers", faClass: 'fas fa-search'},
-        {href: "/groups", label: "Groups", faClass: 'fas fa-search'},
-        {href: "/templates", label: "Templates", faClass: 'fas fa-search'}
+        {href: "/alerts", label: 'Send', style: '', faClass: 'fas fa-paper-plane'}, 
+        {href: "/history", label: "History", style: '', faClass: 'fas fa-history'},
+        {href: "/subscribers", label: "Subscribers", style: '', faClass: 'fas fa-users'},
+        {href: "/groups", label: "Groups", style: '',faClass: 'fas fa-users-cog'}, //fa-user-edit or fa-users-cog
+        {href: "/templates", label: "Templates", style: '',faClass: 'fas fa-file-alt'} //fa-file-invoice or fa-file-alt
         ]
 </script>
   
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">ConnCERT</a>
+      <a class="navbar-brand" href="/">ConnCERT</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
