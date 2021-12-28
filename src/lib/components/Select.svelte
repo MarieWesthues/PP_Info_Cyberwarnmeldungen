@@ -20,20 +20,28 @@
 
 </script>
 
-
-<Dropdown class="custom-dropdown">
-    <DropdownToggle class="custom-dropdown__toggle" caret>{title || value}</DropdownToggle>
-    <DropdownMenu class="custom-dropdown__menu">
+<div class="btn-group w-100 mw-100 position-relative">
+    <button class="rounded btn btn-primary bg-light text-dark border-dark w-100 mw-100 d-flex justify-content-between" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="text-nowrap overflow-hidden me-2">
+            {title || value}
+        </div>
+        <div class="">
+            <i class="fas fa-chevron-down "></i>
+        </div>
+    </button>
+    <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuClickableInside">
         {#each options as option}
-            <DropdownItem on:click={()=> changeHandler(option)}>
-                <input type=radio checked={value === option.value}> {option.label}
-            </DropdownItem>
+            <li>
+                <button class="dropdown-item" on:click={()=> changeHandler(option)}>
+                    <input type=radio checked={value === option.value}> {option.label}
+                </button>
+            </li>
         {/each}
-        <DropdownItem on:click={()=> changeHandler({value: ""})}>
-            <input checked={ value === ""} type=radio  />Select None
-        </DropdownItem>
-
-    </DropdownMenu>
-</Dropdown>
-
-
+        <li><hr class="dropdown-divider"></li>
+        <li>
+            <button class="dropdown-item" on:click={()=> changeHandler({value: ""})}>
+                <input checked={ value === ""} type=radio  />Select None
+            </button>
+        </li>
+      </ul>
+</div>
