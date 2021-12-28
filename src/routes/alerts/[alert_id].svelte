@@ -82,33 +82,44 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     
 </script>
 
-<main class="text-center">
-
-<h2>Static Props</h2>
-<div class="abschnitt">
-<div class="box"> 
-    <h5>Threat Name</h5>
-    <input bind:value={alert.title} style="width: 15rem; height: 2.5rem;"/>
-</div>
-
-<!-- Threat Type -->
-<div class="box">
-    <h5>Threat Type Selection</h5>
-    <Select 
-        bind:value={alert.threatType} 
-        title="Threat Type" 
-        options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}
-    />
-</div >
-<!-- Threat Level -->
-<div class="box">
-    <h5>Threat Level Selection</h5>
-    <Select 
+<div class="container-sm">
+    
+    <!-- use this style -->
+    <div class="bg-white p-4 mx-auto rounded mb-3" style="max-width: 50rem;">
+        <h2 class="border-bottom pb-2 mb-4">Static Props</h2>
+        <div class="mb-3">
+            <label class="form-label">Threat Name</label>
+            <input class="form-control" bind:value={alert.title} />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Threat Type</label>
+            <Select 
+            bind:value={alert.threatType} 
+            title="Threat Type" 
+            options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}
+            />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Threat Level</label>
+            <Select 
         bind:value={alert.threatLevel}
         title="Threat Level"
         options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
     />
+        </div>
+    </div>
 </div>
+
+
+<!-- Threat Type -->
+<div class="box">
+    <h5>Threat Type Selection</h5>
+
+</div >
+<!-- Threat Level -->
+<div class="box">
+    <h5>Threat Level Selection</h5>
+    
 </div>
 <h2>Message Attributes</h2>
 <div class="abschnitt">
@@ -182,9 +193,9 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
       </div>
 
   
-    </main>
+
     <style>
-        
+/*         
         h2{
             margin-bottom: 25px;
             margin-top: 25px;
@@ -231,5 +242,5 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         }
        
        
-         
+          */
     </style>
