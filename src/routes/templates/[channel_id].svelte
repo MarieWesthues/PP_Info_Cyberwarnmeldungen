@@ -18,7 +18,8 @@
 </script> 
 
 <script lang="ts">
-    import Template from './Template.svelte';
+    import NewButton from '$lib/components/NewButton.svelte';
+import Template from './Template.svelte';
 
     export let templates;
     console.log(templates);
@@ -52,23 +53,33 @@
 
 <div class="d-flex h-100 w-100">
     
-    <div class="w-50 px-5 pb-3 " style="overflow-y: scroll">
-        <h2 class="mt-3 text-dark ">Default Template</h2>
-        <Template template={defaultTemplate} selected={selectedTemplate == defaultTemplate} on:click={()=>selectedTemplate = defaultTemplate}></Template>
+    <div class="w-50 position-relative " >
+        <div class="px-5 pb-3 h-100" style="overflow-y: scroll">
+            <h2 class="mt-3 text-dark ">Default Template</h2>
+            <Template template={defaultTemplate} selected={selectedTemplate == defaultTemplate} on:click={()=>selectedTemplate = defaultTemplate}></Template>
 
 
-        <h2 class="mt-5 text-dark ">Used Template</h2>
-        {#each usedTemplates as template }
-            <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
-        {/each}
+            <h2 class="mt-5 text-dark ">Used Template</h2>
+            {#each usedTemplates as template }
+                <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
+            {/each}
+                
             
+            <h2 class="mt-5 text-dark ">Unused Template</h2>
+            {#each unusedTemplates as template}
+                <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
+            {/each}
+        </div>
         
-        <h2 class="mt-5 text-dark ">Unused Template</h2>
-        {#each unusedTemplates as template}
-            <Template {template} selected={selectedTemplate === template} on:click={()=>selectedTemplate = template }></Template>
-        {/each}
  
-   
+        <div class="position-absolute bottom-0 end-0 pe-5 pb-5">
+            <a href="http://localhost:3000/templates/edit/new">
+                <button type="button" class="btn btn-primary btn-lg">
+                    +
+                </button>
+            </a>
+        </div>
+        <!-- <NewButton href="http://localhost:3000/templates/edit/new" position="absolute"/> -->
     </div>
 
     
