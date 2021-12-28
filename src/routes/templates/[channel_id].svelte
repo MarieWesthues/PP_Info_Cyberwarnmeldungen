@@ -129,13 +129,21 @@ import Template from './Template.svelte';
 
             
             <a href="http://localhost:3000/templates/edit/{selectedTemplate._id}">
-                <button class="btn btn-outline-primary border-2 m-2">Edit</button>
+                <button class="btn btn-outline-primary border-2 m-2">
+                    <i class="fas fa-edit"></i> Edit
+                </button>
             </a> 
-            <button class="btn btn-outline-danger border-2 m-2" class:disabled={selectedTemplate === defaultTemplate} on:click={()=> deleteTemplate(selectedTemplate)}>Delete</button> 
+            <button class="btn btn-outline-danger border-2 m-2" class:disabled={selectedTemplate === defaultTemplate} on:click={()=> deleteTemplate(selectedTemplate)}>
+                <i class="fas fa-trash-alt"></i> Delete
+            </button> 
             {#if selectedTemplate.used}
-                <button class="btn btn-outline-secondary border-2 m-2 " class:disabled={selectedTemplate === defaultTemplate} on:click={()=> doNotUseTemplate(selectedTemplate)}>Do not use</button>
+                <button class="btn btn-outline-secondary border-2 m-2 " class:disabled={selectedTemplate === defaultTemplate} on:click={()=> doNotUseTemplate(selectedTemplate)}>
+                    <i class="fas fa-folder-minus"></i> Do not use
+                </button>
             {:else}
-                <button class="btn btn-outline-secondary border-2 m-2" on:click={()=> useTemplate(selectedTemplate)} >Use</button>
+                <button class="btn btn-outline-secondary border-2 m-2" on:click={()=> useTemplate(selectedTemplate)} >
+                    <i class="fas fa-folder-plus"></i> Use
+                </button>
             {/if}
         </div>
     </div>
