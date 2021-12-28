@@ -88,7 +88,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 <div class="abschnitt">
 <div class="box"> 
     <h5>Threat Name</h5>
-    <input bind:value={alert.title} style="width: 300px; height: 50px;"/>
+    <input bind:value={alert.title} style="width: 15rem; height: 3rem;"/>
 </div>
 
 <!-- Threat Type -->
@@ -116,7 +116,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
    
     {#each configuration.messageAttributes as attr}
         {#if attr.type === 'BOOLEAN'}
-	<div class="box">
+	<div class="checkbox">
 	  <h5>{attr.key}</h5>
             <div class="check">
             	<Checkbox value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
@@ -158,7 +158,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         options={groups.map(g => ({value: g._id, label: g.name}))}/>
     </div>
 	
-<div class="box">
+<div class="checkbox">
    	<h5>Intern</h5>
     <div class="check">
     	<input type="checkbox" bind:checked={alert.intern} style="width: 20px; height: 20px;">
@@ -168,6 +168,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 	<div class="box">
         <h5>Channels</h5>
     <MultiSelect 
+        
         title="Channels"
         bind:values={alert.selectedChannels}
         options={channels.map(c => ({value: c.name, label: c.name}))}/>
@@ -197,6 +198,15 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             justify-content: space-between;
             margin: 15px;
             align-items: center;
+  
+        }
+
+        .checkbox {
+            display: flex;
+            flex-direction: row;
+            margin: 15px;
+            align-items: center;
+  
         }
         .text-center{
             margin-right: 350px;
@@ -204,14 +214,22 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             margin-bottom: 50px;
         }
         .abschnitt{
-            border: 0.5px solid grey; 
-            padding-right: 50px;
-         
+            background-color: white; 
+            width: 40rem;
+            padding-right: 30px;   
+            padding-left: 30px;  
+            padding-top: 10px; 
+            padding-bottom: 10px; 
+
         }
         .check{
             display: flex;
             flex-direction: row;
             align-items: center;
             margin: 25px;
+            margin-left: 50px;
         }
+       
+       
+         
     </style>
