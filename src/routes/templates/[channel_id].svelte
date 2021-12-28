@@ -50,7 +50,7 @@
 
 </script>
 
-<div class="d-flex h-100">
+<div class="d-flex h-100 w-100">
     
     <div class="w-50 px-5 pb-3 " style="overflow-y: scroll">
         <h2 class="mt-3 text-dark ">Default Template</h2>

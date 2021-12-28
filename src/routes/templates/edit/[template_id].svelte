@@ -67,7 +67,7 @@ import axios from "axios";
 
 
 
-<div class="d-flex flex-wrap p-3">
+<div class="d-flex flex-wrap p-3 ">
     <div class="m-2">
         <Select title="Channel" bind:value={template.channel} options={channels.map(c => ({label: c.name, value: c.name}))}/>
     </div>
@@ -96,7 +96,7 @@ import axios from "axios";
 
 
 
-<div class="d-flex  flex-grow-1 border-top">
+<div class="d-flex  flex-grow-1 border-top w-100">
     <textarea class="col-5 bg-dark text-light p-4" bind:value={templateString}></textarea>
     <!-- <textarea bind:value={templateString}></textarea> -->
     <div class="col-5 bg-light p-4">
