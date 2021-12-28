@@ -67,30 +67,34 @@ import axios from "axios";
 
 
 
-<div class="d-flex flex-wrap p-3 ">
-    <div class="m-2">
-        <Select title="Channel" bind:value={template.channel} options={channels.map(c => ({label: c.name, value: c.name}))}/>
-    </div>
-    <div class="m-2">
-        <Select title="matches type" bind:value={template.matches.type} options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}/>
-    </div>
-    <div class="m-2">
-        <Select title="matches level" bind:value={template.matches.level} options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}/>
+<div class="d-flex flex-wrap p-3 w-100 justify-content-evenly">
+    <div class="d-flex">
+        <div class="m-2">
+            <Select title="Channel" bind:value={template.channel} options={channels.map(c => ({label: c.name, value: c.name}))}/>
+        </div>
+        <div class="m-2">
+            <Select title="matches type" bind:value={template.matches.type} options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}/>
+        </div>
+        <div class="m-2">
+            <Select title="matches level" bind:value={template.matches.level} options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}/>
+        </div>
     </div>
     <!-- Das Format Soll automatisch durch den channel inferred werden -->
     <!-- <div class="m-2">
         <Select title="format" options={['txt', 'html', 'md'].map(x => ({label: x, value: x}))}/>
     </div> -->
 
-    <div class="m-2">
-        <div class="input-group ">
-            <span class="input-group-text">Template Name</span>
-            <input type="text" class="form-control" bind:value={template.name}>
+    <div class="d-flex">
+        <div class="m-2">
+            <div class="input-group ">
+                <span class="input-group-text">Template Name</span>
+                <input type="text" class="form-control" bind:value={template.name}>
+            </div>
         </div>
-    </div>
-
-    <div class="m-2">
-        <button class="btn btn-outline-primary border-2 " on:click={saveTemplate}> Save As</button>
+    
+        <div class="m-2">
+            <button class="btn btn-outline-primary border-2 " on:click={saveTemplate}> Save As</button>
+        </div>
     </div>
 </div>
 
