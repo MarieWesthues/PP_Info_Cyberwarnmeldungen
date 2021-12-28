@@ -95,7 +95,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             <label class="form-label">Threat Type</label>
             <Select 
             bind:value={alert.threatType} 
-            title="Threat Type" 
+
             options={configuration.threatTypes.map(t => ({label: t.name, value: t.name}))}
             />
         </div>
@@ -103,7 +103,6 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             <label class="form-label">Threat Level</label>
             <Select 
         bind:value={alert.threatLevel}
-        title="Threat Level"
         options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
     />
         </div>
@@ -137,7 +136,6 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             <div class="box">
                 <h5>{attr.key}</h5>
             <Select 
-                title={attr.key}
                 value={alert.attributes[attr.key]} 
                 on:change={({detail})=> setAttribute(attr.key, detail)} 
                 options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}/>
