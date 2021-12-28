@@ -17,6 +17,19 @@ export const subscriberSchema = new Schema({
         ref: 'Group'
     }],
 })
+
+// middleware for many to many relation to groups
+subscriberSchema.pre('save', function(next){
+    console.log(this);
+    // remove subscriber from groups
+    this.model('Group').updateMany({_id: {$nin: this.groups}}, {$pull: {subscribers: this._id}}).exec();
+
+    // add subscriber to groups
+    this.model('Group').updateMany({_id: {$in: this.groups}}, {$addToSet: {subscribers: this._id}}).exec();
+
+    next();
+})
+
 export const Subscriber = mongoose.model('Subscriber', subscriberSchema); 
 
 export const groupSchema = new Schema({
@@ -33,4 +46,16 @@ export const groupSchema = new Schema({
         ref: 'Subscriber'
     }],
 })
+
+groupSchema.pre('save', function(next){
+    // remove group from subscribers
+    this.model('Subscriber').updateMany({_id: {$nin: this.subscribers}}, {$pull: {groups: this._id}}).exec();
+    
+    // add group to subscribers
+    this.model('Subscriber').updateMany({_id: {$in: this.subscribers}}, {$addToSet: {groups: this._id}}).exec();
+
+    next();
+
+})
+
 export const Group = mongoose.model('Group', groupSchema); 
