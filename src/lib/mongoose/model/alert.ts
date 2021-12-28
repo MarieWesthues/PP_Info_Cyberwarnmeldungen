@@ -1,5 +1,8 @@
 import "$lib/mongoose/connection";
 import mongoose, { ObjectId as ObjectIdType} from 'mongoose';
+
+// User muss hier importiert werden, da es vor pendingAlert erstellt werden muss
+import "./user"
 const Schema = mongoose.Schema;
 const {Mixed, ObjectId} = Schema.Types;
 
