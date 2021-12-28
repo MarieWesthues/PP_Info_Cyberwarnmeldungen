@@ -54,24 +54,40 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
     }
 </script>
 
-<div class="mw-100 mb-3" style="width: 45rem">
-    <h2 class="m-4">Add new Group</h2>
-    <div class="mb-3">
-        <label class="form-label">Group Name</label>
-        <input bind:value={group.name} type="text" class="form-control">
+<div class="container">
+    <div class="mx-auto " style="max-width: 50rem">
+        <h2 class="m-4">Add new Group</h2>
+        <div class="mb-3">
+            <label class="form-label">Group Name</label>
+            <input bind:value={group.name} type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea bind:value={group.description} class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <span class="color-picker me-2" style="--color-picker-value:{group.color}">
+                <span class="color-picker__overlay shadow-sm"></span>
+                <input type="color" bind:value={group.color} class="color-picker__input form-control"/>
+            </span>
+            <label>Color</label>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-danger me-3" class:disabled={! group._id} on:click={deleteGroup}>
+                <i class="fas fa-trash-alt"></i> Delete Group
+            </button>
+            <button class="btn btn-outline-primary border-2" on:click={saveGroup}>
+                <i class="fas fa-save"></i> Save Group
+            </button>
+        </div>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Description</label>
-        <textarea bind:value={group.description} class="form-control"/>
-    </div>
-    <div class="mb-3">
-        <span class="color-picker me-2" style="--color-picker-value:{group.color}">
-            <span class="color-picker__overlay shadow-sm"></span>
-            <input type="color" bind:value={group.color} class="color-picker__input form-control"/>
-        </span>
-        <label>Color</label>
-    </div>
+ 
 </div>
+
+
+
+
 
 <!-- <main class="text-center">
     <br>
