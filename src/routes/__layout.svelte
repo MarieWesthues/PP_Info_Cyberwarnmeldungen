@@ -15,7 +15,7 @@
 <Nav/>
 <SuccessAlert> </SuccessAlert>
 <NoSuccessAlert > </NoSuccessAlert>
-<div class="content mw-100">
+<div class="content mw-100 align-items-center">
     <slot></slot>
 </div>
     
