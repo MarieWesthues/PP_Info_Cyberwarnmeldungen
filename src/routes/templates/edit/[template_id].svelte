@@ -52,7 +52,7 @@ import axios from "axios";
     async function saveTemplate(){
         template.templateString = templateString;
         if (template._id) {
-            axios.put('http://localhost:3000/api/templates', template)
+            axios.put(`http://localhost:3000/api/templates/${template._id}`, template)
         }else{
             let res = await axios.post('http://localhost:3000/api/templates', template)
             if (res.status=200) {
