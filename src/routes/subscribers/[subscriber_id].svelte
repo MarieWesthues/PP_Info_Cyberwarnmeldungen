@@ -42,15 +42,22 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 
 
 
-    function saveSubscriber(){
-            if (subscriber._id) {
+    async function saveSubscriber(){
+        if (subscriber._id) {
             axios.put(`http://localhost:3000/api/subscribers/${subscriber._id}`,subscriber)
             showSuccess()
         }
         else {
             // validation fehlt noch
-            axios.post('http://localhost:3000/api/subscribers', subscriber)  
-            showNoSuccess()
+            let res= await axios.post('http://localhost:3000/api/subscribers', subscriber)  
+            if(res.status=200){
+                subscriber = res.data
+                showSuccess()
+            }
+            
+            else{
+                showNoSuccess()
+            }
             }
            
         }

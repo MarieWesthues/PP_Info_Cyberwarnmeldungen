@@ -65,8 +65,13 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             showSuccess()
         }else{
             // create new alert
-            alert = await axios.post('http://localhost:3000/api/alerts', alert).then(res => res.data)
-            showNoSuccess()
+            let res = await axios.post('http://localhost:3000/api/alerts', alert)
+            if (res.status=200){
+                alert = res.data
+                showSuccess()
+            }else{
+                showNoSuccess()
+            }
         }
     }
     function sendAlert(){
