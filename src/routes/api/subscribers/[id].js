@@ -5,14 +5,18 @@ import {Subscriber} from '$lib/mongoose/model/subscriber';
 export async function put(request) {
     const {id} = request.params;
     
-    const updatedSubscriber = await Subscriber.findOneAndUpdate({_id: id}, request.body, {new: true})
+    try {
+        const updatedSubscriber = await Subscriber.findOneAndUpdate({_id: id}, request.body, {new: true})
 
-    // save the subscriber to trigger the middleware
-    await updatedSubscriber.save();
+        // save the subscriber to trigger the middleware
+        await updatedSubscriber.save();
 
-    if (updatedSubscriber){
         return {
             body: updatedSubscriber
+        }
+    } catch (error) {
+        return {
+            status: 400
         }
     }
 }
