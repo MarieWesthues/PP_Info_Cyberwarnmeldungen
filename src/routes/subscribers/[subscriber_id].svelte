@@ -112,23 +112,3 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 </div>
 
 
-   
-
-
-
-<style>
-  
-  button.multiselect {
-    background-color: initial;
-    border: 1px solid #ced4da;
-  }
-
-  .input-group {
-    width: 40%;
-    margin-left: auto;
-    margin-right:auto;
-
-}
-
-
-</style>
