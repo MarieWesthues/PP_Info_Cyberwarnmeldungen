@@ -88,8 +88,8 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 </script>
 
 <div class="container-sm">
-    
-    <!-- use this style -->
+    <h1 class="text-center m-4">Edit Alert</h1>
+    <!-- Static Props -->
     <div class="bg-white p-4 mx-auto rounded mb-3" style="max-width: 50rem;">
         <h2 class="border-bottom pb-2 mb-4">Static Props</h2>
         <div class="mb-3">
@@ -107,11 +107,15 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         <div class="mb-3">
             <label class="form-label">Threat Level</label>
             <Select 
-        bind:value={alert.threatLevel}
-        options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
-    />
+            bind:value={alert.threatLevel}
+            options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
+            />
+        </div >
     </div>
-        <h2 class="border-bottom pb-2 mb-4" style="margin-top: 2rem;"> Message Attributes</h2>
+
+    <!-- Message Attributes -->
+    <div class="bg-white p-4 mx-auto rounded mb-3" style="max-width: 50rem;">
+        <h2 class="border-bottom pb-2 mb-4" > Message Attributes</h2>
         
         {#each configuration.messageAttributes as attr}
             {#if attr.type === 'BOOLEAN'}
@@ -140,8 +144,12 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
                 </div>
             {/if}
         {/each}
+        
+    </div>
 
-        <h2 class="border-bottom pb-2 mb-4" style="margin-top: 2rem;"> User Attributes </h2>
+    <!-- User Attributes -->
+    <div class="bg-white p-4 mx-auto rounded mb-3" style="max-width: 50rem;">
+        <h2 class="border-bottom pb-2 mb-4" > User Attributes </h2>
             <div class="mb-3">
                 <label class="form-label">Groups</label>
                 <MultiSelect
@@ -163,14 +171,13 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             <label class="form-check-label" for="exampleCheck1">Intern</label>
         </div>
 
-        <div class="text-center" style="margin: 30px;">
-            <h2 class="border-bottom pb-2 mb-4"></h2>
-            <button type="button" class="btn btn-danger">Delete</button>
-            <button type="button" class="btn btn-warning" on:click={saveAlert} >Save</button>
-            <button type="button" class="btn btn-success" class:disabled={! alert._id} on:click={sendAlert} >Submit</button>
-          </div> 
-
     </div>
+
+    <div class="text-center m-5">
+        <button type="button" class="btn btn-danger me-3 mb-3">Delete</button>
+        <button type="button" class="btn btn-warning me-3 mb-3" on:click={saveAlert} >Save</button>
+        <button type="button" class="btn btn-success mb-3" class:disabled={! alert._id} on:click={sendAlert} >Submit</button>
+    </div> 
 </div>
 
 
