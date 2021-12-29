@@ -5,19 +5,14 @@ import {Subscriber} from '$lib/mongoose/model/subscriber';
 export async function put(request) {
     const {id} = request.params;
     
-    let subscriber = await Subscriber.findById(id).update(request.body)
-    let temp2 = await Subscriber.findById(id).exec()
+    const updatedSubscriber = await Subscriber.findOneAndUpdate({_id: id}, request.body, {new: true})
 
-    const addGroupToSubscriber = function(subscriberID, group) {
-        return Subscriber.findByIdAndUpdate(subscriberID, 
-            {$push: {group : group._id} },
-            {new:true, useFindAndModify: false}
-            );
-    }
+    // save the subscriber to trigger the middleware
+    await updatedSubscriber.save();
 
-    if (subscriber){
+    if (updatedSubscriber){
         return {
-            body: temp2
+            body: updatedSubscriber
         }
     }
 }
@@ -37,7 +32,8 @@ export async function del(request) {
 export async function get(request) {
     const {id} = request.params;
 
-    let subscriber = await Subscriber.findById(id).populate('groups').exec()
+    // Do NOT populate groups because that would break the group dropdown in the subscriber editor
+    let subscriber = await Subscriber.findById(id).exec()
     // no return is equal to 404
     if (subscriber){
         return {

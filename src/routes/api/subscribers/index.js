@@ -6,6 +6,7 @@ import {get as getStoreValue} from 'svelte/store'
 // POST api/subscriber (neuen Subscriber erstellen)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function post(request) {
+
        const subscriber = new Subscriber({
            ...request.body,
            cert_id: getStoreValue(certIdStore)
@@ -14,9 +15,7 @@ export async function post(request) {
         const res = await subscriber.save()
 
 		return {
-			body: {
-				res
-			}
+			body: res
 		};
 }
 
