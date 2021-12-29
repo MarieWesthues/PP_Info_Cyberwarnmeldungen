@@ -38,7 +38,7 @@
 </script>
 
 
-<div class="btn-group position-relative" style="width: 15rem;">
+<div class="btn-group w-100 mw-100 position-relative">
     <button class="rounded btn btn-primary bg-light text-dark border-dark d-flex justify-content-between" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" >
         <div class="text-nowrap overflow-hidden me-2">
             {selectedOptions}
@@ -47,7 +47,7 @@
             <i class="fas fa-chevron-down "></i>
         </div>
     </button>
-    <ul class="dropdown-menu" style="width:15rem;" aria-labelledby="dropdownMenuClickableInside" >
+    <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuClickableInside" >
         {#each options as option}
             <li>
                 <button class="dropdown-item" on:click={()=> changeHandler(option)}>
@@ -83,11 +83,11 @@
 <style>
     :global(.custom-dropdown__toggle){
         overflow: hidden;
-        width: 15rem;
+        
     }
     :global(.custom-dropdown__toggle, .custom-dropdown__menu){
         position: relative;
-        width: 15rem;
+        
         
     }
    

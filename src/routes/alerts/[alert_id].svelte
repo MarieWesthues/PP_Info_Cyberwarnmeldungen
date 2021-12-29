@@ -106,141 +106,70 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         title="Threat Level"
         options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
     />
-        </div>
     </div>
-</div>
-
-
-<!-- Threat Type -->
-<div class="box">
-    <h5>Threat Type Selection</h5>
-
-</div >
-<!-- Threat Level -->
-<div class="box">
-    <h5>Threat Level Selection</h5>
-    
-</div>
-<h2>Message Attributes</h2>
-<div class="abschnitt">
-
-   
-    {#each configuration.messageAttributes as attr}
-        {#if attr.type === 'BOOLEAN'}
-	<div class="checkbox">
-	  <h5>{attr.key}</h5>
-            <div class="check">
-            	<Checkbox value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
-            </div>
-	</div>
-        {:else if attr.type === 'SELECT'}
-            <div class="box">
-                <h5>{attr.key}</h5>
-            <Select 
-                title={attr.key}
-                value={alert.attributes[attr.key]} 
-                on:change={({detail})=> setAttribute(attr.key, detail)} 
-                options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}/>
-            </div>
-    
-        {:else if attr.type === 'MULTISELECT'}
-        <div class="box"> 
-            <h5>{attr.key}</h5>
-            <MultiSelect
-                title={attr.key}
-                values={alert.attributes[attr.key] || []}
-                on:change={({detail})=> setAttribute(attr.key, detail)}
-                options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}
-            />
-        </div>
-        {/if}
-    {/each}
-</div>
-
-
-<h2>User Attributes</h2>
-<div class="abschnitt">
-	
-<div class="box">
-    <h5>Groups</h5>
-    <MultiSelect
-        title="Groups"
-        bind:values={alert.selectedGroups}
-        options={groups.map(g => ({value: g._id, label: g.name}))}/>
-    </div>
-	
-<div class="checkbox">
-   	<h5 style="margin-right:1.5rem;">Intern</h5>
-    <div class="check">
-    	<input type="checkbox" bind:checked={alert.intern} style="width: 20px; height: 20px;">
-    </div>
-</div>
-	
-	<div class="box">
-        <h5>Channels</h5>
-    <MultiSelect 
+        <h2 class="border-bottom pb-2 mb-4" style="margin-top: 2rem;"> Message Attributes</h2>
         
-        title="Channels"
-        bind:values={alert.selectedChannels}
-        options={channels.map(c => ({value: c.name, label: c.name}))}/>
+        {#each configuration.messageAttributes as attr}
+            {#if attr.type === 'BOOLEAN'}
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
+                    <label class="form-check-label" for="exampleCheck1">{attr.key}</label>
+                </div>
+            {:else if attr.type === 'SELECT'}
+                <div class="mb-3">
+                    <label class="form-label">{attr.key}</label>
+                    <Select 
+                        title={attr.key}
+                        value={alert.attributes[attr.key]} 
+                        on:change={({detail})=> setAttribute(attr.key, detail)} 
+                        options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}/>
+                </div>
+            {:else if attr.type === 'MULTISELECT'} 
+                <div class="mb-3">
+                    <label class="form-label">{attr.key}</label>
+                    <MultiSelect
+                    title={attr.key}
+                    values={alert.attributes[attr.key] || []}
+                    on:change={({detail})=> setAttribute(attr.key, detail)}
+                    options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}
+                />
+                </div>
+            {/if}
+        {/each}
+
+        <h2 class="border-bottom pb-2 mb-4" style="margin-top: 2rem;"> User Attributes </h2>
+            <div class="mb-3">
+                <label class="form-label">Groups</label>
+                <MultiSelect
+                    title="Groups"
+                    bind:values={alert.selectedGroups}
+                    options={groups.map(g => ({value: g._id, label: g.name}))}/>  
+            </div>      
+        <div class="mb-3">
+            <label class="form-label">Channels</label>
+            <MultiSelect 
+                title="Channels"
+                bind:values={alert.selectedChannels}
+                options={channels.map(c => ({value: c.name, label: c.name}))}/>
+    
+        </div>
+        
+        <div class="mb-3 form-check">
+            <input type="checkbox" bind:checked={alert.intern} class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Intern</label>
+        </div>
+
+        <div class="text-center" style="margin: 30px;">
+            <h2 class="border-bottom pb-2 mb-4"></h2>
+            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-warning" on:click={saveAlert} >Save</button>
+            <button type="button" class="btn btn-success" class:disabled={! alert._id} on:click={sendAlert} >Submit</button>
+          </div> 
+
     </div>
 </div>
 
-    <div class="text-center" style="margin: 30px;">
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-warning" on:click={saveAlert} >Save</button>
-        <button type="button" class="btn btn-success" class:disabled={! alert._id} on:click={sendAlert} >Submit</button>
-      </div>
 
-  
 
-    <style>
-/*         
-        h2{
-            margin-bottom: 25px;
-            margin-top: 25px;
-        }
-        h5 {
-            margin: 10px;
-        }
-        .box {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin: 15px;
-            align-items: center;
-  
-        }
 
-        .checkbox {
-            display: flex;
-            flex-direction: row;
-            margin: 15px;
-            align-items: center;
-  
-        }
-        .text-center{
-            margin-right: 350px;
-            margin-left: 350px;
-            margin-bottom: 50px;
-        }
-        .abschnitt{
-            background-color: white; 
-            width: 40rem;
-            padding-right: 30px;   
-            padding-left: 30px;  
-            padding-top: 10px; 
-            padding-bottom: 10px; 
-
-        }
-        .check{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin: 25px;
-            margin-left: 14rem;;
-        }
-       
-       
-          */
-    </style>
+    
