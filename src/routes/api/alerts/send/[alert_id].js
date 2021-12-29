@@ -6,6 +6,7 @@ import { certIdStore, userIdStore } from '$lib/stores';
 import {get as getStoreValue} from 'svelte/store'
 import { PendingAlert } from "$lib/mongoose/model/alert";
 import populateTemplate from "$lib/populate";
+import { sendAlert } from "$lib/channels";
 
 
 // POST api/subscriber (neuen Subscriber erstellen)
@@ -27,13 +28,14 @@ export async function post(request) {
 
     // Step 1) Templates raussuchen
     // Step 2) nachrichten senden
-    for (let channel of alert.selectedChannels){
-        console.log(channel);
-        const template = await Template.chooseTemplate(cert_id, channel, matches)
+    for (let channelName of alert.selectedChannels){
+
+        const template = await Template.chooseTemplate(cert_id, channelName, matches)
 
         if (template) {
             const populatedTemplate = populateTemplate(template, alert)
-            console.log(populatedTemplate);
+            // should return promise with link to created post
+            sendAlert(channelName, populatedTemplate, alert)
         }
     }
     // Step 3 pendingAlert removen
