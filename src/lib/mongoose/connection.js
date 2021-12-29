@@ -3,7 +3,7 @@ dotenv.config();
 
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
-const DB_NAME = 'mySecondDatabase';
+const DB_NAME = 'myThirdDatabase';
 
 
 const uri = `mongodb+srv://${process.env['ATLAS_USER']}:${process.env['ATLAS_PASSWORD']}@cluster0.d0wqi.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
