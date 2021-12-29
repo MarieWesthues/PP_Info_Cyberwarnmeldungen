@@ -62,7 +62,7 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 
 <div class="container">
     <div class="mx-auto " style="max-width: 50rem">
-        <h2 class="m-4">Add new Group</h2>
+        <h1 class="my-4 ">Add new Group</h1>
         <div class="mb-3">
             <label class="form-label">Group Name</label>
             <input bind:value={group.name} type="text" class="form-control">
@@ -79,7 +79,7 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
             <label>Color</label>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3 mt-5">
             <button class="btn btn-danger me-3" class:disabled={! group._id} on:click={deleteGroup}>
                 <i class="fas fa-trash-alt"></i> Delete Group
             </button>
