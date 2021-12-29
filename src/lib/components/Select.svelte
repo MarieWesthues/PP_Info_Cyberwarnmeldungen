@@ -21,7 +21,7 @@
 </script>
 
 <div class="btn-group w-100 mw-100 position-relative">
-    <button class="rounded btn btn-primary bg-light text-dark border-dark w-100 mw-100 d-flex justify-content-between" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="form-control rounded bg-light text-dark  d-flex justify-content-between" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" aria-expanded="false">
         <div class="text-nowrap overflow-hidden me-2">
             {title || value}
         </div>

@@ -39,7 +39,7 @@
 
 
 <div class="btn-group w-100 mw-100 position-relative">
-    <button class="rounded btn btn-primary bg-light text-dark border-dark d-flex justify-content-between" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" >
+    <button class="form-control rounded bg-light text-dark  d-flex justify-content-between" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" >
         <div class="text-nowrap overflow-hidden me-2">
             {selectedOptions}
         </div>
