@@ -19,7 +19,6 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 
         const subscriber = page.params.subscriber_id === 'new' ? new EmptySubscriber() : await fetch(url).then(res => res.json())
 
-
             return {
                 props: {
                     subscriber,
@@ -43,24 +42,18 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 
 
     async function saveSubscriber(){
-        if (subscriber._id) {
-            axios.put(`http://localhost:3000/api/subscribers/${subscriber._id}`,subscriber)
+        try {
+            let res = subscriber._id ?
+                await axios.put(`http://localhost:3000/api/subscribers/${subscriber._id}`,subscriber) :
+                await await axios.post('http://localhost:3000/api/subscribers', subscriber);
+
+            subscriber._id = res.data._id;
             showSuccess()
+        } catch (error) {
+            showNoSuccess()
         }
-        else {
-            // validation fehlt noch
-            let res= await axios.post('http://localhost:3000/api/subscribers', subscriber)  
-            if(res.status=200){
-                subscriber = res.data
-                showSuccess()
-            }
-            
-            else{
-                showNoSuccess()
-            }
-            }
-           
-        }
+    }
+    
     async function deleteSubscriber(){
         if (subscriber._id){
             await axios.delete(`http://localhost:3000/api/subscribers/${subscriber._id}`)
