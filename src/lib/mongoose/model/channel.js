@@ -34,7 +34,7 @@ const email = {
         primary: 'red',
         onPrimary: 'white',
     },
-    logo: "http://localhost/channel-icons/email.png",
+    logo: "http://localhost:3000/channel-icons/email.png",
     messageFormat: 'html',
     authenticated: true,
 }
@@ -45,7 +45,7 @@ const reddit = {
         primary: '#FF5700',
         onPrimary: 'white',
     },
-    logo: "http://localhost/channel-icons/reddit.png",
+    logo: "http://localhost:3000/channel-icons/reddit.png",
     messageFormat: 'md',
     authenticated: true,
 }
@@ -56,7 +56,7 @@ const twitter = {
         primary: '#1DA1F2',
         onPrimary: 'white',
     },
-    logo: "http://localhost/channel-icons/twitter.png",
+    logo: "http://localhost:3000/channel-icons/twitter.png",
     messageFormat: 'txt',
     authenticated: true,
 }
