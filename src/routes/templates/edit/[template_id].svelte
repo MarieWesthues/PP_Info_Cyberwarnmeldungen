@@ -1,4 +1,8 @@
 <script context="module">
+import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
+import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhide.svelte";
+
+
     function EmptyTemplate(){
         this.name = "";
         this.used = false;
@@ -53,13 +57,14 @@ import axios from "axios";
         template.templateString = templateString;
         if (template._id) {
             axios.put('http://localhost:3000/api/templates', template)
+            showSuccess()
         }else{
             let res = await axios.post('http://localhost:3000/api/templates', template)
             if (res.status=200) {
                 template = res.data;
-                // success popup
+                showSuccess()
             }else{
-                // error popup
+                showNoSuccess()
             }
         }
     }

@@ -36,16 +36,21 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 
 
 
-    function saveGroup(){
+    async function saveGroup(){
         if (group._id) {
             axios.put(`http://localhost:3000/api/groups/${group._id}`,group)
             showSuccess()
             
         }else{
             // validation fehlt noch
-            axios.post('http://localhost:3000/api/groups', group)  
-            showNoSuccess()
-            
+            let res = await axios.post('http://localhost:3000/api/groups', group) 
+             if(res.status==200){
+                 group=res.data;
+                 showSuccess();
+             }
+             else{
+                showNoSuccess();
+             }
         }
         
     }
