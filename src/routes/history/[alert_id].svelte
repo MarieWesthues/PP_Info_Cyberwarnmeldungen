@@ -67,7 +67,7 @@
 
 </script>
     
-    <main  class="text-center">
+    <!-- <main  class="text-center">
     
         <h2>Add new Subscriber</h2>
     
@@ -123,5 +123,5 @@
     }
     
     
-    </style>
+    </style> -->
     
