@@ -92,7 +92,7 @@ export const persistedAlertSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Group'
     }],
-    attributes: [alertAttributeSchema],
+    attributes: Mixed,
     dateSend: {type: Date, required: true},
     authorizedBy: {
         type: mongoose.Schema.Types.ObjectId,
