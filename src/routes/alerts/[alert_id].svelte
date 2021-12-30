@@ -60,20 +60,18 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
 
     async function saveAlert(){
         //no validation! ...meh who cares?
-        if (alert._id) {
-            axios.put(`http://localhost:3000/api/alerts/${alert._id}`, alert)
-            showSuccess()
-        }else{
-            // create new alert
-            let res = await axios.post('http://localhost:3000/api/alerts', alert)
-            if (res.status=200){
-                alert = res.data
-                showSuccess()
-            }else{
-                showNoSuccess()
-            }
+        try{
+            let res = alert._id ?
+            await axios.put(`http://localhost:3000/api/alerts/${alert._id}`, alert):
+            await await axios.post('http://localhost:3000/api/alerts', alert);
+            alert._id=res.data._id;            showSuccess()
+
+        }
+        catch (error){
+            showNoSuccess()
         }
     }
+            
     function sendAlert(){
         axios.post(`http://localhost:3000/api/alerts/send/${alert._id}`)
         window.location.href = "http://localhost:3000/alerts";

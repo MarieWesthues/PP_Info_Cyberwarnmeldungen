@@ -37,23 +37,18 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 
 
     async function saveGroup(){
-        if (group._id) {
-            axios.put(`http://localhost:3000/api/groups/${group._id}`,group)
-            showSuccess()
-            
-        }else{
-            // validation fehlt noch
-            let res = await axios.post('http://localhost:3000/api/groups', group) 
-             if(res.status==200){
-                 group=res.data;
-                 showSuccess();
-             }
-             else{
+        try{
+            let res = group._id ?
+                await axios.put(`http://localhost:3000/api/groups/${group._id}`,group):
+                await await axios.post('http://localhost:3000/api/groups', group);
+                group._id =res.data._id;
+                showSuccess();
+            }
+        catch(error){
                 showNoSuccess();
-             }
+            }
         }
-        
-    }
+
     async function deleteGroup(){
         await axios.delete(`http://localhost:3000/api/groups/${group._id}`)
         window.location.href = "http://localhost:3000/groups";
