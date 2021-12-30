@@ -18,39 +18,15 @@
     }
   </script>
   
+<script>
+import PersistedAlert from "./History.svelte";
+export let persistedAlerts;
+</script>
+    
+<h2 class="m-4">Alert Overview</h2>
   
-  
-  <script>
-  import PersistedAlert from "./History.svelte";
-  import NewButton from "$lib/components/NewButton.svelte";
-  
-  export let persistedAlerts;
-  
-   
-  </script>
-  
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Searchbar</span>
-    <input type="text" class="form-control" placeholder="search..." aria-label="Search" aria-describedby="basic-addon1">
-  </div>
-  
-  <h2 class="text-center">Alert Overview</h2>
-  
-  <main>
-     <div class= "alerts">
-        {#each persistedAlerts as persistedAlert}
-            <PersistedAlert {persistedAlert}/>
-        {/each}
-    </div>
-  
-  </main>
-  
-  <style>
-    .input-group
-    {
-      width:  45%;
-      margin: 0 auto;
-    }
-  </style>
-  
-  
+<div class= "container-sm">
+  {#each persistedAlerts as persistedAlert}
+    <PersistedAlert {persistedAlert}/>
+  {/each}
+</div>  

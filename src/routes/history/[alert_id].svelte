@@ -40,88 +40,25 @@
         import axios from "axios";
         import MultiSelect from "$lib/components/MultiSelect.svelte";
         export let persistedAlerts;
-    
-    
-    function saveSubscriber(){
-        if (persistedAlerts._id) {
-        axios.put(`http://localhost:3000/api/history/${history._id}`,persistedAlerts)
-        showSuccess()
-    }
-    else {
-        // validation fehlt noch
-        axios.post('http://localhost:3000/api/history', persistedAlerts)  
-        showNoSuccess()
-        }
-       
-    }
-    async function deleteSubscriber(){
-    if (persistedAlerts._id){
-        await axios.delete(`http://localhost:3000/api/history/${persistedAlerts._id}`)
-        window.location.href = 'http://localhost:3000/history'
-    }else{
-        window.location.href = 'http://localhost:3000/history'
-    }
-    
-}
+    </script>
 
+    
 
-</script>
-    
-    <!-- <main  class="text-center">
-    
-        <h2>Add new Subscriber</h2>
-    
-        <div width=50% align=center>
-        <div class="input-group input-group-sm mb-3"style="text-align: left;"></div>
-            <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%; height: 30px;">Name</span>
-            <input bind:value={subscriber.name} type="text" class="form-control" style="max-width: 40%; height: 30px;" aria-label="Name" aria-describedby="inputGroup-sizing-sm">
-        
-        <div class="input-group input-group-sm mb-3"> </div>
-            <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width: 40%; height: 30px; justify-content: left;">Email</span>
-            <input bind:value={subscriber.email} type="text" class="form-control" style="max-width: 40%;" aria-label="Email" aria-describedby="inputGroup-sizing-sm">
-        
-    
-        <div class="input-group">
-            <label>
-                Intern
-                <input bind:checked={subscriber.intern} class="form-check-input" type="checkbox" id="intern">
-            </label>
+<div class="container">
+    <div class="mx-auto " style="max-width: 50rem">
+        <h1 class="my-4">Show Alert</h1>
+
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input bind:value={persistedAlerts.title} type="text" class="form-control">
         </div>
-    
-       <div class="input-group input-group-sm mb-3"> </div>
-           <span class="input-group-text" id="inputGroup-sizing-sm" style="max-width:40%; height: 30px;">Subscriber Groups</span>
-           
-        <MultiSelect
-            title="Groups"
-            bind:values={subscriber.groups}
-            options={groups.map(g => ({label: g.name, value: g._id}))}
-            
-        />  
-        <div>
-            <button class="btn btn-danger" on:click={deleteSubscriber}>
-                Delete
-            </button>
-            <button class="btn btn-outline-dark border-2" on:click={saveSubscriber}>
-                Save Subscriber
-            </button>
+        <div class="mb-3">
+            <label class="form-label">Date</label>
+            <input bind:value={persistedAlerts.dateCreated} type="text" class="form-control">
         </div>
-    
-    </main>
-    
-    <style>
-      
-      button.multiselect {
-        background-color: initial;
-        border: 1px solid #ced4da;
-      }
-    
-      .input-group {
-        width: 40%;
-        margin-left: auto;
-        margin-right:auto;
-    
-    }
-    
-    
-    </style> -->
-    
+        <div class="mb-3 form-check">
+            <input bind:checked={persistedAlerts.intern} type="checkbox" class="form-check-input" >
+            <label class="form-check-label" >intern</label>
+        </div>
+    </div>
+</div>
