@@ -25,14 +25,14 @@
             {/each}
         </div>
         <div class="">
-            <i class="far fa-calendar-plus"></i> Created : {persistedAlert.dateCreated}
-            <i class="fas fa-paper-plane"></i> Send : {persistedAlert.dateSend}
+            <i class="far fa-calendar-plus me-2"></i>{new Date(persistedAlert.dateCreated).toLocaleString()}
+            <i class="fas fa-paper-plane me-0.5"></i> {new Date(persistedAlert.dateSend).toLocaleString()}
         </div>
         <div class="">
-            <i class="fas fa-angle-double-up"></i> Level : {persistedAlert.threatLevel}
+            <i class="fas fa-angle-double-up me-2"></i> Level : {persistedAlert.threatLevel}
         </div>
         <div class="">
-            <i class="fas fa-question-circle"></i> Type: {persistedAlert.threatType}
+            <i class="fas fa-question-circle me-0.5"></i> Type: {persistedAlert.threatType}
         </div>
     </div>
 </div>

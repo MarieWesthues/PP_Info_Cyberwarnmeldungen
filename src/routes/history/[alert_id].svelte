@@ -20,9 +20,8 @@
             const historyUrl = `http://localhost:3000/api/history`
             const persistedAlerts = await fetch(historyUrl).then(res => res.json())
     
-            const url = `http://localhost:3000/api/history/${page.params.history_id}`;
-    
-            const historyEmpty = page.params.history_id === 'new' ? new EmptyPersistedAlert() : await fetch(url).then(res => res.json())
+            const url = `http://localhost:3000/api/history/${page.params.alert_id}`;    
+            const historyEmpty = page.params.alert_id === 'new' ? new EmptyPersistedAlert() : await fetch(url).then(res => res.json())
     
     
                 return {
@@ -30,26 +29,23 @@
                         historyEmpty,
                         persistedAlerts
                     }
-                }
-    
+                } 
         }
     </script>
     
     
-    <script>
-        import axios from "axios";
-        import MultiSelect from "$lib/components/MultiSelect.svelte";
-        export let persistedAlerts;
-    </script>
-
-    
+<script>
+    import axios from "axios";
+    import MultiSelect from "$lib/components/MultiSelect.svelte";
+    export let persistedAlerts;
+</script>    
 
 <div class="container">
     <div class="mx-auto " style="max-width: 50rem">
         <h1 class="my-4">Show Alert</h1>
 
         <div class="mb-3">
-            <label class="form-label">Name</label>
+            <label class="form-label">Title</label>
             <input bind:value={persistedAlerts.title} type="text" class="form-control">
         </div>
         <div class="mb-3">
