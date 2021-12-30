@@ -4,7 +4,7 @@ import { postTextMessageTwitter } from "$lib/channels/twitter";
 import { Template } from "$lib/mongoose/model/template";
 import { certIdStore, userIdStore } from '$lib/stores';
 import {get as getStoreValue} from 'svelte/store'
-import { PendingAlert } from "$lib/mongoose/model/alert";
+import { PendingAlert, PersistedAlert } from "$lib/mongoose/model/alert";
 import populateTemplate from "$lib/populate";
 import { sendAlert } from "$lib/channels";
 
@@ -42,12 +42,14 @@ export async function post(request) {
     await PendingAlert.deleteOne({_id: alert._id})
     delete alert._id
 
-    const persistedAlert = {
+    const persistedAlertData = {
         ...alert,
         dateSend: new Date(),
         authorizedBy: getStoreValue(userIdStore),
     }
 
+    const persistedDocument = new PersistedAlert(persistedAlertData);
+    persistedDocument.save();
     // const template = await Template.chooseTemplate(
     //     getStoreValue(certIdStore), 
     //     'Email', 
