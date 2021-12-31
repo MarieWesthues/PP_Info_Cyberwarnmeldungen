@@ -75,13 +75,17 @@ export const defaultConfiguration = {
     threatTypes : [
         {name: 'Malware'}, 
         {name: 'Virus'}, 
-        {name: 'Exploit'}
+        {name: 'Exploit'},
+        {name: 'Schwachstelle'},
+        {name: 'Gefährdung'},
+        {name: 'Vorfall'},
+        {name: 'IT-Assets'}
     ],
     threatLevels : [
-        {name: '1', color: 'yellow'}, 
-        {name: '2', color: 'orange'}, 
-        {name: '3', color: 'red'}, 
-        {name: '4', color: 'darkred'}
+        {name: '1', color: 'grey'}, 
+        {name: '2', color: 'yellow'}, 
+        {name: '3', color: 'orange'}, 
+        {name: '4', color: 'red'}
     ],
     messageAttributes: [
         {
