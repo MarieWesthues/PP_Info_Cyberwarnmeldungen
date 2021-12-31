@@ -2,8 +2,6 @@
     export let persistedAlert;
 </script>
 
-
-
 <div class="card mx-auto mb-3" style="max-width: 50rem">
     <div class="bg-white card-header d-flex align-items-center ">
         <h5 class="fs-4 m-0">{persistedAlert.title} </h5> 
@@ -27,16 +25,14 @@
             {/each}
         </div>
         <div class="">
-            <i class="far fa-envelope me-2"></i>{persistedAlert.dateCreated}
-            <i class="far fa-envelope me-2"></i>{persistedAlert.createdBy}
+            <i class="far fa-calendar-plus me-2"></i>{new Date(persistedAlert.dateCreated).toLocaleString()}
+            <i class="fas fa-paper-plane me-0.5"></i> {new Date(persistedAlert.dateSend).toLocaleString()}
         </div>
         <div class="">
-            <i class="far fa-envelope me-2"></i>{persistedAlert.threatLevel}
-            <i class="far fa-envelope me-2"></i>{persistedAlert.threatType}
+            <i class="fas fa-angle-double-up me-2"></i> Level : {persistedAlert.threatLevel}
         </div>
         <div class="">
-            <i class="far fa-envelope me-2"></i>{persistedAlert.dateSend}
-            <i class="far fa-envelope me-2"></i>{persistedAlert.authorizedBy}
+            <i class="fas fa-question-circle me-0.5"></i> Type: {persistedAlert.threatType}
         </div>
     </div>
 </div>

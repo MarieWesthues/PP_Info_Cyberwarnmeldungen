@@ -21,10 +21,10 @@ import CustomNavLink from './CustomNavLink.svelte';
 
     const navItems = [
         {href: "/alerts", label: 'Send', style: '', faClass: 'fas fa-paper-plane'}, 
-        {href: "/history", label: "History", style: '', faClass: 'fas fa-history'},
-        {href: "/subscribers", label: "Subscribers", style: '', faClass: 'fas fa-users'},
+        {href: "/templates", label: "Templates", style: '',faClass: 'fas fa-file-alt'}, //fa-file-invoice or fa-file-alt
         {href: "/groups", label: "Groups", style: '',faClass: 'fas fa-users-cog'}, //fa-user-edit or fa-users-cog
-        {href: "/templates", label: "Templates", style: '',faClass: 'fas fa-file-alt'} //fa-file-invoice or fa-file-alt
+        {href: "/subscribers", label: "Subscribers", style: '', faClass: 'fas fa-users'},
+        {href: "/history", label: "History", style: '', faClass: 'fas fa-history'}
         ]
 </script>
   

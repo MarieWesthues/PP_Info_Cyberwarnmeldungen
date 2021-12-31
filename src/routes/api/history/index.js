@@ -4,7 +4,7 @@ import {PersistedAlert} from '$lib/mongoose/model/alert';
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ params }) {
 
-    const persistedAlerts = await PersistedAlert.find({})
+    const persistedAlerts = await PersistedAlert.find({}).populate('selectedGroups').exec()
 
      return {
          body: persistedAlerts
