@@ -19,13 +19,16 @@
 </script>
 
 <div class="container-sm">
-    <h1 class="text-center p-4">Cert Config</h1>
+    <h1 class="text-center p-4">Alert Attributes</h1>
 
     <div class="mx-auto" style="max-width:50rem">
-        <div class="mb-3">
-            <label class="form-label">CERT Name</label>
-            <input bind:value={configuration.name} type="text" class="form-control">
-        </div>
+        {#each configuration.messageAttributes as attribute}
+            <div class="mb-3">
+                <label class="form-label">CERT Name</label>
+                <input bind:value={configuration.name} type="text" class="form-control">
+            </div>
+        {/each}
+        
 
         <div class="mb-3">
             <label class="form-label">Reply email</label>
