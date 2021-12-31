@@ -42,6 +42,7 @@ import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhi
 <script>
 import Select from "$lib/components/Select.svelte";
 import axios from "axios";
+import { onMount } from "svelte";
 
     export let template;
     export let configuration;
@@ -62,6 +63,21 @@ import axios from "axios";
         }
      }
 
+     let outputRef;
+
+
+     let iframeRoot;
+     $: {
+         if (iframeRoot) {
+            iframeRoot.innerHTML = templateString;
+         }
+     }
+     onMount(()=>{
+        //  console.log(outputRef.contentWindow.document.getElementById('#id'));
+        iframeRoot = outputRef.contentWindow.document.querySelector('body')
+        iframeRoot.innerHTML = templateString
+
+     })
 </script>
 
 
@@ -99,11 +115,12 @@ import axios from "axios";
 
 
 
-<div class="d-flex  flex-grow-1 border-top bg-secondary w-100 overflow-hidden">
+<div class="d-flex  flex-grow-1 border-top  w-100 overflow-hidden">
     <textarea class="col-5 bg-dark text-light p-4 h-100" bind:value={templateString}></textarea>
-    <div class="col-5 bg-light p-4 h-100 " style="overflow: auto;">
-        {@html templateString}
-    </div>
+    <iframe bind:this={outputRef} class="col-5 h-100" ></iframe>
+    <!-- <div class="col-5 bg-light p-4 h-100 " style="overflow: auto;">
+        
+    </div> -->
     <div class="col-2 p-3 bg-light border-start h-100" style="overflow:auto;">
         <h3 >Global Attributes</h3>
         <ul class="list-group mb-4">
