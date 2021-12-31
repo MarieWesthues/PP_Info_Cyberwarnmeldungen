@@ -61,6 +61,7 @@ import axios from "axios";
             showNoSuccess()
         }
      }
+
 </script>
 
 
@@ -105,7 +106,14 @@ import axios from "axios";
     </div>
     <div class="col-2 p-3 bg-light border-start h-100" style="overflow:auto;">
         <h3 >Global Attributes</h3>
-        //hart coden schmart coden
+        <ul class="list-group mb-4">
+            {#each ['threatLevel', 'threatType', 'incident', 'assessment', 'actions', 'title', 'intern'] as attr}
+                <li class="list-group-item">
+                    {attr}
+                </li>
+            {/each}
+        </ul>
+
         <h3>Attributes</h3>
         <ul class="list-group">
             {#each configuration.messageAttributes as attribute}
