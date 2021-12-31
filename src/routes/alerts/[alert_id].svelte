@@ -6,7 +6,7 @@
         this.title = null;
         this.threatLevel = null;
         this.threatType = null;
-        this.asessment = "";
+        this.assessment = "";
         this.actions = "";
         this.incident = "";
         this.intern = null;
@@ -122,8 +122,8 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             <textarea class="form-control" bind:value={alert.incident}></textarea>
         </div>
         <div class="mb-3">
-            <label class="form-label">Asessment</label>
-            <textarea class="form-control" bind:value={alert.asessment}></textarea>
+            <label class="form-label">assessment</label>
+            <textarea class="form-control" bind:value={alert.assessment}></textarea>
         </div>
         <div class="mb-3">
             <label class="form-label">Actions</label>

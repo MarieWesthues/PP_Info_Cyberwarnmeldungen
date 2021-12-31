@@ -33,8 +33,8 @@ export async function post(request) {
     // Mandatory props adden
     attributes.threatLevel = alert.threatLevel;
     attributes.threatType = alert.threatType;
-    attributes.title = alert.threatType;
-    attributes.asessment = alert.asessment;
+    attributes.title = alert.title;
+    attributes.assessment = alert.assessment;
     attributes.incident = alert.incident;
     attributes.actions = alert.actions;
 
