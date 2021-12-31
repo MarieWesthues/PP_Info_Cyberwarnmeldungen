@@ -5,7 +5,8 @@ import { sendTwitterAlert } from "./twitter";
 
 export function sendAlert(channelName, alertText, alertObject){
     // Erstmal auskommentiert lassen pls
-
+    console.log(`Send ${channelName}-Alert:`);
+    console.log(alertText);
     // switch(channelName){
     //     case 'Reddit':
     //         sendRedditAlert(alertText, alertObject)

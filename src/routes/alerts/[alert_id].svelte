@@ -6,6 +6,9 @@
         this.title = null;
         this.threatLevel = null;
         this.threatType = null;
+        this.asessment = "";
+        this.actions = "";
+        this.incident = "";
         this.intern = null;
         this.attributes = Object.fromEntries(configuration.messageAttributes.map(attr => [attr.key, null]));
         this.selectedChannels = [];
@@ -108,6 +111,23 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             bind:value={alert.threatLevel}
             options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}
             />
+        </div >
+    </div>
+
+     <!-- Text areas -->
+     <div class="bg-white p-4 mx-auto rounded mb-3" style="max-width: 50rem;">
+        <h2 class="border-bottom pb-2 mb-4">Text Areas</h2>
+        <div class="mb-3">
+            <label class="form-label">Incident</label>
+            <textarea class="form-control" bind:value={alert.incident}></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Asessment</label>
+            <textarea class="form-control" bind:value={alert.asessment}></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Actions</label>
+            <textarea class="form-control" bind:value={alert.actions}></textarea>
         </div >
     </div>
 

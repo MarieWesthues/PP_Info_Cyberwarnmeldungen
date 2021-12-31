@@ -34,6 +34,9 @@ export async function post(request) {
     attributes.threatLevel = alert.threatLevel;
     attributes.threatType = alert.threatType;
     attributes.title = alert.threatType;
+    attributes.asessment = alert.asessment;
+    attributes.incident = alert.incident;
+    attributes.actions = alert.actions;
 
     // get the threatLevelColor
     const cert = await Cert.findById(cert_id)

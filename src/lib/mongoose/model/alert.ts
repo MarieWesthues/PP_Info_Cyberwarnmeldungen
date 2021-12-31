@@ -47,6 +47,9 @@ export const pendingAlertSchema = new Schema({
     },
     threatLevel: {type: String, required: true},
     threatType: {type: String, required: true},
+    incident: {type: String, required: true},
+    asessment: {type: String, required: true},
+    actions: {type: String, required: true},
     title: {type: String, required: true},
     intern: {type: Boolean, required: true},
     selectedGroups: [{
@@ -86,6 +89,9 @@ export const persistedAlertSchema = new Schema({
     },
     threatLevel: {type: String, required: true},
     threatType: {type: String, required: true},
+    incident: {type: String, required: true},
+    asessment: {type: String, required: true},
+    actions: {type: String, required: true},
     title: {type: String, required: true},
     intern: {type: Boolean, required: true},
     selectedGroups: [{
