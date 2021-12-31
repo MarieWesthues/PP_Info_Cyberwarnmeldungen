@@ -3,13 +3,13 @@
     import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhide.svelte";
 
     function EmptyAlert(configuration){
-        this.title = null;
-        this.threatLevel = null;
-        this.threatType = null;
+        this.title = "";
+        this.threatLevel = "";
+        this.threatType = "";
         this.assessment = "";
         this.actions = "";
         this.incident = "";
-        this.intern = null;
+        this.intern = false;
         this.attributes = Object.fromEntries(configuration.messageAttributes.map(attr => [attr.key, null]));
         this.selectedChannels = [];
         this.selectedGroups = [];
@@ -94,7 +94,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
     <div class="bg-white p-4 mx-auto rounded mb-3" style="max-width: 50rem;">
         <h2 class="border-bottom pb-2 mb-4">Static Props</h2>
         <div class="mb-3">
-            <label class="form-label">Threat Name</label>
+            <label class="form-label">Threat Title</label>
             <input class="form-control" bind:value={alert.title} />
         </div>
         <div class="mb-3">
@@ -138,14 +138,13 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
         {#each configuration.messageAttributes as attr}
             {#if attr.type === 'BOOLEAN'}
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" value={alert.attributes[attr.key]} on:change={({detail})=> setAttribute(attr.key, detail)} />
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" checked={alert.attributes[attr.key]} on:change={()=> setAttribute(attr.key, !alert.attributes[attr.key])} />
                     <label class="form-check-label" for="exampleCheck1">{attr.key}</label>
                 </div>
             {:else if attr.type === 'SELECT'}
                 <div class="mb-3">
                     <label class="form-label">{attr.key}</label>
                     <Select 
-                        title={attr.key}
                         value={alert.attributes[attr.key]} 
                         on:change={({detail})=> setAttribute(attr.key, detail)} 
                         options={attr.selectOptions.map(opt => ({label: opt, value: opt}))}/>
