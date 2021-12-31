@@ -37,6 +37,7 @@ export async function post(request) {
     attributes.assessment = alert.assessment;
     attributes.incident = alert.incident;
     attributes.actions = alert.actions;
+    attributes.dateSend = new Date();
 
     // get the threatLevelColor
     const cert = await Cert.findById(cert_id)
