@@ -1,16 +1,11 @@
 import { Group, Subscriber } from "./mongoose/model/subscriber";
 
-export default function populateTemplate(templateObject, alert){
-    // reduce list of key value pairs to actual key value pairs
-    // const reducer = (acc, {key, value}) => {
-    //     acc[key] = value;
-    //     return acc;
-    // }
-    const attributes = alert.attributes;
+export default function populateTemplate(templateObject, attributes){
+    // const attributes = alert.attributes;
     
-    attributes.threatLevel = alert.threatLevel;
-    attributes.threatType = alert.threatType;
-    attributes.title = alert.threatType;
+    // attributes.threatLevel = alert.threatLevel;
+    // attributes.threatType = alert.threatType;
+    // attributes.title = alert.threatType;
 
     const populated = templateObject.templateString.replace(/\${(.*?)}/g, (match, content)=> {
 
