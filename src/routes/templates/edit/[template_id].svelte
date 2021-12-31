@@ -98,13 +98,12 @@ import axios from "axios";
 
 
 
-<div class="d-flex  flex-grow-1 border-top w-100">
-    <textarea class="col-5 bg-dark text-light p-4" bind:value={templateString}></textarea>
-    <!-- <textarea bind:value={templateString}></textarea> -->
-    <div class="col-5 bg-light p-4">
+<div class="d-flex  flex-grow-1 border-top bg-secondary w-100 overflow-hidden">
+    <textarea class="col-5 bg-dark text-light p-4 h-100" bind:value={templateString}></textarea>
+    <div class="col-5 bg-light p-4 h-100 " style="overflow: auto;">
         {@html templateString}
     </div>
-    <div class="col-2 p-3 bg-light border-start">
+    <div class="col-2 p-3 bg-light border-start h-100" style="overflow:auto;">
         <h3 >Global Attributes</h3>
         //hart coden schmart coden
         <h3>Attributes</h3>
@@ -116,6 +115,8 @@ import axios from "axios";
             {/each}
         </ul>
     </div>
+    
+
 </div>
 
 <div>
