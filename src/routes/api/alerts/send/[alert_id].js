@@ -7,6 +7,7 @@ import {get as getStoreValue} from 'svelte/store'
 import { PendingAlert, PersistedAlert } from "$lib/mongoose/model/alert";
 import populateTemplate from "$lib/populate";
 import { sendAlert } from "$lib/channels";
+import { Cert } from "$lib/mongoose/model/cert";
 
 
 // POST api/subscriber (neuen Subscriber erstellen)
@@ -26,6 +27,18 @@ export async function post(request) {
     }
     const cert_id = getStoreValue(certIdStore);
 
+    // Step 0) Color map für Threat Level Farben erstellen
+
+    const attributes = alert.attributes;
+    // Mandatory props adden
+    attributes.threatLevel = alert.threatLevel;
+    attributes.threatType = alert.threatType;
+    attributes.title = alert.threatType;
+
+    // get the threatLevelColor
+    const cert = await Cert.findById(cert_id)
+    attributes.threatLevelColor = cert.configuration.threatLevels.find(tl => tl.name === alert.threatLevel).color;
+
     // Step 1) Templates raussuchen
     // Step 2) nachrichten senden
     for (let channelName of alert.selectedChannels){
@@ -33,7 +46,7 @@ export async function post(request) {
         const template = await Template.chooseTemplate(cert_id, channelName, matches)
 
         if (template) {
-            const populatedTemplate = populateTemplate(template, alert)
+            const populatedTemplate = populateTemplate(template, attributes)
             // should return promise with link to created post
             sendAlert(channelName, populatedTemplate, alert)
         }
@@ -42,6 +55,7 @@ export async function post(request) {
     await PendingAlert.deleteOne({_id: alert._id})
     delete alert._id
 
+    // Weitere Felder zum persistedAlert adden
     const persistedAlertData = {
         ...alert,
         dateSend: new Date(),
