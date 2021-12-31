@@ -22,8 +22,8 @@ import CustomNavLink from './CustomNavLink.svelte';
     const navItems = [
         {href: "/alerts", label: 'Send', style: '', faClass: 'fas fa-paper-plane'}, 
         {href: "/templates", label: "Templates", style: '',faClass: 'fas fa-file-alt'}, //fa-file-invoice or fa-file-alt
-        {href: "/groups", label: "Groups", style: '',faClass: 'fas fa-users-cog'}, //fa-user-edit or fa-users-cog
         {href: "/subscribers", label: "Subscribers", style: '', faClass: 'fas fa-users'},
+        {href: "/groups", label: "Groups", style: '',faClass: 'fas fa-users-cog'}, //fa-user-edit or fa-users-cog
         {href: "/history", label: "History", style: '', faClass: 'fas fa-history'}
         ]
 </script>
