@@ -27,10 +27,10 @@ const transporter = nodemailer.createTransport({
 // }
 
 export async function sendEmailAlert(text, alertObject){
-  console.log(text);
+
 
   // gette alle subscriber die in groups sind
-  // console.log(alertObject);
+
 
   // const groups = await Group.find({'_id': {$in: alertObject.selectedGroups}}).populate('subscribers')
 
@@ -40,7 +40,7 @@ export async function sendEmailAlert(text, alertObject){
     subscribers = subscribers.filter( s=> s.intern)
   }
 
-  console.log(subscribers);
+
 
   subscribers.forEach((subscriber)=>{
     transporter.sendMail({

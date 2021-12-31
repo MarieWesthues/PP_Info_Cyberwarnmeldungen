@@ -20,7 +20,7 @@ export const subscriberSchema = new Schema({
 
 // middleware for many to many relation to groups
 subscriberSchema.pre('save', function(next){
-    console.log(this);
+
     // remove subscriber from groups
     this.model('Group').updateMany({_id: {$nin: this.groups}}, {$pull: {subscribers: this._id}}).exec();
 

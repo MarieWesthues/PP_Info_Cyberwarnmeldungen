@@ -4,7 +4,7 @@
     let isHovered = false;
 
     function toggleHover(){
-        console.log("sheeeeees");
+
         
         isHovered = !isHovered;
     }

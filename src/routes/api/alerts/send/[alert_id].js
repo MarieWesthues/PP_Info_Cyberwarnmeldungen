@@ -13,12 +13,12 @@ import { Cert } from "$lib/mongoose/model/cert";
 // POST api/subscriber (neuen Subscriber erstellen)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function post(request) {
-    console.log("soooos");
+
     // Find relevant Alert in PendingAlerts
     const alert = await PendingAlert.findById(request.params.alert_id).lean();
 
     if (alert) {
-        // console.log(alert);
+
     }
 
     const matches = {

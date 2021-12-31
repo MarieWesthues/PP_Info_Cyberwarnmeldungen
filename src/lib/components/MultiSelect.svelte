@@ -15,7 +15,7 @@
     let isOpen = false;
 
     function changeHandler(detail){
-        console.log(options, values, selectedOptions);
+
         let checked = values.includes(detail.value);
         if (!checked) {
             values = [...values, detail.value]

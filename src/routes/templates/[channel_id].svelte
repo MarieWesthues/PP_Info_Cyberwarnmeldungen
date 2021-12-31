@@ -1,7 +1,7 @@
  <script context="module" lang="ts">
 
         export async function load({fetch, page}){
-            console.log("channel", page.params.channel_id);
+
             const url = 'http://localhost:3000/api/templates?' + new URLSearchParams({channel: page.params.channel_id})
             const res = await fetch(url)
             const templates = await res.json()
@@ -24,7 +24,7 @@ import { onMount } from 'svelte';
 import Template from './Template.svelte';
 
     export let templates;
-    console.log(templates);
+
 
     // modal stuff
     let modalRef;

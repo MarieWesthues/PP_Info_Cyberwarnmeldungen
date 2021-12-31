@@ -17,13 +17,13 @@ export default function populateTemplate(templateObject, attributes){
 export function getGroupBySubscriber(name) {
     return Group.findOne({name: name})
     .populate('groups').exec((err,groups) => {
-        console.log("Populated Subscriber " + groups)
+
     })
 }
 
 export function getSubByGroup(name) {
     return Subscriber.findOne({name: name})
     .populate('subscribers').exec((err,subscribers) => {
-        console.log("Populated Subscriber " + subscribers)
+
     })
 }

@@ -4,7 +4,6 @@
         const res = await fetch(url)
         const groups = await res.json()
         
-        console.log(groups);
 
         if (res.ok){
             return {

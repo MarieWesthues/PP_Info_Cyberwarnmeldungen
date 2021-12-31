@@ -9,7 +9,7 @@ import { Cert } from '$lib/mongoose/model/cert';
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ params, body }) {
     
-    console.log(body.id);
+
     // https://mongoosejs.com/docs/subdocs.html#finding-a-subdocument
     const cert = await Cert.findById(getStoreValue(certIdStore))
     let attribute = await cert.configuration.messageAttributes.id(body.id)

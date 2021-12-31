@@ -47,10 +47,6 @@ import axios from "axios";
     export let configuration;
     export let channels;
 
-    console.log(channels);
-    console.log(configuration);
-    console.log(template);
-
     let templateString = template.templateString
 
     async function saveTemplate(){

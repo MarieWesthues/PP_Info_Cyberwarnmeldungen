@@ -27,7 +27,7 @@ export async function load({fetch}){
 import NewButton from '$lib/components/NewButton.svelte';
     import {Button} from 'sveltestrap';
 
-console.log(alerts);
+
 
 </script>
 

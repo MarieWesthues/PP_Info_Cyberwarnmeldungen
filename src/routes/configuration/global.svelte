@@ -15,7 +15,7 @@
 
 <script>
     export let configuration;
-    console.log(configuration);
+
 </script>
 
 <div class="container-sm">

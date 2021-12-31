@@ -21,7 +21,7 @@ const subredditName = 'praxisprojekt'
 // }
 
 export async function sendRedditAlert(text, alertObject){
-  console.log(text);
+
   let {title} = alertObject;
   r.getSubreddit(subredditName)
         .submitSelfpost({title ,text, subredditName})

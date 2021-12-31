@@ -23,7 +23,7 @@ var client = new Twitter({
 // }
 
 export function sendTwitterAlert(text, alertObject){
-  console.log(text);
+
   client.post('statuses/update', {status: text},  function(error, tweet, response) {
     if(error) throw error;
 
