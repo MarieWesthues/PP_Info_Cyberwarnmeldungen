@@ -94,36 +94,6 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
                     <tr>
                         <td style="border-style: none;">{new Date(historyObject.dateSend).toLocaleString()}</td>
                     </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="mb-3">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>  <i class="fas fa-angle-double-up me-2"></i> Threat Level</th>
-                    </tr>
-                    <tr>
-                        <td style="border-style: none;">{historyObject.threatLevel} </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="mb-3">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th> <i class="fas fa-question-circle me-0.5"></i> Threat Type</th>
-                    </tr>
-                    <tr>
-                        <td style="border-style: none;"> {historyObject.threatType} </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="mb-3">
-            <table class="table">
-                <tbody>
                     <tr>
                         <th> <i class="fas fa-users me-1"></i> Groups</th>
                     </tr>
@@ -134,6 +104,25 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
                             </span>
                         </a>
                     {/each} </td>
+                    </tr>
+                    <tr>
+                        <th>  <i class="fas fa-angle-double-up me-2"></i> Threat Level</th>
+                    </tr>
+                    <tr>
+                        <td style="border-style: none;">{historyObject.threatLevel} </td>
+                    </tr>
+                
+                    <tr>
+                        <th> <i class="fas fa-question-circle me-0.5"></i> Threat Type</th>
+                    </tr>
+                    <tr>
+                        <td style="border-style: none;"> {historyObject.threatType} </td>
+                    </tr>
+                    <tr>
+                        <th> <i class="fas fa-question-circle me-0.5"></i> Incident</th>
+                    </tr>
+                    <tr>
+                        <td style="border-style: none;"> {historyObject.incident} </td>
                     </tr>
                     <tr>
                         <th> Intern</th>
