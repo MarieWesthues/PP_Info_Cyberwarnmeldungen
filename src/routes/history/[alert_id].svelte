@@ -89,7 +89,7 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
             <table class="table">
                 <tbody>
                     <tr>
-                        <th> <i class="fas fa-paper-plane me-0.5"></i> Date Sent</th>
+                        <th> <i class="fas fa-paper-plane me-0.5"></i>  Date Sent</th>
                     </tr>
                     <tr>
                         <td style="border-style: none;">{new Date(historyObject.dateSend).toLocaleString()}</td>
@@ -110,7 +110,13 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
                     </tr>
                     <tr>
                         <td style="border-style: none;">{#each historyObject.attributes as character}
-                                <p> {character.key}</p>
+                                <p> {character.key}: {#if character.value}
+            
+                                    <i class="fas fa-check me-0.5"></i>
+                            {:else}
+                            <i class="fas fa-times me-0.5"></i>
+                                {/if}
+                                {character.value}</p>
                      
                     {/each} </td>
                     </tr>
@@ -150,9 +156,9 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
                     </tr>
                     <tr>
                         <td style="border-style: none;"> {#if historyObject.intern}
-                           <i class="fas fa-check me-0.5"></i>
+                           <i class="fas fa-check me-0.5"></i> true
                             {:else}
-                            <i class="fas fa-times me-0.5"></i>
+                            <i class="fas fa-times me-0.5"></i> false
                         {/if} 
                     </td>
                     </tr>
