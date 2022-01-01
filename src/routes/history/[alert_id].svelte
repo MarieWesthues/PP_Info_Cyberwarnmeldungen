@@ -52,10 +52,10 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
                         <th> Channel Posts</th>
                     </tr>
                     <tr>
-                        <td style="border-style: none;" > <img src="http://localhost:3000/channel-icons/reddit.png" style="width: 2.5rem; height: 2.5rem;">    Reddit</td>
+                        <td style="border-style: none;" > <a href={historyObject.alertResources[0].resource}> <img src="http://localhost:3000/channel-icons/reddit.png" style="width: 2.5rem; height: 2.5rem;"></a>  Reddit</td>
                     </tr>
                     <tr>
-                        <td style="border-style: none;"> <img src="http://localhost:3000/channel-icons/twitter.png" style="width: 2.5rem; height: 2.5rem;">Twitter</td>
+                        <td style="border-style: none;"><a href={historyObject.alertResources[1].resource}><img src="http://localhost:3000/channel-icons/twitter.png" style="width: 2.5rem; height: 2.5rem;"></a>  Twitter</td>
                     </tr>
                 </tbody>
             </table>
