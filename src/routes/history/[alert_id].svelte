@@ -125,7 +125,7 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
             <table class="table">
                 <tbody>
                     <tr>
-                        <th>Groups</th>
+                        <th> <i class="fas fa-users me-1"></i> Groups</th>
                     </tr>
                     <tr>
                         <td style="border-style: none;">{#each historyObject.selectedGroups as group}  <a href="/groups/{group._id}" class="text-decoration-none">
