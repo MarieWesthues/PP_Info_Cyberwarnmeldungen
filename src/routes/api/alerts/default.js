@@ -1,5 +1,5 @@
 import {PendingAlert} from '$lib/mongoose/model/alert';
-import { certIdStore } from '$lib/stores';
+import { certIdStore, userIdStore } from '$lib/stores';
 import { get } from 'svelte/store';
 
 // POST api/alerts (neue Warnmeldung erstellen)
@@ -15,12 +15,15 @@ export async function post(request) {
         threatType: 'Virus',
         title: 'Tittel Schmittel',
         intern: false,
+        actions: "asdafsdf",
+        assessment: "asdfasdfasd",
+        incident: "asdfasd fasdf",
         attributes: [
             {key: 'Remote', value: false},
             {key: 'OS', value: ['Windows']},
             {key: 'Moped Grad', value: 'kleines Moped'}
         ],
-        //created by missing
+        createdBy: get(userIdStore),
         selectedChannels: ['Email', 'Reddit', 'Twitter'],
         selectedGroups: [],
         cert_id: get(certIdStore),

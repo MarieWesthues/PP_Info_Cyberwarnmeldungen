@@ -45,14 +45,19 @@ export async function post(request) {
 
     // Step 1) Templates raussuchen
     // Step 2) nachrichten senden
+    let alertResources = []
     for (let channelName of alert.selectedChannels){
-
         const template = await Template.chooseTemplate(cert_id, channelName, matches)
-
         if (template) {
             const populatedTemplate = populateTemplate(template, attributes)
-            // should return promise with link to created post
-            sendAlert(channelName, populatedTemplate, alert)
+            try {
+                let resource = await sendAlert(channelName, populatedTemplate, alert)
+                if (resource) {
+                    alertResources.push(resource);
+                }
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
     // Step 3 pendingAlert removen
@@ -62,6 +67,7 @@ export async function post(request) {
     // Weitere Felder zum persistedAlert adden
     const persistedAlertData = {
         ...alert,
+        alertResources,
         dateSend: new Date(),
         authorizedBy: getStoreValue(userIdStore),
     }

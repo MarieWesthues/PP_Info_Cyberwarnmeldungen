@@ -67,9 +67,10 @@ export const PendingAlert = mongoose.model('PendingAlert', pendingAlertSchema);
 
 
 // Alert Link
-export const alertLinkSchema = {
-    uri: {type: String, required: true},
+export const alertResourceSchema = {
+    resource: {type: String, required: true},
     channel: {type: String, required: true},
+    type: {type: String, required: true}
 }
 // export const AlertLink = mongoose.model('AlertLink', alertLinkSchema);
 
@@ -105,6 +106,6 @@ export const persistedAlertSchema = new Schema({
         ref: 'User',
         required: true
     },
-    links: [alertLinkSchema]
+    alertResources: [alertResourceSchema]
 })
 export const PersistedAlert = mongoose.model('PersistedAlert', persistedAlertSchema);
