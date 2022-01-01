@@ -1,8 +1,13 @@
 
 
+
+
 <div class="sos">
-    <p> Welcome to ConnCERT!<p>
-</div> 
+    <p style="font-size: 4rem; color:white"> Welcome to ConnCERT!</p>
+    <p style="color:white"> The Solution to send customized alerts easy and quick </p>
+    <p style="color:white"> Reach numerous users from different target groups via many Channels </p>
+</div>
+
    <!--  sooos
 
     <div class="sas">
@@ -12,15 +17,20 @@
 </div>
 -->
 <style>
-    .sos{
+  
+.sos{
         /** background: blue;**/
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100%;
-        font-size: 3rem;
-        
-    }
+        width: 100%;
+        background-image:linear-gradient(90deg, #2254da 0%, rgba(0, 0, 0, 0.55) 80%);
+
+}
+   
+    
     /**.sas{
         background: green;
         height: 100%;
