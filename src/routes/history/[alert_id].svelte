@@ -106,6 +106,15 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
                     {/each} </td>
                     </tr>
                     <tr>
+                        <th> <i class="fas fa-plus-circle me-1"></i> Attributes</th>
+                    </tr>
+                    <tr>
+                        <td style="border-style: none;">{#each historyObject.attributes as character}
+                                <p> {character.key}</p>
+                     
+                    {/each} </td>
+                    </tr>
+                    <tr>
                         <th>  <i class="fas fa-angle-double-up me-2"></i> Threat Level</th>
                     </tr>
                     <tr>
@@ -119,10 +128,22 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
                         <td style="border-style: none;"> {historyObject.threatType} </td>
                     </tr>
                     <tr>
-                        <th> <i class="fas fa-question-circle me-0.5"></i> Incident</th>
+                        <th> <i class="fas fa-exclamation-circle me-0.5"></i> Incident</th>
                     </tr>
                     <tr>
                         <td style="border-style: none;"> {historyObject.incident} </td>
+                    </tr>
+                    <tr>
+                        <th> <i class="fas fa-search me-0.5"></i> Assessment</th>
+                    </tr>
+                    <tr>
+                        <td style="border-style: none;"> {historyObject.assessment} </td>
+                    </tr>
+                    <tr>
+                        <th> <i class="fas fa-info me-0.5"></i> Actions</th>
+                    </tr>
+                    <tr>
+                        <td style="border-style: none;"> {historyObject.actions} </td>
                     </tr>
                     <tr>
                         <th> Intern</th>
