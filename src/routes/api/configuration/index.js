@@ -12,3 +12,14 @@ export async function get() {
          body: cert.configuration
      };
 }
+
+export async function put(request){
+    const cert = await Cert.findById(getStoreValue(certIdStore))
+    cert.configuration.messageAttributes = request.body
+
+    cert.save();
+    return {
+        body: "sos"
+    }
+
+}
