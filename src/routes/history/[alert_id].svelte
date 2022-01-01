@@ -135,12 +135,19 @@ import MultiSelect from "$lib/components/MultiSelect.svelte";
                         </a>
                     {/each} </td>
                     </tr>
+                    <tr>
+                        <th> Intern</th>
+                    </tr>
+                    <tr>
+                        <td style="border-style: none;"> {#if historyObject.intern}
+                           <i class="fas fa-check me-0.5"></i>
+                            {:else}
+                            <i class="fas fa-times me-0.5"></i>
+                        {/if} 
+                    </td>
+                    </tr>
                 </tbody>
             </table>
-        </div>
-        <div>
-            <input bind:checked={historyObject.intern} type="checkbox">
-            <label>intern</label>
         </div>
     </div>
 </div>
