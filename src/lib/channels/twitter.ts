@@ -24,8 +24,18 @@ var client = new Twitter({
 
 export function sendTwitterAlert(text, alertObject){
 
-  client.post('statuses/update', {status: text},  function(error, tweet, response) {
-    if(error) throw error;
-
-  });
+  return new Promise((resolve, reject)=>{
+    client.post('statuses/update', {status: text},  function(error, tweet, response) {
+      if(error){
+        reject(error)
+      }else{
+        resolve({
+          channel: 'Twitter',
+          type: 'link',
+          resource: `https://twitter.com/${tweet.user.name}/status/${tweet.id_str}`
+        })
+      }
+      // console.log(tweet);      
+    });
+  })
 }

@@ -23,7 +23,10 @@ const subredditName = 'praxisprojekt'
 export async function sendRedditAlert(text, alertObject){
 
   let {title} = alertObject;
-  r.getSubreddit(subredditName)
-        .submitSelfpost({title ,text, subredditName})
-  
+  let submission = await r.getSubreddit(subredditName).submitSelfpost({title ,text, subredditName})
+  return submission.url.then(url => ({
+    channel: 'Reddit',
+    type: 'link',
+    resource: url
+  }))
 }
