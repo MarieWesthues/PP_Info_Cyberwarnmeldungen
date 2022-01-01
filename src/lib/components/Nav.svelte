@@ -45,6 +45,19 @@ import CustomNavLink from './CustomNavLink.svelte';
               </a>
             </li>
           {/each}
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle rounded-3 mx-1 px-2 ${ $page.path.startsWith("/configuration/") ? 'active bg-primary text-primary' : ''}" style="--bs-bg-opacity: .2; " href="/" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-cog"></i>
+                  Configuration
+                </a>
+                <ul class="dropdown-menu dropdown-menu-white" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><a class="dropdown-item text-dark ${ $page.path.startsWith("/configuration/attributes") ? 'active bg-primary text-primary' : ''}" style="--bs-bg-opacity: .2;" href="/configuration/attributes">Alert Attributes</a></li>
+                  <li><a class="dropdown-item text-dark ${ $page.path.startsWith("/configuration/global") ? 'active bg-primary text-primary' : ''}" style="--bs-bg-opacity: .2;" href="/configuration/global">Global Cert Config</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>          
         </ul>
       </div>
     </div>
