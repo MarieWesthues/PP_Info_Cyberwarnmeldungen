@@ -3,7 +3,7 @@
 
 <div class="sos">
     <p style="font-size: 4rem; color:white"> Welcome to ConnCERT!</p>
-    <p style="color:white"> The Solution to send customized alerts easy and quick. Reach numerous users from different target groups via various channels.</p>
+    <p style="color:white; font-size: 18px;"> The Solution to send customized alerts easy and quickly. Reach numerous users from different target groups via various channels.</p>
 </div>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/XD2w0ZB/CERT-Bund-Logo.png" alt="CERT-Bund_Logo" border="0" style="position: fixed; right: 3rem; top: 5rem;"></a>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/XWYxLd5/Logo-claim-en-rgb-72dpi.png" alt="Logo_claim_en_rgb_72dpi" border="0" style="position: fixed; right: 3rem; bottom: 4rem;"></a>
