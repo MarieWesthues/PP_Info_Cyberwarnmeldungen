@@ -31,7 +31,12 @@ import CustomNavLink from './CustomNavLink.svelte';
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">ConnCERT</a>
+      <a href="/">
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <img class="navbar-brand d-none d-lg-block" style="width:3rem; margin-left:7px; margin-right:10px" src="/logos/icon.png">
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <img class="navbar-brand d-lg-none" style="width:9rem; margin-left:7px; margin-right:10px" src="/logos/logo.png">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

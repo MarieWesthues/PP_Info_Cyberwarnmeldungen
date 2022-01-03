@@ -9,6 +9,9 @@
    id="svg984"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    sodipodi:docname="Logo.svg"
+   inkscape:export-filename="C:\Users\jaivi\Documents\UNI DUE\Vorlesungen\5. Semester\Kommunikation von Cyber-Warnmeldungen\Logo Vorschläge\Logo.png"
+   inkscape:export-xdpi="500"
+   inkscape:export-ydpi="500"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,15 +26,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.4752525"
-     inkscape:cx="143.36529"
-     inkscape:cy="190.13694"
+     inkscape:zoom="0.73762625"
+     inkscape:cx="537.5351"
+     inkscape:cy="288.08628"
      inkscape:window-width="1920"
      inkscape:window-height="991"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g2860" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs981">
     <inkscape:path-effect
@@ -260,7 +263,7 @@
      id="layer1">
     <g
        id="g2860"
-       transform="matrix(3.0906083,0,0,3.0906083,-38.110242,-601.57818)">
+       transform="matrix(2.9733673,0,0,2.9733673,-30.898482,-576.84273)">
       <path
          style="fill:none;stroke:#0f45ff;stroke-width:0.588;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="M 37.881668,221.35161 26.81891,212.74271"
@@ -383,7 +386,7 @@
       <rect
          style="fill:#0f45ff;fill-opacity:1;stroke:none;stroke-width:0.171498;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
          id="rect289836"
-         width="2.6751592"
+         width="2.6752014"
          height="11.599324"
          x="78.46328"
          y="206.5554" />
