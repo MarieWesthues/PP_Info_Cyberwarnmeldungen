@@ -25,17 +25,53 @@
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="0.73762626"
-     inkscape:cx="564.64909"
-     inkscape:cy="368.07258"
+     inkscape:zoom="1.0431611"
+     inkscape:cx="466.37094"
+     inkscape:cy="377.21884"
      inkscape:window-width="1920"
      inkscape:window-height="991"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g289898" />
   <defs
      id="defs2918">
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect897"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Füllregel Gerade-Ungerade im &lt;b&gt;Füllung und Kontur&lt;/b&gt;-Dialog verwenden, wenn das Anwenden des Ausschnitts mit nachfolgendem Umwandeln in Pfade kein Ergebnis bringt" />
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect893"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Füllregel Gerade-Ungerade im &lt;b&gt;Füllung und Kontur&lt;/b&gt;-Dialog verwenden, wenn das Anwenden des Ausschnitts mit nachfolgendem Umwandeln in Pfade kein Ergebnis bringt" />
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect889"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Füllregel Gerade-Ungerade im &lt;b&gt;Füllung und Kontur&lt;/b&gt;-Dialog verwenden, wenn das Anwenden des Ausschnitts mit nachfolgendem Umwandeln in Pfade kein Ergebnis bringt" />
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect885"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Füllregel Gerade-Ungerade im &lt;b&gt;Füllung und Kontur&lt;/b&gt;-Dialog verwenden, wenn das Anwenden des Ausschnitts mit nachfolgendem Umwandeln in Pfade kein Ergebnis bringt" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath16602">
@@ -168,6 +204,70 @@
            style="fill:#ef1b4a;fill-opacity:1" />
       </g>
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath869">
+      <circle
+         style="display:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.515217;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="circle871"
+         cx="34.75029"
+         cy="102.87553"
+         r="7.2295604"
+         d="m 41.97985,102.87553 a 7.2295604,7.2295604 0 0 1 -7.22956,7.22956 7.2295604,7.2295604 0 0 1 -7.22956,-7.22956 7.2295604,7.2295604 0 0 1 7.22956,-7.229564 7.2295604,7.2295604 0 0 1 7.22956,7.229564 z" />
+      <path
+         id="lpe_path-effect885"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.515217;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         class="powerclip"
+         d="M 19.405522,98.063204 H 40.549015 V 111.06266 H 19.405522 Z m 22.574328,4.812326 a 7.2295604,7.2295604 0 0 0 -7.22956,-7.229564 7.2295604,7.2295604 0 0 0 -7.22956,7.229564 7.2295604,7.2295604 0 0 0 7.22956,7.22956 7.2295604,7.2295604 0 0 0 7.22956,-7.22956 z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath873">
+      <circle
+         style="display:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.515217;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="circle875"
+         cx="34.75029"
+         cy="102.87553"
+         r="7.2295604"
+         d="m 41.97985,102.87553 a 7.2295604,7.2295604 0 0 1 -7.22956,7.22956 7.2295604,7.2295604 0 0 1 -7.22956,-7.22956 7.2295604,7.2295604 0 0 1 7.22956,-7.229564 7.2295604,7.2295604 0 0 1 7.22956,7.229564 z" />
+      <path
+         id="lpe_path-effect889"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.515217;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         class="powerclip"
+         d="M 27.526049,86.783155 H 40.795563 V 108.51567 H 27.526049 Z M 41.97985,102.87553 a 7.2295604,7.2295604 0 0 0 -7.22956,-7.229564 7.2295604,7.2295604 0 0 0 -7.22956,7.229564 7.2295604,7.2295604 0 0 0 7.22956,7.22956 7.2295604,7.2295604 0 0 0 7.22956,-7.22956 z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath877">
+      <circle
+         style="display:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.515217;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="circle879"
+         cx="34.75029"
+         cy="102.87553"
+         r="7.2295604"
+         d="m 41.97985,102.87553 a 7.2295604,7.2295604 0 0 1 -7.22956,7.22956 7.2295604,7.2295604 0 0 1 -7.22956,-7.22956 7.2295604,7.2295604 0 0 1 7.22956,-7.229564 7.2295604,7.2295604 0 0 1 7.22956,7.229564 z" />
+      <path
+         id="lpe_path-effect893"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.515217;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         class="powerclip"
+         d="m 29.262759,89.975039 h 18.247 V 109.9893 h -18.247 z M 41.97985,102.87553 a 7.2295604,7.2295604 0 0 0 -7.22956,-7.229564 7.2295604,7.2295604 0 0 0 -7.22956,7.229564 7.2295604,7.2295604 0 0 0 7.22956,7.22956 7.2295604,7.2295604 0 0 0 7.22956,-7.22956 z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath881">
+      <circle
+         style="display:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.515217;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="circle883"
+         cx="34.75029"
+         cy="102.87553"
+         r="7.2295604"
+         d="m 41.97985,102.87553 a 7.2295604,7.2295604 0 0 1 -7.22956,7.22956 7.2295604,7.2295604 0 0 1 -7.22956,-7.22956 7.2295604,7.2295604 0 0 1 7.22956,-7.229564 7.2295604,7.2295604 0 0 1 7.22956,7.229564 z" />
+      <path
+         id="lpe_path-effect897"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.515217;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         class="powerclip"
+         d="M 27.778608,97.904296 H 49.692979 V 117.1469 H 27.778608 Z m 14.201242,4.971234 a 7.2295604,7.2295604 0 0 0 -7.22956,-7.229564 7.2295604,7.2295604 0 0 0 -7.22956,7.229564 7.2295604,7.2295604 0 0 0 7.22956,7.22956 7.2295604,7.2295604 0 0 0 7.22956,-7.22956 z" />
+    </clipPath>
   </defs>
   <g
      inkscape:label="Ebene 1"
@@ -180,22 +280,34 @@
          style="fill:none;stroke:#0f45ff;stroke-width:0.588;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="M 44.515219,111.91273 32.956368,103.13847"
          id="path289864"
-         sodipodi:nodetypes="cc" />
+         sodipodi:nodetypes="cc"
+         clip-path="url(#clipPath881)"
+         inkscape:path-effect="#path-effect897"
+         inkscape:original-d="M 44.515219,111.91273 32.956368,103.13847" />
       <path
          style="fill:none;stroke:#0f45ff;stroke-width:0.588;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 42.281039,95.159763 -7.78956,9.644817"
          id="path289866"
-         sodipodi:nodetypes="cc" />
+         sodipodi:nodetypes="cc"
+         clip-path="url(#clipPath877)"
+         inkscape:path-effect="#path-effect893"
+         inkscape:original-d="m 42.281039,95.159763 -7.78956,9.644817" />
       <path
          style="fill:none;stroke:#0f45ff;stroke-width:0.588;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 32.812411,91.849733 2.69679,11.599357"
          id="path289868"
-         sodipodi:nodetypes="cc" />
+         sodipodi:nodetypes="cc"
+         clip-path="url(#clipPath873)"
+         inkscape:path-effect="#path-effect889"
+         inkscape:original-d="m 32.812411,91.849733 2.69679,11.599357" />
       <path
          style="fill:none;stroke:#0f45ff;stroke-width:0.588;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 24.468727,105.77553 11.017083,-2.4252"
          id="path289870"
-         sodipodi:nodetypes="cc" />
+         sodipodi:nodetypes="cc"
+         clip-path="url(#clipPath869)"
+         inkscape:path-effect="#path-effect885"
+         inkscape:original-d="m 24.468727,105.77553 11.017083,-2.4252" />
       <circle
          style="fill:none;fill-opacity:1;stroke:#0f45ff;stroke-width:0.534634;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle289872"
@@ -220,12 +332,6 @@
          cx="36.635948"
          cy="113.47538"
          r="2.5093613" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.515219;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-         id="circle289880"
-         cx="34.75029"
-         cy="102.87553"
-         r="7.2295604" />
       <circle
          style="fill:none;fill-opacity:1;stroke:#0f45ff;stroke-width:0.639165;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle289882"
