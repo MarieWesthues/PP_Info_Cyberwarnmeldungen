@@ -2,7 +2,7 @@
     import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
     import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhide.svelte";
 
-    function EmptyAlert(configuration){
+    function EmptyAlert(configuration){     //Constructor
         this.title = "";
         this.threatLevel = "";
         this.threatType = "";
@@ -17,7 +17,6 @@
 
     export async function load({page}){
 
-        // Broooooooooooooooo warum zum fick funzt das hier nicht ohne localhost prefix
         const urly = `http://localhost:3000/api/configuration`
         const configuration = await fetch(urly).then(res => res.json())
 
@@ -41,9 +40,6 @@
 
     }
 </script>
-
-
-
 
 <script>
     import Select from "$lib/components/Select.svelte";

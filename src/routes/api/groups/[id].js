@@ -8,13 +8,6 @@ export async function put(request) {
     let group = await Group.findById(id).update(request.body)  //Zuerst wird die Gruppe via ID rausgesucht und die Werte werden geändert
     let temp = await Group.findById(id)   //Verändertes Doc wird als temp zwischengespeichert und in Return ausgegeben
 
-    const addSubscriberToGroup = function(groupID, subscriber) {
-        return Group.findByIdAndUpdate(groupID, 
-            {$push: {subscriber : subscriber._id} },
-            {new:true, useFindAndModify: false}
-            );
-    }
-
     return {
         body: temp
     }

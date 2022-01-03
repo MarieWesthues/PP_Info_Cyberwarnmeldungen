@@ -4,8 +4,6 @@ import {Template} from '$lib/mongoose/model/template';
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get(request) {
     const {id} = request.params;
-  //  let inputName = request.body
-
     let template = await Template.findById(id)
 
     if (template){
@@ -19,8 +17,6 @@ export async function get(request) {
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function del(request) {
     const {id} = request.params;
-    let template = await Template.findByIdAndRemove(id)
-
     return {
         body: "Template gelöscht"
     }
