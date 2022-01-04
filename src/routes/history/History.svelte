@@ -3,10 +3,10 @@
 </script>
 
 <div class="card mx-auto mb-3" style="max-width: 50rem">
-    <div class="bg-white card-header d-flex align-items-center ">
+    <div class="bg-white card-header d-flex align-items-center " >
         <h5 class="fs-4 m-0">{persistedAlert.title} </h5> 
-        <a href="history/{persistedAlert._id}" class="justify-self-end ms-auto text-decoration-none float-right link-primary fs-5">
-            Review <i class="fas fa-chevron-right"></i>
+        <a href="history/{persistedAlert._id}" class="justify-self-end ms-auto text-decoration-none float-right link-primary fs-5" style="display: flex; flex-direction: row; align-items: center;">
+            Review <i class="fas fa-chevron-right" style="margin-left: 0.5rem;"></i>
         </a>
     </div>
 
