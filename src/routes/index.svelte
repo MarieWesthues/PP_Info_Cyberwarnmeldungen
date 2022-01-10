@@ -22,7 +22,7 @@
         align-items: center;
         height: 100%;
         width: 100%;
-        background-image:linear-gradient(90deg, #2254da 0%, rgba(0, 0, 0, 0.55) 80%);
+        background-image:linear-gradient(90deg, #0f45ff 0%, #8aa5f7 90%);
 
 }
 </style> 
