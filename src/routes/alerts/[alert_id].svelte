@@ -118,7 +118,7 @@ import AlertSuccess from "$lib/components/alertSuccess.svelte";
             <textarea class="form-control" bind:value={alert.incident}></textarea>
         </div>
         <div class="mb-3">
-            <label class="form-label">assessment</label>
+            <label class="form-label">Assessment</label>
             <textarea class="form-control" bind:value={alert.assessment}></textarea>
         </div>
         <div class="mb-3">
