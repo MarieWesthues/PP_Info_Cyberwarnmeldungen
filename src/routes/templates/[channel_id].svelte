@@ -19,9 +19,9 @@
 
 <script lang="ts">
     import NewButton from '$lib/components/NewButton.svelte';
-import axios from 'axios';
-import { onMount } from 'svelte';
-import Template from './Template.svelte';
+    import axios from 'axios';
+    import { onMount } from 'svelte';
+    import Template from './Template.svelte';
 
     export let templates;
 
@@ -91,9 +91,6 @@ import Template from './Template.svelte';
     
     <div class="w-50 position-relative " >
         <div class="px-5 pb-3 h-100" style="overflow-y: scroll">
-            <!-- <h2 class="mt-3 text-dark ">Default Template</h2>
-            <Template template={defaultTemplate} selected={selectedTemplate == defaultTemplate} on:click={()=>selectedTemplate = defaultTemplate}></Template>
- -->
 
             <h2 class="mt-5 text-dark ">Used Template</h2>
             {#each usedTemplates as template }
@@ -115,7 +112,6 @@ import Template from './Template.svelte';
                 </button>
             </a>
         </div>
-        <!-- <NewButton href="http://localhost:3000/templates/edit/new" position="absolute"/> -->
     </div>
 
     
@@ -123,7 +119,6 @@ import Template from './Template.svelte';
         <div class= "h-100 bg-dark text-white p-4" style="overflow-y: scroll">
             {selectedTemplate.templateString}
         </div>
-        <!-- <h2 class="text-right bg-primary shadow-sm">Preview</h2> -->
         
         <div class="position-absolute bottom-0 bg-light w-100   py-2 px-3"> 
 

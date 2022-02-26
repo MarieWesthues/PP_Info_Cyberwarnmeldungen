@@ -2,14 +2,7 @@ import "$lib/mongoose/connection";
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 const {Mixed, ObjectId} = Schema.Types;
-
-
-// Threat Type
-// export const threatTypeSchema = new Schema({
-//     name: String,
-//     description: String,
-// })
-// export const ThreatType = mongoose.model('ThreatType', threatTypeSchema); 
+ 
 
 export const threatTypeSchema = {
     name: {type: String, required: true},
@@ -27,7 +20,7 @@ export const threatLevelSchema = {
     name: {type: String, required: true},
     color: {type: String, required: true}
 }
-// export const ThreatLevel = mongoose.model('ThreatLevel', threatLevelSchema);
+
 export function ThreatLevel(name: string, color: string){
     this.name = name;
     this.color = color;
@@ -44,7 +37,7 @@ export const messageAttributeSchema = {
         ref: 'Template'
     }]
 }
-// export const MessageAttribute = mongoose.model('MessageAttribute', messageAttributeSchema); 
+
 
 
 // Configuration
@@ -60,7 +53,6 @@ export const configurationSchema = {
     threatLevels: [threatLevelSchema],
     messageAttributes: [messageAttributeSchema], 
 }
-// export const Configuration = mongoose.model('Configuration', configurationSchema);
 
 
 // Default Configuration

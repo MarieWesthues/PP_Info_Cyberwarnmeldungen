@@ -3,7 +3,7 @@ import {get as getStoreValue} from 'svelte/store'
 import { User } from '$lib/mongoose/model/user';
 
 
-// POST api/alerts (neue Warnmeldung erstellen)
+// Neues User Object erstellen
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function post(request) { 
 
@@ -21,8 +21,6 @@ export async function post(request) {
      };
 }
 
-
-// GET api/alert (Liste von Warnmeldungen erhalten bezogen auf CERT ID)
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get(request) {
 

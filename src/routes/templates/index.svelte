@@ -1,8 +1,6 @@
 
 <script context="module" lang="ts">
     
-
-    
     export async function load({fetch}){
         const url = '/api/channels';
         const res = await fetch(url)

@@ -15,19 +15,7 @@ export const channelSchema = {
     authenticated: {type: Boolean, required: true}
 }
 
-// export const Channel = mongoose.model('Channel', channelSchema);
 
-
-// const discord = {
-//     name: 'Discord',
-//     colors: {
-//         primary: '#5865F2',
-//         onPrimary: 'white'
-//     },
-//     logo: 'https://discord.com/assets/145dc557845548a36a82337912ca3ac5.svg',
-//     messageFormat: 'json',
-//     authenticated: false,
-// }
 const email = {
     name: 'Email',
     colors: {

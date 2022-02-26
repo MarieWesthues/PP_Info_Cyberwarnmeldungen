@@ -12,27 +12,8 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-
-
-// export async function sendEmailAlert(){
-
-//   let info = await transporter.sendMail({
-//       from: '"Cert Praxis Projekt" <certpraxisprojekt@gmail.com>', // sender address
-//       to: "imigstefan@gmail.com", // list of receivers
-//       subject: "Hello ✔", // Subject line
-//       text: "Hello world?", // plain text body
-//       html: "<b>Hello world?</b>", // html body
-//     });
-
-// }
-
 export async function sendEmailAlert(text, alertObject){
 
-
-  // gette alle subscriber die in groups sind
-
-
-  // const groups = await Group.find({'_id': {$in: alertObject.selectedGroups}}).populate('subscribers')
 
   let subscribers = await Subscriber.find({groups: {$in: alertObject.selectedGroups}})
 
@@ -52,11 +33,4 @@ export async function sendEmailAlert(text, alertObject){
     });
   })
 
-  // let info = await transporter.sendMail({
-  //   from: '"Cert Praxis Projekt" <certpraxisprojekt@gmail.com>', // sender address
-  //   to: "imigstefan@gmail.com", // list of receivers
-  //   subject: "Hello ✔", // Subject line
-  //   text: "Hello world?", // plain text body
-  //   html: "<b>Hello world?</b>", // html body
-  // });
 }

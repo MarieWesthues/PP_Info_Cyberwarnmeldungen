@@ -1,4 +1,4 @@
-<div class="sos">
+<div class="hero">
     <p style="font-size: 4rem; color:white"> Welcome to ConnCERT</p>
     <p style="color:white; font-size: 18px;"> The Solution to send customized alerts easy and quickly. Reach numerous users from different target groups via various channels.</p>
 </div>
@@ -14,7 +14,7 @@
 
 <style>
   
-.sos{
+.hero{
         /** background: blue;**/
         display: flex;
         flex-direction: column;

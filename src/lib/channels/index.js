@@ -5,9 +5,6 @@ import { sendTwitterAlert } from "./twitter";
 
 export function sendAlert(channelName, alertText, alertObject){
 
-   // console.log(`Send ${channelName}-Alert:`);
-   // console.log(alertText);
-
    const sendFuncDict = {
       'Reddit': sendRedditAlert,
       'Twitter': sendTwitterAlert,
@@ -19,20 +16,18 @@ export function sendAlert(channelName, alertText, alertObject){
       throw {name: "sendAlert failed", message: "The channelName you provided does not match any of the supported channels"}
    }
 
-   return send(alertText, alertObject)
-
-
-   //  switch(channelName){
-   //      case 'Reddit':
-   //          sendRedditAlert(alertText, alertObject)
-   //          break;
-   //      case 'Twitter':
-   //          sendTwitterAlert(alertText, alertObject)
-   //          break;
-   //      case 'Email':
-   //          sendEmailAlert(alertText, alertObject)
-   //          break;
-   //      default: 
+   // return send(alertText, alertObject)
+    switch(channelName){
+        case 'Reddit':
+            sendRedditAlert(alertText, alertObject)
+            break;
+        case 'Twitter':
+            sendTwitterAlert(alertText, alertObject)
+            break;
+        case 'Email':
+            sendEmailAlert(alertText, alertObject)
+            break;
+        default: 
             
-   //  }
+    }
 }

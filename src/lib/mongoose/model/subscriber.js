@@ -18,6 +18,11 @@ export const subscriberSchema = new Schema({
     }],
 })
 
+// Da Subscriber und Group eine N zu M beziehung haben muss über sogenannte
+// middleware die Konsistenz sichergestellt werden.
+// Immer wenn ein Subscriber geupdated wird müssen alle Group einträge mit Referenz
+// auf diesen geupdated werden. Andersherum analog
+
 // middleware for many to many relation to groups
 subscriberSchema.pre('save', function(next){
 
@@ -47,6 +52,7 @@ export const groupSchema = new Schema({
     }],
 })
 
+// middleware for many to many relation to groups
 groupSchema.pre('save', function(next){
     // remove group from subscribers
     this.model('Subscriber').updateMany({_id: {$nin: this.subscribers}}, {$pull: {groups: this._id}}).exec();

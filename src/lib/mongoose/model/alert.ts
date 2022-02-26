@@ -15,23 +15,7 @@ export const alertAttributeSchema = {
     key: {type: String, required: true},
     value: {type: Mixed, required: true},
 }
-// export const AlertAttribute = mongoose.model('AlertAttribute', alertAttributeSchema);
 
-
-// Pending Alert
-// export interface PendingAlertDocument {
-//     cert_id: ObjectIdType,
-//     dateCreated: Date,
-//     createdBy: ObjectIdType,
-//     threatLevel: String,
-//     threatType: String,
-//     title: String,
-//     intern: Boolean,
-//     selectedGroups: [ObjectIdType],
-//     selectedChannels: [String],
-//     attributes: [AlertAttribute],
-//     _id: ObjectIdType,
-// }
 
 export const pendingAlertSchema = new Schema({
     cert_id: {
@@ -56,10 +40,7 @@ export const pendingAlertSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Group'
     }],
-    // selectedChannels: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Channel'
-    // }],
+
     selectedChannels: [String],
     attributes: Mixed 
 })
@@ -72,7 +53,6 @@ export const alertResourceSchema = {
     channel: {type: String, required: true},
     type: {type: String, required: true}
 }
-// export const AlertLink = mongoose.model('AlertLink', alertLinkSchema);
 
 
 // Persisted Alert

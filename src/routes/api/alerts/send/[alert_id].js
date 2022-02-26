@@ -72,15 +72,11 @@ export async function post(request) {
         authorizedBy: getStoreValue(userIdStore),
     }
 
+    // make alert persistend
     const persistedDocument = new PersistedAlert(persistedAlertData);
     persistedDocument.save();
-    // const template = await Template.chooseTemplate(
-    //     getStoreValue(certIdStore), 
-    //     'Email', 
-    //     {level: alert.threatLevel, type: alert.threatType}
-    // )
 
-    // make alert persistend
+    
 
      return {
          body: {

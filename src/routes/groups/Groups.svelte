@@ -25,20 +25,6 @@
           </div>
       </div>
       </div>
-
-      
-
-
-
-
-
-
- 
- 
-      <!-- <div class="card-body">
-        <p class="card-text fw-light fs-6" ><span class="border border-2 rounded-pill">  Members = {anzahl}  </span></p>
-
-  </div>  -->
 </div>
 
 

@@ -2,7 +2,6 @@
 import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte";
 import showAndhide, {showSuccess, showNoSuccess} from "$lib/components/showAndhide.svelte";
 
-
     function EmptyTemplate(){
         this.name = "";
         this.used = false;
@@ -73,7 +72,6 @@ import { onMount } from "svelte";
          }
      }
      onMount(()=>{
-        //  console.log(outputRef.contentWindow.document.getElementById('#id'));
         iframeRoot = outputRef.contentWindow.document.querySelector('body')
         iframeRoot.innerHTML = templateString
 
@@ -94,10 +92,6 @@ import { onMount } from "svelte";
             <Select title="matches level" bind:value={template.matches.level} options={configuration.threatLevels.map(t => ({label: t.name, value: t.name}))}/>
         </div>
     </div>
-    <!-- Das Format Soll automatisch durch den channel inferred werden -->
-    <!-- <div class="m-2">
-        <Select title="format" options={['txt', 'html', 'md'].map(x => ({label: x, value: x}))}/>
-    </div> -->
 
     <div class="d-flex">
         <div class="m-2">
@@ -118,9 +112,6 @@ import { onMount } from "svelte";
 <div class="d-flex  flex-grow-1 border-top  w-100 overflow-hidden">
     <textarea class="col-5 bg-dark text-light p-4 h-100" bind:value={templateString}></textarea>
     <iframe bind:this={outputRef} class="col-5 h-100" ></iframe>
-    <!-- <div class="col-5 bg-light p-4 h-100 " style="overflow: auto;">
-        
-    </div> -->
     <div class="col-2 p-3 bg-light border-start h-100" style="overflow:auto;">
         <h3 >Global Attributes</h3>
         <ul class="list-group mb-4">

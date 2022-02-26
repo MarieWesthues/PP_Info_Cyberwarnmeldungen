@@ -1,8 +1,5 @@
-
-
 <script>
     import Nav from "$lib/components/Nav.svelte";
-    // import "smelte/src/tailwind.css"
     import './global_styles.scss';
     import SuccessAlert from "$lib/components/alertSuccess.svelte";
     import NoSuccessAlert from "$lib/components/alertNoSuccess.svelte"; 
@@ -25,10 +22,7 @@
     .content{
         display: flex;
         flex-direction: column;
-        /* overflow-y: scroll; */
         flex-grow: 1;
-        /* margin-top: 56px; */
- 
     }
     main{
         display: flex;

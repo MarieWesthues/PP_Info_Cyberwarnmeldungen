@@ -21,6 +21,9 @@ const templateSchema = new Schema({
     }
 }, { minimize: false }) //set minimize to false to preserve empty matches object
 
+
+// Diese Methode sucht das passende Template anhand der matches eines Alerts
+// Die Priorität ist 1) typ+level, 2) nur typ, 3) nur level, 4) none
 templateSchema.statics.chooseTemplate = async function(cert_id, channel, matches){
 
     let matchesBoth = this.findOne({cert_id, channel, used: true, 'matches.type': matches.type, 'matches.level': matches.level})

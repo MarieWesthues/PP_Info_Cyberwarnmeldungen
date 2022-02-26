@@ -29,11 +29,6 @@ export let subscribers;
  
 </script>
 
-<!-- <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">Searchbar</span>
-  <input type="text" class="form-control" placeholder="search..." aria-label="Search" aria-describedby="basic-addon1">
-</div> -->
-
 <h2 class="m-4">Subscriber Overview</h2>
 
 
